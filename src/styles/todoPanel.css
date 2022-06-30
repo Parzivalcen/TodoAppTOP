@@ -1,0 +1,44 @@
+@media screen and (min-width: 0px) {
+  .title{
+    border-bottom: 1px solid white;
+  }
+  .todo-panel{
+    border-radius: 10px;
+    height: 30vh;
+    background-color: black;
+    color: white;
+  }
+  .task{
+    padding: 2vh;
+    grid-template-columns: 2vh 1fr 2vh;
+  }
+  .TaskItemCheckbox{
+    place-self: center;
+    border-radius: 50%;
+    width: 2vh;
+    height: 2vh;
+  }
+  .TaskItemDelete{
+    text-align: center;
+    place-self: center;
+    font-size: 1.5vh;
+    width: 2vh;
+    height: 2vh;
+  }
+  .task[aria-disabled="true"] .TaskItemCheckbox {
+    background-color: blue;
+  }
+  .task[aria-disabled="true"] .task-tag {
+    display: none;
+  }
+  
+  .task[aria-disabled="true"]{
+    color: gray;
+    text-decoration: line-through;
+    
+  }
+  .task-tag{
+    color: grey;
+  }
+
+}
