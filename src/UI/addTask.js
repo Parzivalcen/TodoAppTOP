@@ -19,6 +19,13 @@ const addTaskPanel = (task) => {
   const taskPanel = document.querySelector('.tasks');
   let taskDiv = document.createElement('div');
   taskDiv.classList.add('task', 'grid');
+
+  
+  if (task.done == 'undone') {
+    taskDiv.setAttribute('aria-disabled', false)
+  }else{
+    taskDiv.setAttribute('aria-disabled', true)
+  }
   taskDiv.innerHTML = `
   <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
   <div class="task-content">
@@ -52,8 +59,11 @@ const deleteTask = (e) => {
 const taskDone = (e) => {
   if (e.target.classList.contains('TaskItemCheckbox')){
     const task = e.target.parentElement;
-    
-    if(task.getAttribute('aria-disabled')=='false'){
+
+    let title = e.target.nextElementSibling.firstElementChild.innerHTML;
+    const tasks = getTasks();
+    let taskIndex = tasks.findIndex((task) => task.title == title )
+    if (tasks[taskIndex].done == 'undone'){
       task.setAttribute('aria-disabled', true);
       
     }else{
