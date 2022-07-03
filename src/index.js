@@ -3,10 +3,14 @@ import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } fro
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
+import { header, toggle } from "./UI/home";
 
 const body = document.body;
 const main = document.createElement('main');
+body.appendChild(header());
+toggle();
 body.appendChild(main);
+
 
 const container = document.createElement('div');
 main.appendChild(container);

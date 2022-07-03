@@ -1,0 +1,41 @@
+/* ---------
+side Panel
+------------ */
+@media screen and (min-width:0px) {
+  .tags-navigation{
+    position: fixed;
+    flex-direction: column;
+    inset: 0 20% 0 0;
+    z-index: 999;
+    padding: min(10rem, 8vh);
+    background-color: rgb(42, 157, 143, 0.9);
+    transform: translateX(-100%);
+    transition: 0.4s ease-in-out;
+    /*BLUR bg  */
+    backdrop-filter: blur(8px);
+  }
+  .tags-navigation[data-visible="true"]{
+    transform: translateX(0%);
+  }
+  /* TOGGLE */
+  .mobile-toggle{
+    display: block;
+    background-image: url(../imgs/hamMenu.svg);
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 1rem;
+    margin-top: 1rem;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    z-index: 1000;
+    cursor: pointer;
+
+    
+  }
+  .mobile-toggle[aria-expanded="true"]{
+    background-image: url(../imgs/closeMenu.svg);
+
+  }
+}
