@@ -20,3 +20,6 @@
   - Home
   - Tab to navigate components/folders
   - Tab no navigate tags
+
+# Notes
+- When a to do panel is added the current one needs to go/get removed

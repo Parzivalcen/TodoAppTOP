@@ -152,6 +152,9 @@ utility clases
 /* -------------
 TODO 
 -------------- */
-main{
+.container-hero{
   background-color: #264653;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }

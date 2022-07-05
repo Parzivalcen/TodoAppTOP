@@ -17,6 +17,10 @@ side Panel
   .tags-navigation[data-visible="true"]{
     transform: translateX(0%);
   }
+  .tags-navigation > h2{
+    display: grid;
+    align-items: center;
+  }
   /* TOGGLE */
   .mobile-toggle{
     display: block;
@@ -31,11 +35,23 @@ side Panel
     border: 0;
     z-index: 1000;
     cursor: pointer;
-
+    
     
   }
   .mobile-toggle[aria-expanded="true"]{
-    background-image: url(../imgs/closeMenu.svg);
-
+    background-image: url(../imgs/closeMenu.svg);  
+  }
+  /* TAGS TITLE */
+  .add-Tags{
+    background-image: url(../imgs/plus.svg);
+    position: fixed;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 4rem;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    z-index: 1000;
+    cursor: pointer;
   }
 }

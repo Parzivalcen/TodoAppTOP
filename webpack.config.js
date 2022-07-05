@@ -7,6 +7,8 @@ module.exports = {
     index: './src/index.js',
     addTask: './src/UI/addTask.js',
     addToDo: './src/UI/addToDo.js',
+    hero: './src/UI/home.js',
+    storage: './src/StoreTask/store.js',
     
   },
   devtool: 'inline-source-map',

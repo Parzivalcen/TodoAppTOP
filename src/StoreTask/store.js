@@ -1,3 +1,6 @@
+
+//-Create Task Array with the task tags-//
+
 const getTasks = () => {
   let tasks;
   if(localStorage.getItem('tasks') === null){
