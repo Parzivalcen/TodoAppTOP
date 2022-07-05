@@ -15,12 +15,22 @@ const displayTasks = () => {
     
   });
 }
+
+const displayTasksCategorically = (categorie) => {
+  let tasks = getTasks();
+  tasks.map((task) => {
+    if(task.tag == categorie) {
+      addTaskPanel(task);
+    }
+  })
+}
+
 const addTaskPanel = (task) => {
   const taskPanel = document.querySelector('.tasks');
   let taskDiv = document.createElement('div');
   taskDiv.classList.add('task', 'grid');
 
-  
+  // Display task done or undone
   if (task.done == 'undone') {
     taskDiv.setAttribute('aria-disabled', false)
   }else{
@@ -79,4 +89,5 @@ export{
   takeInput, 
   deleteTask, 
   taskDone,
-  displayTasks};
+  displayTasks,
+  displayTasksCategorically};

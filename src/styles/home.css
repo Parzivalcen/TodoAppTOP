@@ -2,7 +2,7 @@
 side Panel
 ------------ */
 @media screen and (min-width:0px) {
-  .tags-navigation{
+  .categories-navigation{
     position: fixed;
     flex-direction: column;
     inset: 0 20% 0 0;
@@ -14,12 +14,25 @@ side Panel
     /*BLUR bg  */
     backdrop-filter: blur(8px);
   }
-  .tags-navigation[data-visible="true"]{
+  .categories-navigation[data-visible="true"]{
     transform: translateX(0%);
   }
-  .tags-navigation > h2{
+  /* categorieS TITLE */
+  .categories-title{
     display: grid;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .add-categories{
+    background-image: url(../imgs/plus.svg);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    z-index: 1000;
+    cursor: pointer;
   }
   /* TOGGLE */
   .mobile-toggle{
@@ -40,18 +53,5 @@ side Panel
   }
   .mobile-toggle[aria-expanded="true"]{
     background-image: url(../imgs/closeMenu.svg);  
-  }
-  /* TAGS TITLE */
-  .add-Tags{
-    background-image: url(../imgs/plus.svg);
-    position: fixed;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-left: 4rem;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: 0;
-    z-index: 1000;
-    cursor: pointer;
   }
 }

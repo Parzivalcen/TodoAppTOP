@@ -1,16 +1,19 @@
 import '../styles/home.css'
-import { takeInput } from './addTask';
+import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
 const header = () => {
   const header = document.createElement('header');
   header.classList.add('primary-header');
   header.innerHTML = `
-  <button aria-expanded="false" class="mobile-toggle" aria-controls="tags-navigation"></button>
+  <button aria-expanded="false" class="mobile-toggle" aria-controls="categories-navigation"></button>
   <div class="side-panel"> 
-  <ul id="tags-navigation" class="tags-navigation flex" data-visible="false">
-      <h2>Categories <span class="add-Tags" id="add-Tags"></span></h2>
-      <li class="tag">Daily</li>
-      <li class="tag">Work</li>
+  <ul id="categories-navigation" class="categories-navigation flex" data-visible="false">
+      <div class="categories-title">
+        <h2>Categories</h2>
+        <span class="add-categories" id="add-categories"></span>
+      </div>    
+      <li class="category">Daily</li>
+      <li class="category">Work</li>
     </ul>
   </div>
   `
@@ -18,26 +21,37 @@ const header = () => {
   return header;
 }
 
+const addCategory = (e) => {
+  const addProjectPopUp = document.createElement('div');
+  addProjectPopUp.innerHTML = `
+  <label for="add-project-text">Project name</label>
+  <input type="text" id="add-project-text" name="add-project-text">
+  `
+  if(e.target.id == 'add-categories'){
+    document.querySelector('main').appendChild(addProjectPopUp);
+  }
+}
+
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
-    const tagNav = document.querySelector('.tags-navigation');
+    const categoriesNav = document.querySelector('.categories-navigation');
     toggle.addEventListener('click', () => {
-      const visibility = tagNav.getAttribute('data-visible');
+      const visibility = categoriesNav.getAttribute('data-visible');
       if (visibility ===  'false')
       {
         // Expand nav
-        tagNav.setAttribute('data-visible', true);
+        categoriesNav.setAttribute('data-visible', true);
         // change Ham-Btn when aria is expanaded
         toggle.setAttribute('aria-expanded', true);
       }else
       {
-        tagNav.setAttribute('data-visible', false);
+        categoriesNav.setAttribute('data-visible', false);
         toggle.setAttribute('aria-expanded', false);
       }
       
     })
-}
-
+  }
+  
 
 const hero = () => {
   const hero = document.createElement('div');
@@ -46,16 +60,22 @@ const hero = () => {
   return hero;
 }
 
-const newToDo = (tag) => {
+const newToDo = (category) => {
   const todoPanel = document.querySelector('.todo-panel');
-  const hero = document.querySelector('.container-hero');
+  const categoriesNav = document.querySelector('.categories-navigation');
+  const toggle = document.querySelector('.mobile-toggle');
+  // Delete previous panel
   clearHero();
+  // Hide side panel
+  categoriesNav.setAttribute('data-visible', false);
+  toggle.setAttribute('aria-expanded', false);
+  // New todo panel
   todoPanel.innerHTML = `
   <div class="title">
-      <h1>${tag}</h1>
-    </div>
-    <div class="tasks">
-      <!-- task 1 -->
+  <h1>${category}</h1>
+  </div>
+  <div class="tasks">
+  <!-- task 1 -->
 
     </div>
     <div>
@@ -64,18 +84,24 @@ const newToDo = (tag) => {
       <button class="add-task-btn btn">Add</button>
     </div>
   `
-  takeInput(tag)
+  if (category == 'Daily'){
+    displayTasks();
+  }else{
+    displayTasksCategorically(category);
+  }
+  
+  takeInput(category)
 }
 const clearHero =() => {
   const todoPanel = document.querySelector('.todo-panel');
   todoPanel.textContent = '';
 }
 
-// Create new to do when a tag is pressed. 
-const tagBtn = (e) => {
-  if (e.target.classList.contains('tag')){
+// Create new to do when a category is pressed. 
+const categoryBtn = (e) => {
+  if (e.target.classList.contains('category')){
     newToDo(e.target.innerHTML)
   }
 }
 
-export {header, hero, toggle, tagBtn}
+export {header, hero, toggle, categoryBtn, addCategory}

@@ -3,7 +3,7 @@ import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } fro
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import { header, hero, tagBtn, toggle } from "./UI/home";
+import { header, hero, categoryBtn, toggle, addCategory } from "./UI/home";
 
 const body = document.body;
 const main = document.createElement('main');
@@ -18,7 +18,7 @@ main.appendChild(hero());
 // // Display task panel
 // container.appendChild(todoPanel('Daily tasks'))
 
-// document.addEventListener('DOMContentLoaded', displayTasks());
+document.addEventListener('DOMContentLoaded', displayTasks());
 
 /*Take the input user input 
   from the text box, this file is located on ./UI/addTask.js*/  
@@ -29,6 +29,7 @@ document.addEventListener('click', (e) => {
   LSremoveTask(e);
   taskDone(e);
   LSchangeDoneState(e);
-  tagBtn(e)
+  categoryBtn(e)
+  addCategory(e);
 })
 // task done
