@@ -3,7 +3,7 @@ import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } fro
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import { header, hero, categoryBtn, toggle, addCategory } from "./UI/home";
+import { header, hero, categoryBtn, toggle, addCategoryPopUp } from "./UI/home";
 
 const body = document.body;
 const main = document.createElement('main');
@@ -30,6 +30,6 @@ document.addEventListener('click', (e) => {
   taskDone(e);
   LSchangeDoneState(e);
   categoryBtn(e)
-  addCategory(e);
+  addCategoryPopUp(e);
 })
 // task done

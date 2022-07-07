@@ -54,4 +54,17 @@ side Panel
   .mobile-toggle[aria-expanded="true"]{
     background-image: url(../imgs/closeMenu.svg);  
   }
+  .add-project-popUp{
+    box-shadow: -1px 0px 5px 6px rgba(0, 0, 0, 0.36);
+    background-color: #e9c46a;
+    max-width: 18rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 1001;
+    transform: translate(-50%, 20%);
+  }
 }

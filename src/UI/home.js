@@ -21,16 +21,21 @@ const header = () => {
   return header;
 }
 
-const addCategory = (e) => {
+const addCategoryPopUp = (e) => {
   const addProjectPopUp = document.createElement('div');
+  addProjectPopUp.classList.add('add-project-popUp');
+  addProjectPopUp.setAttribute('project-pop-visible', false);
   addProjectPopUp.innerHTML = `
   <label for="add-project-text">Project name</label>
   <input type="text" id="add-project-text" name="add-project-text">
+  <button class="add-project-btn">Add</button>
   `
   if(e.target.id == 'add-categories'){
     document.querySelector('main').appendChild(addProjectPopUp);
   }
 }
+
+
 
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
@@ -104,4 +109,4 @@ const categoryBtn = (e) => {
   }
 }
 
-export {header, hero, toggle, categoryBtn, addCategory}
+export {header, hero, toggle, categoryBtn, addCategoryPopUp}
