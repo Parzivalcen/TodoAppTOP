@@ -32,9 +32,23 @@ const addCategoryPopUp = (e) => {
   `
   if(e.target.id == 'add-categories'){
     document.querySelector('main').appendChild(addProjectPopUp);
+    addNewCategoryBtn();
   }
 }
 
+const addNewCategoryBtn = () => {
+  const addBtn = document.querySelector('.add-project-btn');
+  const categoriesList = document.querySelector('#categories-navigation');
+  addBtn.addEventListener('click', () => {
+    const title = document.querySelector('#add-project-text').value;
+    const formatTitle = document.createElement('li');
+    formatTitle.classList.add('category');
+    formatTitle.innerHTML = `${title}`
+    console.log(formatTitle);
+
+    document.querySelector('.add-project-popUop').remove();
+  })
+}
 
 
 const toggle = () => {
