@@ -21,6 +21,7 @@ const header = () => {
   return header;
 }
 
+// CATEGORY POP UP START
 const addCategoryPopUp = () => {
   const addProjectPopUp = document.createElement('div');
   addProjectPopUp.classList.add('add-project-popUp');
@@ -41,6 +42,7 @@ const showAddCategoryPanel = (e) => {
 
     addProjectPopUp.setAttribute('project-pop-visible', true);
     
+    handleClickOutside('.add-project-popUp', 'project-pop-visible');
     addNewCategoryBtn();
   }
 }
@@ -48,9 +50,9 @@ const showAddCategoryPanel = (e) => {
 const addNewCategoryBtn = () => {
   const addBtn = document.querySelector('.add-project-btn');
   const categoriesList = document.querySelector('#categories-navigation');
-
+  
   const addProjectPopUp = document.querySelector('.add-project-popUp');
-
+  
   addBtn.addEventListener('click', () => {
     const title = document.querySelector('#add-project-text').value;
     const formatTitle = document.createElement('li');
@@ -62,10 +64,11 @@ const addNewCategoryBtn = () => {
     addProjectPopUp.setAttribute('project-pop-visible', false);
     
     console.log(formatTitle);
-
+    
     
   })
 }
+// END CATEGORY POP UP START
 
 
 const toggle = () => {
@@ -139,6 +142,16 @@ const categoryBtn = (e) => {
     newToDo(e.target.innerHTML)
   }
 }
+const handleClickOutside = (htmlClass, attribute) => {
+  document.addEventListener('click', (e) => {
+    const toRemoveElement = e.target;
+    if(!toRemoveElement.classList.contains(htmlClass)){
+      let element = document.querySelector(htmlClass);
+      console.log(attribute);
+      element.setAttribute(attribute, false);
+    }
+  })
+} 
 
 export {header,
     hero, 
