@@ -40,7 +40,7 @@ const showAddCategoryPanel = (e) => {
   if(e.target.id == 'add-categories'){
 
     addProjectPopUp.setAttribute('project-pop-visible', true);
-  
+    
     addNewCategoryBtn();
   }
 }
@@ -48,11 +48,19 @@ const showAddCategoryPanel = (e) => {
 const addNewCategoryBtn = () => {
   const addBtn = document.querySelector('.add-project-btn');
   const categoriesList = document.querySelector('#categories-navigation');
+
+  const addProjectPopUp = document.querySelector('.add-project-popUp');
+
   addBtn.addEventListener('click', () => {
     const title = document.querySelector('#add-project-text').value;
     const formatTitle = document.createElement('li');
     formatTitle.classList.add('category');
     formatTitle.innerHTML = `${title}`
+    // add to dom list
+    categoriesList.appendChild(formatTitle);
+    // Hide BTN
+    addProjectPopUp.setAttribute('project-pop-visible', false);
+    
     console.log(formatTitle);
 
     

@@ -22,4 +22,5 @@
   - Tab no navigate tags
 
 # Notes
-- When a to do panel is added the current one needs to go/get removed
+- When a to-do panel is added the current one needs to go/get removed /Done
+- Display Category with local Storage 
