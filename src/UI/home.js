@@ -21,17 +21,26 @@ const header = () => {
   return header;
 }
 
-const addCategoryPopUp = (e) => {
+const addCategoryPopUp = () => {
   const addProjectPopUp = document.createElement('div');
   addProjectPopUp.classList.add('add-project-popUp');
   addProjectPopUp.setAttribute('project-pop-visible', false);
+  
+  // This should be on the header I think. I mean on the main by default
   addProjectPopUp.innerHTML = `
   <label for="add-project-text">Project name</label>
   <input type="text" id="add-project-text" name="add-project-text">
   <button class="add-project-btn">Add</button>
   `
+  return addProjectPopUp;
+}
+
+const showAddCategoryPanel = (e) => {
+  const addProjectPopUp = document.querySelector('.add-project-popUp');
   if(e.target.id == 'add-categories'){
-    document.querySelector('main').appendChild(addProjectPopUp);
+
+    addProjectPopUp.setAttribute('project-pop-visible', true);
+  
     addNewCategoryBtn();
   }
 }
@@ -46,7 +55,7 @@ const addNewCategoryBtn = () => {
     formatTitle.innerHTML = `${title}`
     console.log(formatTitle);
 
-    document.querySelector('.add-project-popUop').remove();
+    
   })
 }
 
@@ -123,4 +132,9 @@ const categoryBtn = (e) => {
   }
 }
 
-export {header, hero, toggle, categoryBtn, addCategoryPopUp}
+export {header,
+    hero, 
+    toggle,
+    categoryBtn,
+    addCategoryPopUp,
+    showAddCategoryPanel}
