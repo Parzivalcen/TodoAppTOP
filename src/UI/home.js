@@ -32,6 +32,7 @@ const addCategoryPopUp = () => {
   <label for="add-project-text">Project name</label>
   <input type="text" id="add-project-text" name="add-project-text">
   <button class="add-project-btn">Add</button>
+  <button class="cancel-project-btn">Cancel</button>
   `
   return addProjectPopUp;
 }
@@ -42,8 +43,9 @@ const showAddCategoryPanel = (e) => {
 
     addProjectPopUp.setAttribute('project-pop-visible', true);
     
-    handleClickOutside('.add-project-popUp', 'project-pop-visible');
+    
     addNewCategoryBtn();
+    cancelPopUpBtn();
   }
 }
 
@@ -68,6 +70,14 @@ const addNewCategoryBtn = () => {
     
   })
 }
+// Cancel popUP
+const cancelPopUpBtn = () => {
+  const addProjectPopUp = document.querySelector('.add-project-popUp');
+  const cancelBtn = document.querySelector('.cancel-project-btn');
+  cancelBtn.addEventListener('click', () => {
+    addProjectPopUp.setAttribute('project-pop-visible', false);
+  })
+}
 // END CATEGORY POP UP START
 
 
@@ -89,6 +99,8 @@ const toggle = () => {
       }
       
     })
+    
+
   }
   
 
@@ -142,16 +154,7 @@ const categoryBtn = (e) => {
     newToDo(e.target.innerHTML)
   }
 }
-const handleClickOutside = (htmlClass, attribute) => {
-  document.addEventListener('click', (e) => {
-    const toRemoveElement = e.target;
-    if(!toRemoveElement.classList.contains(htmlClass)){
-      let element = document.querySelector(htmlClass);
-      console.log(attribute);
-      element.setAttribute(attribute, false);
-    }
-  })
-} 
+
 
 export {header,
     hero, 
