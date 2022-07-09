@@ -44,20 +44,17 @@ const showAddCategoryPanel = (e) => {
     addProjectPopUp.setAttribute('project-pop-visible', true);
     
     
-    addNewCategoryBtn();
+    
     cancelPopUpBtn();
   }
 }
 
-const addNewCategoryBtn = () => {
-  const addBtn = document.querySelector('.add-project-btn');
-  const categoriesList = document.querySelector('#categories-navigation');
-  
-  const addProjectPopUp = document.querySelector('.add-project-popUp');
-  
-  addBtn.addEventListener('click', () => {
+const addNewCategoryBtn = (e) => {
+  if(e.target.classList.contains('add-project-btn')){
+    const addProjectPopUp = document.querySelector('.add-project-popUp');
     const title = document.querySelector('#add-project-text').value;
     const formatTitle = document.createElement('li');
+    const categoriesList = document.querySelector('#categories-navigation');
     formatTitle.classList.add('category');
     formatTitle.innerHTML = `${title}`
     // add to dom list
@@ -67,8 +64,7 @@ const addNewCategoryBtn = () => {
     
     console.log(formatTitle);
     
-    
-  })
+  }
 }
 // Cancel popUP
 const cancelPopUpBtn = () => {
@@ -161,4 +157,5 @@ export {header,
     toggle,
     categoryBtn,
     addCategoryPopUp,
-    showAddCategoryPanel}
+    showAddCategoryPanel,
+    addNewCategoryBtn}
