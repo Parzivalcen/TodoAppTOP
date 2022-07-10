@@ -50,4 +50,22 @@ const LSchangeDoneState = (e) => {
       };
   }
 
-export {localStoraddTask, getTasks, LSremoveTask, LSchangeDoneState};
+  // Store categories 
+const getCategories = () => {
+  let categories;
+  if(localStorage.getItem('categories') === null){
+    categories = [];
+  }else{
+    categories = JSON.parse(localStorage.getItem('categories'))
+  }
+  return categories;
+}
+
+const storeCategory = (category) => {
+  let categories = getCategories();
+  categories.push(category);
+  localStorage.setItem('categories', JSON.stringify(categories));
+
+}
+
+export {localStoraddTask, getTasks, LSremoveTask, LSchangeDoneState, storeCategory};

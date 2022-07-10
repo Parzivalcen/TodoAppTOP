@@ -1,3 +1,4 @@
+import { storeCategory } from '../StoreTask/store';
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
@@ -53,12 +54,12 @@ const addNewCategoryBtn = (e) => {
   if(e.target.classList.contains('add-project-btn')){
     const addProjectPopUp = document.querySelector('.add-project-popUp');
     const title = document.querySelector('#add-project-text').value;
-    const formatTitle = document.createElement('li');
-    const categoriesList = document.querySelector('#categories-navigation');
-    formatTitle.classList.add('category');
-    formatTitle.innerHTML = `${title}`
-    // add to dom list
-    categoriesList.appendChild(formatTitle);
+    
+    addCategory(title);
+    // Local Storage
+    storeCategory(title);
+
+
     // Hide BTN
     addProjectPopUp.setAttribute('project-pop-visible', false);
     
@@ -76,7 +77,20 @@ const cancelPopUpBtn = () => {
 }
 // END CATEGORY POP UP START
 
+// Add category to Side Bar
+const addCategory = (category) => {
+  const formatTitle = document.createElement('li');
+  const categoriesList = document.querySelector('#categories-navigation');
+  formatTitle.classList.add('category');
+  formatTitle.innerHTML = `${category}`
+  // add to dom list
+  categoriesList.appendChild(formatTitle);
+}
 
+// Keep new categories on reload
+const displayCategories =()=>  {
+  
+}
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
     const categoriesNav = document.querySelector('.categories-navigation');
