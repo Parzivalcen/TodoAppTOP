@@ -68,4 +68,4 @@ const storeCategory = (category) => {
 
 }
 
-export {localStoraddTask, getTasks, LSremoveTask, LSchangeDoneState, storeCategory};
+export {localStoraddTask, getTasks, LSremoveTask, LSchangeDoneState, storeCategory, getCategories};

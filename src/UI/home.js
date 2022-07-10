@@ -1,4 +1,4 @@
-import { storeCategory } from '../StoreTask/store';
+import { getCategories, storeCategory } from '../StoreTask/store';
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
@@ -89,7 +89,10 @@ const addCategory = (category) => {
 
 // Keep new categories on reload
 const displayCategories =()=>  {
-  
+  const categories = getCategories();
+  categories.map((category) => {
+    addCategory(category);
+  })
 }
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
