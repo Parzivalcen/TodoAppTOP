@@ -13,7 +13,11 @@ const header = () => {
         <h2>Categories</h2>
         <span class="add-categories" id="add-categories"></span>
       </div>    
-      <li class="category">Daily</li>
+      <li class="category">
+      <div>
+        <p class="category--title">Daily</p>
+        <button class="deletete-category"></button>
+      </div> </li>
       <li class="category">Work</li>
     </ul>
   </div>
@@ -165,7 +169,7 @@ const clearHero =() => {
 
 // Create new to do when a category is pressed. 
 const categoryBtn = (e) => {
-  if (e.target.classList.contains('category')){
+  if (e.target.classList.contains('category--title')){
     newToDo(e.target.innerHTML)
   }
 }
