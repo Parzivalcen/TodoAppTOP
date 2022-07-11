@@ -67,5 +67,22 @@ const storeCategory = (category) => {
   localStorage.setItem('categories', JSON.stringify(categories));
 
 }
+const LSdeleteCategory = (e) => {
+  let title = e.target.previousElementSibling.innerHTML;
+  let categories = getCategories();
+  categories.map((category, index)=>{
+    if(category ==  title){
+      categories.splice(index, 1);
+    }
+    localStorage.setItem('categories', JSON.stringify(categories));
+  })
+  console.log(title);
+}
 
-export {localStoraddTask, getTasks, LSremoveTask, LSchangeDoneState, storeCategory, getCategories};
+export {localStoraddTask,
+    getTasks,
+    LSremoveTask,
+    LSchangeDoneState,
+    storeCategory,
+    getCategories,
+  LSdeleteCategory};

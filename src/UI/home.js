@@ -1,4 +1,4 @@
-import { getCategories, storeCategory } from '../StoreTask/store';
+import { getCategories, LSdeleteCategory, storeCategory } from '../StoreTask/store';
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
@@ -88,6 +88,7 @@ const cancelPopUpBtn = () => {
 }
 // END CATEGORY POP UP START
 
+// CATEGORY LIST //
 // Add category to Side Bar
 const addCategory = (category) => {
   const formatTitle = document.createElement('li');
@@ -98,8 +99,8 @@ const addCategory = (category) => {
 
   formatTitle.innerHTML = `
   <div>
-    ${categoryTitle}
-    <button class="delete-category"></button>
+  ${categoryTitle}
+  <button class="delete-category"></button>
   </div>`;
   // add to dom list
   categoriesList.appendChild(formatTitle);
@@ -112,6 +113,15 @@ const displayCategories =()=>  {
     addCategory(category);
   })
 }
+const deleteCategory = (e) => {
+  const deleteBtnPressed = e.target.classList.contains('delete-category');
+  if(deleteBtnPressed){
+    e.target.parentElement.parentElement.remove();
+    LSdeleteCategory(e);
+  }
+}
+// END CATEGORY LIST //
+
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
     const categoriesNav = document.querySelector('.categories-navigation');
@@ -195,4 +205,5 @@ export {header,
     categoryBtn,
     addCategoryPopUp,
     showAddCategoryPanel,
-    addNewCategoryBtn}
+    addNewCategoryBtn,
+    deleteCategory}

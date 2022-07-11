@@ -3,7 +3,7 @@ import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } fro
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import { header, hero, categoryBtn, toggle, addCategoryPopUp, showAddCategoryPanel, addNewCategoryBtn } from "./UI/home";
+import { header, hero, categoryBtn, toggle, addCategoryPopUp, showAddCategoryPanel, addNewCategoryBtn, deleteCategory } from "./UI/home";
 
 const body = document.body;
 const main = document.createElement('main');
@@ -36,5 +36,6 @@ document.addEventListener('click', (e) => {
   categoryBtn(e)
   showAddCategoryPanel(e);
   addNewCategoryBtn(e);
+  deleteCategory(e);
 })
 // task done

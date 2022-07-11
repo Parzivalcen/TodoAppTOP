@@ -44,7 +44,7 @@ const addTaskPanel = (task) => {
   </div>
   <button class="TaskItemDelete">X</button>
   `;
-  console.log(taskDiv);
+  
   taskPanel.appendChild(taskDiv);
 }
 
