@@ -121,6 +121,8 @@ const hero = () => {
   const hero = document.createElement('div');
   hero.classList.add('container', 'container-hero');
   hero.appendChild(todoPanel('Daily Tasks'));
+  // Display categories on side panel.
+  displayCategories()
   return hero;
 }
 
