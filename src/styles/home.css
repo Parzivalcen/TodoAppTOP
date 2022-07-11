@@ -34,6 +34,22 @@ side Panel
     z-index: 1000;
     cursor: pointer;
   }
+  /* SINGLE CATEGORY */
+  .category > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .delete-category{
+    
+    background-image: url(../imgs/minusDelete.svg);
+    width: 1rem;
+    height: 1rem;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+
+  }
   /* TOGGLE */
   .mobile-toggle{
     display: block;

@@ -2,6 +2,7 @@ import { getCategories, storeCategory } from '../StoreTask/store';
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
+import convertStringToHtml from './covertHTML';
 const header = () => {
   const header = document.createElement('header');
   header.classList.add('primary-header');
@@ -14,11 +15,17 @@ const header = () => {
         <span class="add-categories" id="add-categories"></span>
       </div>    
       <li class="category">
-      <div>
-        <p class="category--title">Daily</p>
-        <button class="deletete-category"></button>
-      </div> </li>
-      <li class="category">Work</li>
+        <div>
+          <p class="category--title">Daily</p>
+          <button class="delete-category"></button>
+        </div> 
+      </li>
+      <li class="category">
+        <div>
+          <p class="category--title">work</p>
+          <button class="delete-category"></button>
+        </div> 
+      </li>
     </ul>
   </div>
   `
@@ -85,8 +92,15 @@ const cancelPopUpBtn = () => {
 const addCategory = (category) => {
   const formatTitle = document.createElement('li');
   const categoriesList = document.querySelector('#categories-navigation');
+  // Create category title Paragraph element. 
+  const categoryTitle = `<p class="category--title">${category}</p>`;
   formatTitle.classList.add('category');
-  formatTitle.innerHTML = `${category}`
+
+  formatTitle.innerHTML = `
+  <div>
+    ${categoryTitle}
+    <button class="delete-category"></button>
+  </div>`;
   // add to dom list
   categoriesList.appendChild(formatTitle);
 }
