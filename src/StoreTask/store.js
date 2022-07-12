@@ -70,24 +70,27 @@ const storeCategory = (category) => {
 const LSdeleteCategory = (e) => {
   let title = e.target.previousElementSibling.innerHTML;
   let categories = getCategories();
+  let tasks = getTasks();
   categories.map((category, index)=>{
     if(category ==  title){
       categories.splice(index, 1);
     }
     localStorage.setItem('categories', JSON.stringify(categories));
   })
+  deleteTasksFromCategory(tasks, title);
   console.log(title);
 }
 
+// Delete tasks from the deleted Category
+const deleteTasksFromCategory = (tasks, category) => {
+  tasks.map((task, index)=>{
+    if(task.tag == category){
+      tasks.splice(index, 1);
+    }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  })
+}
 
-// Merge and open another issue for deleting taks inside the deleted category. 
-/* 
-Get tasks
-for task in tasks
-  if task.tag === the deleted category
-    delete task. 
-
-*/
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
