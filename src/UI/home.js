@@ -1,7 +1,8 @@
-import { getCategories, storeCategory } from '../StoreTask/store';
+import { getCategories, LSdeleteCategory, storeCategory } from '../StoreTask/store';
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
+import convertStringToHtml from './covertHTML';
 const header = () => {
   const header = document.createElement('header');
   header.classList.add('primary-header');
@@ -13,8 +14,18 @@ const header = () => {
         <h2>Categories</h2>
         <span class="add-categories" id="add-categories"></span>
       </div>    
-      <li class="category">Daily</li>
-      <li class="category">Work</li>
+      <li class="category">
+        <div>
+          <p class="category--title">Daily</p>
+          <button class="delete-category"></button>
+        </div> 
+      </li>
+      <li class="category">
+        <div>
+          <p class="category--title">work</p>
+          <button class="delete-category"></button>
+        </div> 
+      </li>
     </ul>
   </div>
   `
@@ -77,12 +88,20 @@ const cancelPopUpBtn = () => {
 }
 // END CATEGORY POP UP START
 
+// CATEGORY LIST //
 // Add category to Side Bar
 const addCategory = (category) => {
   const formatTitle = document.createElement('li');
   const categoriesList = document.querySelector('#categories-navigation');
+  // Create category title Paragraph element. 
+  const categoryTitle = `<p class="category--title">${category}</p>`;
   formatTitle.classList.add('category');
-  formatTitle.innerHTML = `${category}`
+
+  formatTitle.innerHTML = `
+  <div>
+  ${categoryTitle}
+  <button class="delete-category"></button>
+  </div>`;
   // add to dom list
   categoriesList.appendChild(formatTitle);
 }
@@ -94,6 +113,15 @@ const displayCategories =()=>  {
     addCategory(category);
   })
 }
+const deleteCategory = (e) => {
+  const deleteBtnPressed = e.target.classList.contains('delete-category');
+  if(deleteBtnPressed){
+    e.target.parentElement.parentElement.remove();
+    LSdeleteCategory(e);
+  }
+}
+// END CATEGORY LIST //
+
 const toggle = () => {
     const toggle = document.querySelector('.mobile-toggle');
     const categoriesNav = document.querySelector('.categories-navigation');
@@ -121,6 +149,8 @@ const hero = () => {
   const hero = document.createElement('div');
   hero.classList.add('container', 'container-hero');
   hero.appendChild(todoPanel('Daily Tasks'));
+  // Display categories on side panel.
+  displayCategories()
   return hero;
 }
 
@@ -163,7 +193,7 @@ const clearHero =() => {
 
 // Create new to do when a category is pressed. 
 const categoryBtn = (e) => {
-  if (e.target.classList.contains('category')){
+  if (e.target.classList.contains('category--title')){
     newToDo(e.target.innerHTML)
   }
 }
@@ -175,4 +205,5 @@ export {header,
     categoryBtn,
     addCategoryPopUp,
     showAddCategoryPanel,
-    addNewCategoryBtn}
+    addNewCategoryBtn,
+    deleteCategory}
