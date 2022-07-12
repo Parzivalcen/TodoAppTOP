@@ -2,7 +2,7 @@ import { getCategories, LSdeleteCategory, storeCategory } from '../StoreTask/sto
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
-import convertStringToHtml from './covertHTML';
+
 const header = () => {
   const header = document.createElement('header');
   header.classList.add('primary-header');
