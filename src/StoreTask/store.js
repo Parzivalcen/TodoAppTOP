@@ -90,7 +90,7 @@ const deleteTasksFromCategory = (tasks, category) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   })
 }
-
+// Should I refactor this and use classes? 
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
