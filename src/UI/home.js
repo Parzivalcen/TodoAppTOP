@@ -2,6 +2,7 @@ import { getCategories, LSdeleteCategory, storeCategory } from '../StoreTask/sto
 import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
+import sideBar from './sideBar';
 
 const header = () => {
   const header = document.createElement('header');
@@ -61,23 +62,7 @@ const showAddCategoryPanel = (e) => {
   }
 }
 
-const addNewCategoryBtn = (e) => {
-  if(e.target.classList.contains('add-project-btn')){
-    const addProjectPopUp = document.querySelector('.add-project-popUp');
-    const title = document.querySelector('#add-project-text').value;
-    
-    addCategory(title);
-    // Local Storage
-    storeCategory(title);
 
-
-    // Hide BTN
-    addProjectPopUp.setAttribute('project-pop-visible', false);
-    
-    console.log(formatTitle);
-    
-  }
-}
 // Cancel popUP
 const cancelPopUpBtn = () => {
   const addProjectPopUp = document.querySelector('.add-project-popUp');
@@ -182,5 +167,4 @@ export {header,
     categoryBtn,
     addCategoryPopUp,
     showAddCategoryPanel,
-    addNewCategoryBtn,
     deleteCategory}
