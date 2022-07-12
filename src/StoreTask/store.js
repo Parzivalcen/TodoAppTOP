@@ -79,6 +79,15 @@ const LSdeleteCategory = (e) => {
   console.log(title);
 }
 
+
+// Merge and open another issue for deleting taks inside the deleted category. 
+/* 
+Get tasks
+for task in tasks
+  if task.tag === the deleted category
+    delete task. 
+
+*/
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
