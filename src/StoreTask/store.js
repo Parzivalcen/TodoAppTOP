@@ -10,9 +10,34 @@ class store {
     }
     return tasks;
   }
+  // Get categories
+  static getCategories(){
+    let categories;
+    if(localStorage.getItem('categories') === null){
+      categories = [];
+    }else{
+      categories = JSON.parse(localStorage.getItem('categories'))
+    }
+    return categories;
+  }
+  // Delete Task if task category == category
+  static deleteTasksFromCategory(tasks, category){
+    tasks = tasks.filter(task => task.tag !== category)
+  
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
 
-  static deleteTasksFromCategory(task, category){
-
+  static LSdeleteCategory(e){
+    let title = e.target.previousElementSibling.innerHTML;
+    let categories = store.getCategories();
+    let tasks = store.getTasks();
+    categories.map((category, index)=>{
+      if(category ==  title){
+        categories.splice(index, 1);
+      }
+      localStorage.setItem('categories', JSON.stringify(categories));
+      store.deleteTasksFromCategory(tasks, title);
+    })
   }
 
 }
