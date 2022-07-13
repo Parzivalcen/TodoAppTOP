@@ -3,6 +3,12 @@ import '../styles/home.css'
 import { displayTasks, displayTasksCategorically, takeInput } from './addTask';
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
+class home {
+  static clearHero () {
+    const todoPanel = document.querySelector('.todo-panel');
+    todoPanel.textContent = '';
+  }
+}
 
 const header = () => {
   const header = document.createElement('header');
@@ -133,4 +139,4 @@ export {header,
     
     categoryBtn,
   
-    deleteCategory}
+    deleteCategory, home}
