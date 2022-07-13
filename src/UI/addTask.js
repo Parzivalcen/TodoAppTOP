@@ -11,7 +11,7 @@ class Task {
   static displayTasks = () => {
     let tasks = store.getTasks();
     tasks.forEach((task) => {
-      addTaskPanel(task)
+      Task.addTaskPanel(task)
       
     });
   }
@@ -20,12 +20,36 @@ class Task {
     let tasks = store.getTasks();
     tasks.map((task) => {
       if(task.tag == categorie) {
-        addTaskPanel(task);
+        Task.addTaskPanel(task);
       }
     })
   }
+  // Add Task Panel
+  static addTaskPanel (task) {
+    const taskPanel = document.querySelector('.tasks');
+    let taskDiv = document.createElement('div');
+    taskDiv.classList.add('task', 'grid');
+
+    // Display task done or undone
+    if (task.done == 'undone') {
+      taskDiv.setAttribute('aria-disabled', false)
+    }else{
+      taskDiv.setAttribute('aria-disabled', true)
+    }
+    taskDiv.innerHTML = `
+    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
+    <div class="task-content">
+      <p class="task-title">${task.title}</p>
+      <p class="task-tag">${task.tag}</p>
+    </div>
+    <button class="TaskItemDelete">X</button>
+    `;
+    
+    taskPanel.appendChild(taskDiv);
+  }
 
 }
+////////////////////
 const displayTasks = () => {
   let tasks = getTasks();
   tasks.forEach((task) => {
