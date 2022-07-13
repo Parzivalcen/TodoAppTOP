@@ -1,7 +1,15 @@
 
 //-Create Task Array with the task tags-//
 class store {
-  
+  static getTasks = () => {
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+      tasks = [];
+    }else{
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    return tasks;
+  }
 
 }
 
@@ -101,4 +109,5 @@ export {localStoraddTask,
     LSchangeDoneState,
     storeCategory,
     getCategories,
-  LSdeleteCategory};
+  LSdeleteCategory,
+  store};

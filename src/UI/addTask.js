@@ -1,4 +1,4 @@
-import { getTasks, localStoraddTask } from "../StoreTask/store";
+import { getTasks, localStoraddTask, store } from "../StoreTask/store";
 
 class Task {
   constructor(title, tag){
@@ -9,7 +9,7 @@ class Task {
   }
   // Display tasks
   static displayTasks = () => {
-    let tasks = getTasks();
+    let tasks = store.getTasks();
     tasks.forEach((task) => {
       addTaskPanel(task)
       
@@ -17,7 +17,7 @@ class Task {
   }
   
   static displayTasksCategorically = (categorie) => {
-    let tasks = getTasks();
+    let tasks = store.getTasks();
     tasks.map((task) => {
       if(task.tag == categorie) {
         addTaskPanel(task);
