@@ -94,7 +94,7 @@ const newToDo = (category) => {
   const categoriesNav = document.querySelector('.categories-navigation');
   const toggle = document.querySelector('.mobile-toggle');
   // Delete previous panel
-  clearHero();
+  home.clearHero();
   // Hide side panel
   categoriesNav.setAttribute('data-visible', false);
   toggle.setAttribute('aria-expanded', false);
@@ -121,10 +121,7 @@ const newToDo = (category) => {
   
   takeInput(category)
 }
-const clearHero =() => {
-  const todoPanel = document.querySelector('.todo-panel');
-  todoPanel.textContent = '';
-}
+
 
 // Create new to do when a category is pressed. 
 const categoryBtn = (e) => {

@@ -35,7 +35,7 @@ document.addEventListener('click', (e) => {
   LSremoveTask(e);
   taskDone(e);
   LSchangeDoneState(e);
-  categoryBtn(e);
+  sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
   sideBar.addNewCategoryBtn(e);
   deleteCategory(e);

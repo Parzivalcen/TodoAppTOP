@@ -11,6 +11,10 @@ class store {
     return tasks;
   }
 
+  static deleteTasksFromCategory(task, category){
+
+  }
+
 }
 
 const getTasks = () => {
@@ -88,19 +92,16 @@ const LSdeleteCategory = (e) => {
       categories.splice(index, 1);
     }
     localStorage.setItem('categories', JSON.stringify(categories));
+    deleteTasksFromCategory(tasks, title);
   })
-  deleteTasksFromCategory(tasks, title);
   console.log(title);
 }
 
 // Delete tasks from the deleted Category
 const deleteTasksFromCategory = (tasks, category) => {
-  tasks.map((task, index)=>{
-    if(task.tag == category){
-      tasks.splice(index, 1);
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  })
+  tasks = tasks.filter(task => task.tag !== category)
+  
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 // Should I refactor this and use classes? 
 export {localStoraddTask,

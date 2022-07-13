@@ -1,5 +1,6 @@
 import { getCategories, storeCategory } from "../StoreTask/store";
 import { Task } from "./addTask";
+import { home } from "./home";
 
 export default class sideBar {
   // Toggle
@@ -75,7 +76,8 @@ export default class sideBar {
       addProjectPopUp.setAttribute('project-pop-visible', false);
     }
   }
-  // Add Category
+
+  // Add Category //
   static addCategory (category) {
     const formatTitle = document.createElement('li');
     const categoriesList = document.querySelector('#categories-navigation');
@@ -85,8 +87,8 @@ export default class sideBar {
 
     formatTitle.innerHTML = `
     <div>
-    ${categoryTitle}
-    <button class="delete-category"></button>
+      ${categoryTitle}
+      <button class="delete-category"></button>
     </div>`;
     // add to dom list
     categoriesList.appendChild(formatTitle);
@@ -104,7 +106,7 @@ export default class sideBar {
   // Create new todo Panel when a Category is pressed. 
   static categoryPressed(e) {
     if (e.target.classList.contains('category--title')){
-      sideBar.newToDo(e.target.innerHTML)
+      sideBar.newToDoPanel(e.target.innerHTML)
     }
   }
   // New todo Panel
@@ -113,7 +115,7 @@ export default class sideBar {
     const categoriesNav = document.querySelector('.categories-navigation');
     const toggle = document.querySelector('.mobile-toggle');
     // Delete previous panel
-    clearHero();
+    home.clearHero();
     // Hide side panel
     categoriesNav.setAttribute('data-visible', false);
     toggle.setAttribute('aria-expanded', false);

@@ -49,7 +49,7 @@ class Task {
   }
 
   // Take input
-  static takeInput () {
+  static takeInput (tag) {
     const addBtn = document.querySelector('.add-task-btn');
     addBtn.addEventListener('click', () => {
       const title = document.querySelector('#add-task-text').value;
