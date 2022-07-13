@@ -7,6 +7,24 @@ class Task {
     this.done = 'undone';
     // add properties like done 
   }
+  // Display tasks
+  static displayTasks = () => {
+    let tasks = getTasks();
+    tasks.forEach((task) => {
+      addTaskPanel(task)
+      
+    });
+  }
+  
+  static displayTasksCategorically = (categorie) => {
+    let tasks = getTasks();
+    tasks.map((task) => {
+      if(task.tag == categorie) {
+        addTaskPanel(task);
+      }
+    })
+  }
+
 }
 const displayTasks = () => {
   let tasks = getTasks();

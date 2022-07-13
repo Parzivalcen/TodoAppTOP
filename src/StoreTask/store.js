@@ -1,5 +1,9 @@
 
 //-Create Task Array with the task tags-//
+class store {
+  
+
+}
 
 const getTasks = () => {
   let tasks;

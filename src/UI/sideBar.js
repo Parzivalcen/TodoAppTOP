@@ -1,4 +1,4 @@
-import { storeCategory } from "../StoreTask/store";
+import { getCategories, storeCategory } from "../StoreTask/store";
 
 export default class sideBar {
   // Toggle
@@ -90,7 +90,56 @@ export default class sideBar {
     // add to dom list
     categoriesList.appendChild(formatTitle);
   }
-  // Switch bettween categories
+
+  // Display Categories
+  static displayCategories () {
+    const categories = getCategories();
+    categories.map((category) => {
+      sideBar.addCategory(category);
+    })
+  }
+
+  // Switch bettween categories //
+  // Create new todo Panel when a Category is pressed. 
+  static categoryPressed(e) {
+    if (e.target.classList.contains('category--title')){
+      sideBar.newToDo(e.target.innerHTML)
+    }
+  }
+  // New todo Panel
+  static newToDoPanel(category) {
+    const todoPanel = document.querySelector('.todo-panel');
+    const categoriesNav = document.querySelector('.categories-navigation');
+    const toggle = document.querySelector('.mobile-toggle');
+    // Delete previous panel
+    clearHero();
+    // Hide side panel
+    categoriesNav.setAttribute('data-visible', false);
+    toggle.setAttribute('aria-expanded', false);
+    // New todo panel
+    todoPanel.innerHTML = `
+    <div class="title">
+    <h1>${category}</h1>
+    </div>
+    <div class="tasks">
+    <!-- task 1 -->
+
+      </div>
+      <div>
+        <label for="add-task-text">Add new task</label>
+        <input type="text" id="add-task-text" name="add-task-text">
+        <button class="add-task-btn btn">Add</button>
+      </div>
+    `
+    if (category == 'Daily'){
+      displayTasks();
+    }else{
+      displayTasksCategorically(category);
+    }
+    
+    takeInput(category)
+  }
+    
 
   // Delete categories. 
 }

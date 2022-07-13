@@ -35,20 +35,6 @@ const header = () => {
 }
 
 // CATEGORY POP UP START
-const addCategoryPopUp = () => {
-  const addProjectPopUp = document.createElement('div');
-  addProjectPopUp.classList.add('add-project-popUp');
-  addProjectPopUp.setAttribute('project-pop-visible', false);
-  
-  // This should be on the header I think. I mean on the main by default
-  addProjectPopUp.innerHTML = `
-  <label for="add-project-text">Project name</label>
-  <input type="text" id="add-project-text" name="add-project-text">
-  <button class="add-project-btn">Add</button>
-  <button class="cancel-project-btn">Cancel</button>
-  `
-  return addProjectPopUp;
-}
 
 // Cancel popUP
 
@@ -146,5 +132,5 @@ export {header,
     hero, 
     
     categoryBtn,
-    addCategoryPopUp,
+  
     deleteCategory}
