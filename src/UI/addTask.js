@@ -1,4 +1,4 @@
-import { getTasks, localStoraddTask } from "../StoreTask/store";
+import { getTasks, localStoraddTask, store } from "../StoreTask/store";
 
 class Task {
   constructor(title, tag){
@@ -7,7 +7,62 @@ class Task {
     this.done = 'undone';
     // add properties like done 
   }
+  // Display tasks
+  static displayTasks = () => {
+    let tasks = store.getTasks();
+    tasks.forEach((task) => {
+      Task.addTaskPanel(task)
+      
+    });
+  }
+  
+  static displayTasksCategorically = (category) => {
+    let tasks = store.getTasks();
+    tasks.map((task) => {
+      if(task.tag == category) {
+        Task.addTaskPanel(task);
+      }
+    })
+  }
+  // Add Task Panel
+  static addTaskPanel (task) {
+    const taskPanel = document.querySelector('.tasks');
+    let taskDiv = document.createElement('div');
+    taskDiv.classList.add('task', 'grid');
+
+    // Display task done or undone
+    if (task.done == 'undone') {
+      taskDiv.setAttribute('aria-disabled', false)
+    }else{
+      taskDiv.setAttribute('aria-disabled', true)
+    }
+    taskDiv.innerHTML = `
+    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
+    <div class="task-content">
+      <p class="task-title">${task.title}</p>
+      <p class="task-tag">${task.tag}</p>
+    </div>
+    <button class="TaskItemDelete">X</button>
+    `;
+    
+    taskPanel.appendChild(taskDiv);
+  }
+
+  // Take input
+  static takeInput (tag) {
+    const addBtn = document.querySelector('.add-task-btn');
+    addBtn.addEventListener('click', () => {
+      const title = document.querySelector('#add-task-text').value;
+      let newTask = new Task(title, tag);
+      // add task to DOM
+      addTaskPanel(newTask);
+      // Store task on Local storage
+      localStoraddTask(newTask);
+    })
+  }
+
 }
+////////////////////
 const displayTasks = () => {
   let tasks = getTasks();
   tasks.forEach((task) => {
@@ -90,4 +145,5 @@ export{
   deleteTask, 
   taskDone,
   displayTasks,
-  displayTasksCategorically};
+  displayTasksCategorically,
+  Task};

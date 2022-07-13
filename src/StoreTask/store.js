@@ -1,5 +1,48 @@
 
 //-Create Task Array with the task tags-//
+class store {
+  static getTasks = () => {
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+      tasks = [];
+    }else{
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    return tasks;
+  }
+
+  // Get categories
+  static getCategories(){
+    let categories;
+    if(localStorage.getItem('categories') === null){
+      categories = [];
+    }else{
+      categories = JSON.parse(localStorage.getItem('categories'))
+    }
+    return categories;
+  }
+
+  // Delete Task if task category == category
+  static deleteTasksFromCategory(tasks, category){
+    tasks = tasks.filter(task => task.tag !== category)
+  
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  static LSdeleteCategory(e){
+    let title = e.target.previousElementSibling.innerHTML;
+    let categories = store.getCategories();
+    let tasks = store.getTasks();
+    categories.map((category, index)=>{
+      if(category ==  title){
+        categories.splice(index, 1);
+      }
+      localStorage.setItem('categories', JSON.stringify(categories));
+      store.deleteTasksFromCategory(tasks, title);
+    })
+  }
+
+}
 
 const getTasks = () => {
   let tasks;
@@ -50,51 +93,18 @@ const LSchangeDoneState = (e) => {
       };
   }
 
-  // Store categories 
-const getCategories = () => {
-  let categories;
-  if(localStorage.getItem('categories') === null){
-    categories = [];
-  }else{
-    categories = JSON.parse(localStorage.getItem('categories'))
-  }
-  return categories;
-}
 
 const storeCategory = (category) => {
-  let categories = getCategories();
+  let categories = store.getCategories();
   categories.push(category);
   localStorage.setItem('categories', JSON.stringify(categories));
 
 }
-const LSdeleteCategory = (e) => {
-  let title = e.target.previousElementSibling.innerHTML;
-  let categories = getCategories();
-  let tasks = getTasks();
-  categories.map((category, index)=>{
-    if(category ==  title){
-      categories.splice(index, 1);
-    }
-    localStorage.setItem('categories', JSON.stringify(categories));
-  })
-  deleteTasksFromCategory(tasks, title);
-  console.log(title);
-}
 
-// Delete tasks from the deleted Category
-const deleteTasksFromCategory = (tasks, category) => {
-  tasks.map((task, index)=>{
-    if(task.tag == category){
-      tasks.splice(index, 1);
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  })
-}
-
+// Should I refactor this and use classes? 
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
     LSchangeDoneState,
     storeCategory,
-    getCategories,
-  LSdeleteCategory};
+  store};

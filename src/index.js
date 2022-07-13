@@ -1,21 +1,23 @@
-import todoPanel from "./UI/addToDo";
-import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } from "./UI/addTask";
+
+import { deleteTask, displayTasks, takeInput, taskDone } from "./UI/addTask";
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import { header, hero, categoryBtn, toggle, addCategoryPopUp, showAddCategoryPanel, addNewCategoryBtn, deleteCategory } from "./UI/home";
+import { home } from "./UI/home";
+import sideBar from "./UI/sideBar";
 
 const body = document.body;
 const main = document.createElement('main');
 // Append header and side panel 
-body.appendChild(header());
+body.appendChild(home.header());
 // Add new Project/Category
-body.appendChild(addCategoryPopUp());
+body.appendChild(sideBar.CategoryPopUpPanel());
 // Toggle to show side panel 
-toggle();
+sideBar.toggle();
+
 body.appendChild(main);
 
-main.appendChild(hero());
+main.appendChild(home.hero());
 
 // const hero = document.createElement('div');
 // hero.classList.add('container', 'container-hero');
@@ -33,9 +35,9 @@ document.addEventListener('click', (e) => {
   LSremoveTask(e);
   taskDone(e);
   LSchangeDoneState(e);
-  categoryBtn(e)
-  showAddCategoryPanel(e);
-  addNewCategoryBtn(e);
-  deleteCategory(e);
+  sideBar.categoryPressed(e);
+  sideBar.showAddCategoryPanel(e);
+  sideBar.addNewCategoryBtn(e);
+  sideBar.deleteCategory(e);
 })
 // task done
