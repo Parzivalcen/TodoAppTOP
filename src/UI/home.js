@@ -50,27 +50,8 @@ const addCategoryPopUp = () => {
   return addProjectPopUp;
 }
 
-const showAddCategoryPanel = (e) => {
-  const addProjectPopUp = document.querySelector('.add-project-popUp');
-  if(e.target.id == 'add-categories'){
-
-    addProjectPopUp.setAttribute('project-pop-visible', true);
-    
-    
-    
-    cancelPopUpBtn();
-  }
-}
-
-
 // Cancel popUP
-const cancelPopUpBtn = () => {
-  const addProjectPopUp = document.querySelector('.add-project-popUp');
-  const cancelBtn = document.querySelector('.cancel-project-btn');
-  cancelBtn.addEventListener('click', () => {
-    addProjectPopUp.setAttribute('project-pop-visible', false);
-  })
-}
+
 // END CATEGORY POP UP START
 
 // CATEGORY LIST //
@@ -166,5 +147,4 @@ export {header,
     
     categoryBtn,
     addCategoryPopUp,
-    showAddCategoryPanel,
     deleteCategory}
