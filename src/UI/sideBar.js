@@ -1,4 +1,4 @@
-import { getCategories, storeCategory } from "../StoreTask/store";
+import { getCategories, store, storeCategory } from "../StoreTask/store";
 import { Task } from "./addTask";
 import { home } from "./home";
 
@@ -96,7 +96,7 @@ export default class sideBar {
 
   // Display Categories
   static displayCategories () {
-    const categories = getCategories();
+    const categories = store.getCategories();
     categories.map((category) => {
       sideBar.addCategory(category);
     })
@@ -143,6 +143,12 @@ export default class sideBar {
     Task.takeInput(category)
   }
     
-
   // Delete categories. 
+  static deleteCategory(e) {
+    const deleteBtnPressed = e.target.classList.contains('delete-category');
+    if(deleteBtnPressed){
+      e.target.parentElement.parentElement.remove();
+      store.LSdeleteCategory(e);
+    }
+  }
 }

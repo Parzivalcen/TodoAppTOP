@@ -3,13 +3,13 @@ import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } fro
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import { header, hero, categoryBtn, deleteCategory } from "./UI/home";
+import {  hero, home } from "./UI/home";
 import sideBar from "./UI/sideBar";
 
 const body = document.body;
 const main = document.createElement('main');
 // Append header and side panel 
-body.appendChild(header());
+body.appendChild(home.header());
 // Add new Project/Category
 body.appendChild(sideBar.CategoryPopUpPanel());
 // Toggle to show side panel 
@@ -17,7 +17,7 @@ sideBar.toggle();
 
 body.appendChild(main);
 
-main.appendChild(hero());
+main.appendChild(home.hero());
 
 // const hero = document.createElement('div');
 // hero.classList.add('container', 'container-hero');
@@ -38,6 +38,6 @@ document.addEventListener('click', (e) => {
   sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
   sideBar.addNewCategoryBtn(e);
-  deleteCategory(e);
+  sideBar.deleteCategory(e);
 })
 // task done

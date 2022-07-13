@@ -10,6 +10,7 @@ class store {
     }
     return tasks;
   }
+
   // Get categories
   static getCategories(){
     let categories;
@@ -20,6 +21,7 @@ class store {
     }
     return categories;
   }
+
   // Delete Task if task category == category
   static deleteTasksFromCategory(tasks, category){
     tasks = tasks.filter(task => task.tag !== category)
@@ -91,49 +93,18 @@ const LSchangeDoneState = (e) => {
       };
   }
 
-  // Store categories 
-const getCategories = () => {
-  let categories;
-  if(localStorage.getItem('categories') === null){
-    categories = [];
-  }else{
-    categories = JSON.parse(localStorage.getItem('categories'))
-  }
-  return categories;
-}
 
 const storeCategory = (category) => {
-  let categories = getCategories();
+  let categories = store.getCategories();
   categories.push(category);
   localStorage.setItem('categories', JSON.stringify(categories));
 
 }
-const LSdeleteCategory = (e) => {
-  let title = e.target.previousElementSibling.innerHTML;
-  let categories = getCategories();
-  let tasks = getTasks();
-  categories.map((category, index)=>{
-    if(category ==  title){
-      categories.splice(index, 1);
-    }
-    localStorage.setItem('categories', JSON.stringify(categories));
-    deleteTasksFromCategory(tasks, title);
-  })
-  console.log(title);
-}
 
-// Delete tasks from the deleted Category
-const deleteTasksFromCategory = (tasks, category) => {
-  tasks = tasks.filter(task => task.tag !== category)
-  
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
 // Should I refactor this and use classes? 
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
     LSchangeDoneState,
     storeCategory,
-    getCategories,
-  LSdeleteCategory,
   store};
