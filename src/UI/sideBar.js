@@ -1,4 +1,5 @@
 import { getCategories, storeCategory } from "../StoreTask/store";
+import { Task } from "./addTask";
 
 export default class sideBar {
   // Toggle
@@ -132,12 +133,12 @@ export default class sideBar {
       </div>
     `
     if (category == 'Daily'){
-      displayTasks();
+      Task.displayTasks();
     }else{
-      displayTasksCategorically(category);
+      Task.displayTasksCategorically(category);
     }
     
-    takeInput(category)
+    Task.takeInput(category)
   }
     
 

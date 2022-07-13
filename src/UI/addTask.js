@@ -16,10 +16,10 @@ class Task {
     });
   }
   
-  static displayTasksCategorically = (categorie) => {
+  static displayTasksCategorically = (category) => {
     let tasks = store.getTasks();
     tasks.map((task) => {
-      if(task.tag == categorie) {
+      if(task.tag == category) {
         Task.addTaskPanel(task);
       }
     })
@@ -46,6 +46,19 @@ class Task {
     `;
     
     taskPanel.appendChild(taskDiv);
+  }
+
+  // Take input
+  static takeInput () {
+    const addBtn = document.querySelector('.add-task-btn');
+    addBtn.addEventListener('click', () => {
+      const title = document.querySelector('#add-task-text').value;
+      let newTask = new Task(title, tag);
+      // add task to DOM
+      addTaskPanel(newTask);
+      // Store task on Local storage
+      localStoraddTask(newTask);
+    })
   }
 
 }
@@ -132,4 +145,5 @@ export{
   deleteTask, 
   taskDone,
   displayTasks,
-  displayTasksCategorically};
+  displayTasksCategorically,
+  Task};
