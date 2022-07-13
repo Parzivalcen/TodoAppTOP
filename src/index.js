@@ -1,9 +1,9 @@
-import todoPanel from "./UI/addToDo";
-import { addTaskPanel, deleteTask, displayTasks, takeInput, Task, taskDone } from "./UI/addTask";
+
+import { deleteTask, displayTasks, takeInput, taskDone } from "./UI/addTask";
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
-import {  hero, home } from "./UI/home";
+import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
 
 const body = document.body;
