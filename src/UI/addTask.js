@@ -30,7 +30,7 @@ class Task {
     
     taskPanel.appendChild(taskDiv);
   }
-
+  
   // Take input
   static takeInput (tag) {
     const addBtn = document.querySelector('.add-task-btn');
@@ -42,6 +42,23 @@ class Task {
       // Store task on Local storage
       store.addTaskToLS(newTask);
     })
+  }
+  
+  //Task Done
+  static taskDone(e) {
+    if (e.target.classList.contains('TaskItemCheckbox')){
+      const task = e.target.parentElement;
+    
+      let title = e.target.nextElementSibling.firstElementChild.innerHTML;
+      const tasks = store.getTasks();
+      let taskIndex = tasks.findIndex((task) => task.title == title )
+      if (tasks[taskIndex].done == 'undone'){
+        task.setAttribute('aria-disabled', true);
+        
+      }else{
+        task.setAttribute('aria-disabled', false);
+      } 
+    }
   }
 
   // Delete Task
@@ -70,30 +87,5 @@ class Task {
   }
   
 }
-////////////////////
 
-
-
-
-
-const taskDone = (e) => {
-  if (e.target.classList.contains('TaskItemCheckbox')){
-    const task = e.target.parentElement;
-
-    let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-    const tasks = store.getTasks();
-    let taskIndex = tasks.findIndex((task) => task.title == title )
-    if (tasks[taskIndex].done == 'undone'){
-      task.setAttribute('aria-disabled', true);
-      
-    }else{
-      task.setAttribute('aria-disabled', false);
-    }
-    
-  }
-}
-
-
-export{ 
-  taskDone,
-  Task};
+export{Task};

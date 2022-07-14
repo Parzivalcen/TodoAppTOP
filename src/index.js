@@ -33,7 +33,7 @@ Task.takeInput('daily');
 document.addEventListener('click', (e) => {
   Task.deleteTask(e);
   LSremoveTask(e);
-  taskDone(e);
+  Task.taskDone(e);
   LSchangeDoneState(e);
   sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
