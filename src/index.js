@@ -1,5 +1,5 @@
 
-import { deleteTask, displayTasks, takeInput, taskDone } from "./UI/addTask";
+import { deleteTask, displayTasks, takeInput, Task, taskDone } from "./UI/addTask";
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
@@ -24,7 +24,7 @@ main.appendChild(home.hero());
 // // Display task panel
 // container.appendChild(todoPanel('Daily tasks'))
 
-document.addEventListener('DOMContentLoaded', displayTasks());
+document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
 /*Take the input user input 
   from the text box, this file is located on ./UI/addTask.js*/  

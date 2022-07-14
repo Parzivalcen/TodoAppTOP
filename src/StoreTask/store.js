@@ -65,7 +65,7 @@ const LSremoveTask = (e) => {
   if(e.target.classList.contains('TaskItemDelete')){
     // get title
     let title = e.target.previousElementSibling.firstElementChild.innerHTML;
-    let tasks = getTasks();
+    let tasks = store.getTasks();
     tasks.forEach((task, index) => {
       if(task.title == title){
         tasks.splice(index, 1);

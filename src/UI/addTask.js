@@ -7,29 +7,12 @@ class Task {
     this.done = 'undone';
     // add properties like done 
   }
-  // Display tasks
-  static displayTasks = () => {
-    let tasks = store.getTasks();
-    tasks.forEach((task) => {
-      Task.addTaskPanel(task)
-      
-    });
-  }
-  
-  static displayTasksCategorically = (category) => {
-    let tasks = store.getTasks();
-    tasks.map((task) => {
-      if(task.tag == category) {
-        Task.addTaskPanel(task);
-      }
-    })
-  }
-  // Add Task Panel
+  // Add Task TO Panel
   static addTaskPanel (task) {
     const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
-
+    
     // Display task done or undone
     if (task.done == 'undone') {
       taskDiv.setAttribute('aria-disabled', false)
@@ -39,8 +22,8 @@ class Task {
     taskDiv.innerHTML = `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
     <div class="task-content">
-      <p class="task-title">${task.title}</p>
-      <p class="task-tag">${task.tag}</p>
+    <p class="task-title">${task.title}</p>
+    <p class="task-tag">${task.tag}</p>
     </div>
     <button class="TaskItemDelete">X</button>
     `;
@@ -61,24 +44,28 @@ class Task {
     })
   }
 
+  // Display tasks
+  static displayTasks = () => {
+    let tasks = store.getTasks();
+    tasks.forEach((task) => {
+      Task.addTaskPanel(task)
+      
+    });
+  }
+  
+  static displayTasksCategorically = (category) => {
+    let tasks = store.getTasks();
+    tasks.map((task) => {
+      if(task.tag == category) {
+        Task.addTaskPanel(task);
+      }
+    })
+  }
+  
 }
 ////////////////////
-const displayTasks = () => {
-  let tasks = store.getTasks();
-  tasks.forEach((task) => {
-    addTaskPanel(task)
-    
-  });
-}
 
-const displayTasksCategorically = (categorie) => {
-  let tasks = store.getTasks();
-  tasks.map((task) => {
-    if(task.tag == categorie) {
-      addTaskPanel(task);
-    }
-  })
-}
+
 
 const addTaskPanel = (task) => {
   const taskPanel = document.querySelector('.tasks');
@@ -144,6 +131,4 @@ export{
   takeInput, 
   deleteTask, 
   taskDone,
-  displayTasks,
-  displayTasksCategorically,
   Task};
