@@ -1,3 +1,4 @@
+import { Task } from "../UI/addTask";
 
 //-Create Task Array with the task tags-//
 class store {
@@ -80,7 +81,7 @@ const LSchangeDoneState = (e) => {
      // get title
       let title = e.target.nextElementSibling.firstElementChild.innerHTML;
       console.log('chang', title)
-      let tasks = getTasks();
+      let tasks = store.getTasks();
       let taskIndex = tasks.findIndex((task) => task.title == title )
       if (tasks[taskIndex].done == 'undone'){
         tasks[taskIndex].done = 'done';

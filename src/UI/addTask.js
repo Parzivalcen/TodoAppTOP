@@ -44,6 +44,13 @@ class Task {
     })
   }
 
+  // Delete Task
+  static deleteTask(e){
+    if (e.target.classList.contains('TaskItemDelete')){
+      e.target.parentElement.remove();
+    }
+  }
+
   // Display tasks
   static displayTasks = () => {
     let tasks = store.getTasks();
@@ -67,11 +74,7 @@ class Task {
 
 
 
-const deleteTask = (e) => {
-  if (e.target.classList.contains('TaskItemDelete')){
-    e.target.parentElement.remove();
-  }
-}
+
 
 const taskDone = (e) => {
   if (e.target.classList.contains('TaskItemCheckbox')){
@@ -92,6 +95,5 @@ const taskDone = (e) => {
 
 
 export{ 
-  deleteTask, 
   taskDone,
   Task};

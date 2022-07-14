@@ -1,5 +1,5 @@
 
-import { deleteTask, displayTasks, takeInput, Task, taskDone } from "./UI/addTask";
+import { Task, taskDone } from "./UI/addTask";
 
 import './styles/styles.css'
 import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', Task.displayTasks());
 Task.takeInput('daily');
 // delete
 document.addEventListener('click', (e) => {
-  deleteTask(e);
+  Task.deleteTask(e);
   LSremoveTask(e);
   taskDone(e);
   LSchangeDoneState(e);
