@@ -11,6 +11,12 @@ class store {
     return tasks;
   }
 
+  //CATEGORIES  
+  static storeCategory(category) {
+    let categories = store.getCategories();
+    categories.push(category);
+    localStorage.setItem('categories', JSON.stringify(categories));
+  }
   // Get categories
   static getCategories(){
     let categories;
@@ -94,17 +100,11 @@ const LSchangeDoneState = (e) => {
   }
 
 
-const storeCategory = (category) => {
-  let categories = store.getCategories();
-  categories.push(category);
-  localStorage.setItem('categories', JSON.stringify(categories));
 
-}
 
 // Should I refactor this and use classes? 
 export {localStoraddTask,
     getTasks,
     LSremoveTask,
     LSchangeDoneState,
-    storeCategory,
   store};

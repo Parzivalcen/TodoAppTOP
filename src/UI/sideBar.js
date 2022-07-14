@@ -1,4 +1,4 @@
-import { getCategories, store, storeCategory } from "../StoreTask/store";
+import { store } from "../StoreTask/store";
 import { Task } from "./addTask";
 import { home } from "./home";
 
@@ -69,7 +69,7 @@ export default class sideBar {
       
       sideBar.addCategory(title);
       // Local Storage
-      storeCategory(title);
+      store.storeCategory(title);
   
   
       // Hide BTN
