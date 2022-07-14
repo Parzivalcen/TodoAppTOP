@@ -1,6 +1,7 @@
 
 //-Create Task Array with the task tags-//
 class store {
+  //TASKS//
   static getTasks = () => {
     let tasks;
     if(localStorage.getItem('tasks') === null){
@@ -10,6 +11,12 @@ class store {
     }
     return tasks;
   }
+  static addTaskToLS(task){
+    let tasks = store.getTasks();
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
 
   //CATEGORIES  
   static storeCategory(category) {
@@ -50,22 +57,9 @@ class store {
 
 }
 
-const getTasks = () => {
-  let tasks;
-  if(localStorage.getItem('tasks') === null){
-    tasks = [];
-  }else{
-    tasks = JSON.parse(localStorage.getItem('tasks'));
-  }
-  return tasks;
-}
 
 // add task to local Storage
-const localStoraddTask = (task) => {
-  let tasks = getTasks();
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+
 
 const LSremoveTask = (e) => {
   if(e.target.classList.contains('TaskItemDelete')){
@@ -103,8 +97,7 @@ const LSchangeDoneState = (e) => {
 
 
 // Should I refactor this and use classes? 
-export {localStoraddTask,
-    getTasks,
+export {
     LSremoveTask,
     LSchangeDoneState,
   store};

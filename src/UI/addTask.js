@@ -1,4 +1,4 @@
-import { getTasks, localStoraddTask, store } from "../StoreTask/store";
+import { store } from "../StoreTask/store";
 
 class Task {
   constructor(title, tag){
@@ -57,14 +57,14 @@ class Task {
       // add task to DOM
       addTaskPanel(newTask);
       // Store task on Local storage
-      localStoraddTask(newTask);
+      store.addTaskToLS(newTask);
     })
   }
 
 }
 ////////////////////
 const displayTasks = () => {
-  let tasks = getTasks();
+  let tasks = store.getTasks();
   tasks.forEach((task) => {
     addTaskPanel(task)
     
@@ -72,7 +72,7 @@ const displayTasks = () => {
 }
 
 const displayTasksCategorically = (categorie) => {
-  let tasks = getTasks();
+  let tasks = store.getTasks();
   tasks.map((task) => {
     if(task.tag == categorie) {
       addTaskPanel(task);
@@ -111,7 +111,7 @@ const takeInput = (tag) => {
     // add task to DOM
     addTaskPanel(newTask);
     // Store task on Local storage
-    localStoraddTask(newTask);
+    store.addTaskToLS(newTask);
   })
 }
 
@@ -126,7 +126,7 @@ const taskDone = (e) => {
     const task = e.target.parentElement;
 
     let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-    const tasks = getTasks();
+    const tasks = store.getTasks();
     let taskIndex = tasks.findIndex((task) => task.title == title )
     if (tasks[taskIndex].done == 'undone'){
       task.setAttribute('aria-disabled', true);
