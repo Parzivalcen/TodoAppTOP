@@ -38,7 +38,7 @@ class Task {
       const title = document.querySelector('#add-task-text').value;
       let newTask = new Task(title, tag);
       // add task to DOM
-      addTaskPanel(newTask);
+      Task.addTaskPanel(newTask);
       // Store task on Local storage
       store.addTaskToLS(newTask);
     })
@@ -67,41 +67,6 @@ class Task {
 
 
 
-const addTaskPanel = (task) => {
-  const taskPanel = document.querySelector('.tasks');
-  let taskDiv = document.createElement('div');
-  taskDiv.classList.add('task', 'grid');
-
-  // Display task done or undone
-  if (task.done == 'undone') {
-    taskDiv.setAttribute('aria-disabled', false)
-  }else{
-    taskDiv.setAttribute('aria-disabled', true)
-  }
-  taskDiv.innerHTML = `
-  <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
-  <div class="task-content">
-    <p class="task-title">${task.title}</p>
-    <p class="task-tag">${task.tag}</p>
-  </div>
-  <button class="TaskItemDelete">X</button>
-  `;
-  
-  taskPanel.appendChild(taskDiv);
-}
-
-const takeInput = (tag) => {
-  const addBtn = document.querySelector('.add-task-btn');
-  addBtn.addEventListener('click', () => {
-    const title = document.querySelector('#add-task-text').value;
-    let newTask = new Task(title, tag);
-    // add task to DOM
-    addTaskPanel(newTask);
-    // Store task on Local storage
-    store.addTaskToLS(newTask);
-  })
-}
-
 const deleteTask = (e) => {
   if (e.target.classList.contains('TaskItemDelete')){
     e.target.parentElement.remove();
@@ -126,9 +91,7 @@ const taskDone = (e) => {
 }
 
 
-export{
-  addTaskPanel, 
-  takeInput, 
+export{ 
   deleteTask, 
   taskDone,
   Task};
