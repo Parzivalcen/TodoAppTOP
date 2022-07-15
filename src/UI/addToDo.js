@@ -1,5 +1,4 @@
 import '../styles/todoPanel.css'
-import { addTaskPanel, takeInput, Task } from './addTask';
 const todoPanel = (folder) => {
   const container = document.createElement('div');
   container.classList.add('todo-panel');

@@ -12,10 +12,43 @@ class store {
     }
     return tasks;
   }
+
   static addTaskToLS(task){
     let tasks = store.getTasks();
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+  // remove Task
+  static LSremoveTask(e){
+    if(e.target.classList.contains('TaskItemDelete')){
+      // get title
+      let title = e.target.previousElementSibling.firstElementChild.innerHTML;
+      let tasks = store.getTasks();
+      tasks.forEach((task, index) => {
+        if(task.title == title){
+          tasks.splice(index, 1);
+        }
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+      });
+    }
+  }
+  // Change done state on LS
+  static changeDoneState(e){
+    if (e.target.classList.contains('TaskItemCheckbox')){
+        // get title
+        let title = e.target.nextElementSibling.firstElementChild.innerHTML;
+        console.log('chang', title)
+        let tasks = store.getTasks();
+        let taskIndex = tasks.findIndex((task) => task.title == title )
+        if (tasks[taskIndex].done == 'undone'){
+          tasks[taskIndex].done = 'done';
+          console.log('chang', tasks[taskIndex].done)
+        }else{
+          tasks[taskIndex].done = 'undone';
+        }
+          localStorage.setItem('tasks', JSON.stringify(tasks))
+  
+        };
   }
 
 
@@ -58,47 +91,4 @@ class store {
 
 }
 
-
-// add task to local Storage
-
-
-const LSremoveTask = (e) => {
-  if(e.target.classList.contains('TaskItemDelete')){
-    // get title
-    let title = e.target.previousElementSibling.firstElementChild.innerHTML;
-    let tasks = store.getTasks();
-    tasks.forEach((task, index) => {
-      if(task.title == title){
-        tasks.splice(index, 1);
-      }
-      localStorage.setItem('tasks', JSON.stringify(tasks))
-    });
-  }
-}
-
-const LSchangeDoneState = (e) => {
-  if (e.target.classList.contains('TaskItemCheckbox')){
-     // get title
-      let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-      console.log('chang', title)
-      let tasks = store.getTasks();
-      let taskIndex = tasks.findIndex((task) => task.title == title )
-      if (tasks[taskIndex].done == 'undone'){
-        tasks[taskIndex].done = 'done';
-        console.log('chang', tasks[taskIndex].done)
-      }else{
-        tasks[taskIndex].done = 'undone';
-      }
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-
-      };
-  }
-
-
-
-
-// Should I refactor this and use classes? 
-export {
-    LSremoveTask,
-    LSchangeDoneState,
-  store};
+export { store };

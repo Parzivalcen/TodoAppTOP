@@ -2,7 +2,7 @@
 import { Task, taskDone } from "./UI/addTask";
 
 import './styles/styles.css'
-import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
+import { LSchangeDoneState, LSremoveTask, store } from "./StoreTask/store";
 import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
 
@@ -32,9 +32,9 @@ Task.takeInput('daily');
 // delete
 document.addEventListener('click', (e) => {
   Task.deleteTask(e);
-  LSremoveTask(e);
   Task.taskDone(e);
-  LSchangeDoneState(e);
+  store.LSremoveTask(e);
+  store.changeDoneState(e);
   sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
   sideBar.addNewCategoryBtn(e);
