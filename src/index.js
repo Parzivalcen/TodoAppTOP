@@ -1,8 +1,8 @@
 
-import { deleteTask, displayTasks, takeInput, taskDone } from "./UI/addTask";
+import { Task } from "./UI/addTask";
 
 import './styles/styles.css'
-import { LSchangeDoneState, LSremoveTask } from "./StoreTask/store";
+import { store } from "./StoreTask/store";
 import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
 
@@ -19,22 +19,17 @@ body.appendChild(main);
 
 main.appendChild(home.hero());
 
-// const hero = document.createElement('div');
-// hero.classList.add('container', 'container-hero');
-// // Display task panel
-// container.appendChild(todoPanel('Daily tasks'))
-
-document.addEventListener('DOMContentLoaded', displayTasks());
+document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
 /*Take the input user input 
   from the text box, this file is located on ./UI/addTask.js*/  
-takeInput('daily');
+Task.takeInput('daily');
 // delete
 document.addEventListener('click', (e) => {
-  deleteTask(e);
-  LSremoveTask(e);
-  taskDone(e);
-  LSchangeDoneState(e);
+  Task.deleteTask(e);
+  Task.taskDone(e);
+  store.LSremoveTask(e);
+  store.changeDoneState(e);
   sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
   sideBar.addNewCategoryBtn(e);

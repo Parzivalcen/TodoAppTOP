@@ -16,13 +16,13 @@ class home {
         <li class="category">
           <div>
             <p class="category--title">Daily</p>
-            <button class="delete-category"></button>
+            
           </div> 
         </li>
         <li class="category">
           <div>
             <p class="category--title">work</p>
-            <button class="delete-category"></button>
+            
           </div> 
         </li>
       </ul>
