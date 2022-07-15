@@ -1,8 +1,8 @@
 
-import { Task, taskDone } from "./UI/addTask";
+import { Task } from "./UI/addTask";
 
 import './styles/styles.css'
-import { LSchangeDoneState, LSremoveTask, store } from "./StoreTask/store";
+import { store } from "./StoreTask/store";
 import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
 
@@ -18,11 +18,6 @@ sideBar.toggle();
 body.appendChild(main);
 
 main.appendChild(home.hero());
-
-// const hero = document.createElement('div');
-// hero.classList.add('container', 'container-hero');
-// // Display task panel
-// container.appendChild(todoPanel('Daily tasks'))
 
 document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
