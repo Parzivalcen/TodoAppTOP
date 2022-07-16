@@ -11,10 +11,10 @@ const todoPanel = (folder) => {
       
 
     </div>
-    <div>
-      <label for="add-task-text">Add new task</label>
+    <div class="add-task-container">
       <input type="text" id="add-task-text" name="add-task-text">
-      <button class="add-task-btn btn">Add</button>
+      <label class="add-task-label" for="add-task-text">Add new task</label>
+      <button class="add-task-btn btn"></button>
     </div>
   `
   

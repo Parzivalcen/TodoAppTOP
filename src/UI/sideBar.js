@@ -1,6 +1,7 @@
 import { store } from "../StoreTask/store";
 import { Task } from "./addTask";
 import { home } from "./home";
+import '../styles/todoPanel.css';
 
 export default class sideBar {
   // Toggle
@@ -128,11 +129,11 @@ export default class sideBar {
     <!-- task 1 -->
 
       </div>
-      <div>
-        <label for="add-task-text">Add new task</label>
-        <input type="text" id="add-task-text" name="add-task-text">
-        <button class="add-task-btn btn">Add</button>
-      </div>
+    <div class="add-task-container">
+      <input type="text" id="add-task-text" name="add-task-text">
+      <label class="add-task-label" for="add-task-text">Add new task</label>
+      <button class="add-task-btn btn">Add</button>
+    </div>
     `
     if (category == 'Daily'){
       Task.displayTasks();
