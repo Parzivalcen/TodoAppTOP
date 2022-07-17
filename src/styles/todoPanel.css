@@ -3,8 +3,10 @@
     border-bottom: 1px solid white;
   }
   .todo-panel{
+    position: relative;
     border-radius: 10px;
     height: 30vh;
+    width: 33vh;
     background-color: black;
     color: white;
   }
@@ -43,10 +45,11 @@
   
   /* INPUT TASK FIELD */
   .add-task-container{
-    position: relative;
+    position: absolute;
     display: flex;
     padding: 1em;
     align-items: center;
+    bottom: .5em;
   }
   .add-task-container > label{
     display: block;
@@ -80,9 +83,12 @@
     right: 1em;
     background: transparent;
     border: none;
-    background-image: url(../imgs/arrowUp.svg);
     width: 2em;
     height: 2em;
+    /* Change Icon color */
+    background-color: grey;
+    -webkit-mask-image: url(../imgs/arrowUp.svg) ;
+    mask-image: url(../imgs/arrowUp.svg) ;
   }
 
 
