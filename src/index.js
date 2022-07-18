@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
 /*Take the input user input 
   from the text box, this file is located on ./UI/addTask.js*/  
-Task.takeInput('daily');
+Task.takeInput('General');
 // delete
 document.addEventListener('click', (e) => {
   Task.deleteTask(e);

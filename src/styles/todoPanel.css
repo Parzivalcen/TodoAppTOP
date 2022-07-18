@@ -4,8 +4,9 @@
   }
   .todo-panel{
     position: relative;
+    padding: 1em;
     border-radius: 10px;
-    min-height: 30vh;
+    min-height: 40vh;
     width: 33vh;
     background-color: #258d81;
     color: white;
@@ -13,9 +14,6 @@
   .task{
     padding: 2vh;
     grid-template-columns: 2vh 1fr 2vh;
-  }
-  .task-tag{
-    text-shadow: 1px 1px #000000;
   }
   .TaskItemCheckbox{
     place-self: center;
@@ -25,6 +23,7 @@
     background-image: url(../imgs/uncheck.svg);
     width: 2vh;
     height: 2vh;
+    
   }
   .TaskItemDelete{
     background: transparent;
@@ -41,9 +40,6 @@
     mask-repeat: no-repeat;
   }
   .task[aria-disabled="true"] .TaskItemCheckbox {
-    /* width: 4vh;
-    height: 4vh; */
-
     /* Change Icon color */
     background-color: #a0a0a0;
     -webkit-mask-image: url(../imgs/check.svg) ;
@@ -51,33 +47,33 @@
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;    
 
-    /* background-color: blue; */
   }
   .task[aria-disabled="true"] .task-tag {
     display: none;
   }
   
   .task[aria-disabled="true"]{
-    color: gray;
+    color: rgb(104, 104, 104);
     text-decoration: line-through;
     
   }
   .task-tag{
-    color: grey;
+    color: rgb(104, 104, 104);
+    
+
   }
   
   /* INPUT TASK FIELD */
   .add-task-container{
     position: absolute;
     display: flex;
-    padding: 1em;
     align-items: center;
     bottom: .5em;
   }
   .add-task-container > label{
     display: block;
     position: absolute;
-    top: 1.8em;
+    top: .5em;
     left: 2em;
     opacity: .4;
     font-size: 12px;

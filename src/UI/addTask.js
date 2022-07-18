@@ -36,11 +36,15 @@ class Task {
     const addBtn = document.querySelector('.add-task-btn');
     addBtn.addEventListener('click', () => {
       const title = document.querySelector('#add-task-text').value;
-      let newTask = new Task(title, tag);
-      // add task to DOM
-      Task.addTaskPanel(newTask);
-      // Store task on Local storage
-      store.addTaskToLS(newTask);
+      if(title.length < 3){
+        alert("Please enter more than three characters")
+      }else{
+        let newTask = new Task(title, tag);
+        // add task to DOM
+        Task.addTaskPanel(newTask);
+        // Store task on Local storage
+        store.addTaskToLS(newTask);
+      }
       Task.clearInputField();
     })
   }

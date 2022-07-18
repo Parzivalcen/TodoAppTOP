@@ -135,8 +135,9 @@ export default class sideBar {
       <button class="add-task-btn btn">Add</button>
     </div>
     `
-    if (category == 'Daily'){
+    if (category == 'All'){
       Task.displayTasks();
+      Task.takeInput('General')
     }else{
       Task.displayTasksCategorically(category);
     }

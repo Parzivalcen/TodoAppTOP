@@ -15,13 +15,13 @@ class home {
         </div>    
         <li class="category">
           <div>
-            <p class="category--title">Daily</p>
+            <p class="category--title">All</p>
             
           </div> 
         </li>
         <li class="category">
           <div>
-            <p class="category--title">work</p>
+            <p class="category--title">Work</p>
             
           </div> 
         </li>
@@ -34,7 +34,7 @@ class home {
   static hero() {
     const hero = document.createElement('div');
     hero.classList.add('container', 'container-hero');
-    hero.appendChild(todoPanel('Daily Tasks'));
+    hero.appendChild(todoPanel('All Tasks'));
     // Display categories on side panel.
     sideBar.displayCategories()
     return hero;
