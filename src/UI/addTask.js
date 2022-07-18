@@ -25,7 +25,7 @@ class Task {
     <p class="task-title">${task.title}</p>
     <p class="task-tag">${task.tag}</p>
     </div>
-    <button class="TaskItemDelete">X</button>
+    <button class="TaskItemDelete"></button>
     `;
     
     taskPanel.appendChild(taskDiv);

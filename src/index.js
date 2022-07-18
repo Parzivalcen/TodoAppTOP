@@ -1,6 +1,6 @@
 import { Task } from "./UI/addTask";
 import './styles/styles.css';
-import './styles/todoPanel.css';
+
 import { store } from "./StoreTask/store";
 import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
