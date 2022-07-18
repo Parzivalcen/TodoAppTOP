@@ -70,20 +70,49 @@ side Panel
   .mobile-toggle[aria-expanded="true"]{
     background-image: url(../imgs/closeMenu.svg);  
   }
-  .add-project-popUp[project-pop-visible="false"]{
+
+  /* -----------
+  POP UP
+  ---------------- */
+  .add-project-popUp{
     display: none;
-  }
-  .add-project-popUp[project-pop-visible="true"]{
     box-shadow: -1px 0px 5px 6px rgba(0, 0, 0, 0.36);
     background-color: #e9c46a;
     max-width: 18rem;
     text-align: center;
     border-radius: 10px;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-inline: 2rem;
     position: absolute;
     top: 20%;
     left: 50%;
     z-index: 1001;
     transform: translate(-50%, 20%);
+  }
+  .add-project-popUp > input, button{
+    border-radius: 10px;
+    border: none;
+  }
+  .add-project-popUp > input{
+    padding-inline: 1rem;
+  }
+  /* Buttons */
+  .btns-popUp{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  .btns-popUp > *{
+    background: transparent;
+  }
+  .add-project-btn{
+    color: rgb(42, 157, 143, 0.9);
+  }
+  .cancel-project-btn{
+    color: rgba(48, 48, 48, 0.9);
+  }
+  /* Attribute swicth */
+  .add-project-popUp[project-pop-visible="true"]{
+    display: block;
   }
 }

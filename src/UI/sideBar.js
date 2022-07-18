@@ -38,8 +38,10 @@ export default class sideBar {
     addProjectPopUp.innerHTML = `
     <label for="add-project-text">Project name</label>
     <input type="text" id="add-project-text" name="add-project-text">
-    <button class="add-project-btn">Add</button>
-    <button class="cancel-project-btn">Cancel</button>
+    <div class="btns-popUp">
+      <button class="cancel-project-btn">Cancel</button>
+      <button class="add-project-btn">Add</button>
+    </div>
     `
     return addProjectPopUp;
   }
