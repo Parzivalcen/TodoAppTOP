@@ -14,9 +14,15 @@
     padding: 2vh;
     grid-template-columns: 2vh 1fr 2vh;
   }
+  .task-tag{
+    text-shadow: 1px 1px #000000;
+  }
   .TaskItemCheckbox{
     place-self: center;
     border-radius: 50%;
+    background: transparent;
+    border: none;
+    background-image: url(../imgs/uncheck.svg);
     width: 2vh;
     height: 2vh;
   }
@@ -31,9 +37,21 @@
     background-color: #800020;
     -webkit-mask-image: url(../imgs/closeMenu.svg) ;
     mask-image: url(../imgs/closeMenu.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
   .task[aria-disabled="true"] .TaskItemCheckbox {
-    background-color: blue;
+    /* width: 4vh;
+    height: 4vh; */
+
+    /* Change Icon color */
+    background-color: #a0a0a0;
+    -webkit-mask-image: url(../imgs/check.svg) ;
+    mask-image: url(../imgs/check.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;    
+
+    /* background-color: blue; */
   }
   .task[aria-disabled="true"] .task-tag {
     display: none;
