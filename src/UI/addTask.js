@@ -45,12 +45,12 @@ class Task {
         // Store task on Local storage
         store.addTaskToLS(newTask);
       }
-      Task.clearInputField();
+      Task.clearInputField('#add-task-text');
     })
   }
   // Clear Input fields
-  static clearInputField() {
-    document.querySelector('#add-task-text').value = '';
+  static clearInputField(element) {
+    document.querySelector(element).value = '';
   }
   
   //Task Done

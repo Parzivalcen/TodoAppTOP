@@ -69,12 +69,16 @@ export default class sideBar {
     if(e.target.classList.contains('add-project-btn')){
       const addProjectPopUp = document.querySelector('.add-project-popUp');
       const title = document.querySelector('#add-project-text').value;
+
+      if(title.length < 3){
+        alert('Please enter at least THREE characters')
+      }else{
+        sideBar.addCategory(title);
+        // Local Storage
+        store.storeCategory(title);
+      }
       
-      sideBar.addCategory(title);
-      // Local Storage
-      store.storeCategory(title);
-  
-  
+      Task.clearInputField('#add-project-text');
       // Hide BTN
       addProjectPopUp.setAttribute('project-pop-visible', false);
     }
