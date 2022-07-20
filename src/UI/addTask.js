@@ -1,10 +1,12 @@
 import { store } from "../StoreTask/store";
+import taskDescPanel from "./taskPanel";
 
 class Task {
   constructor(title, tag){
     this.title = title;
     this.tag = tag;
     this.done = 'undone';
+    this.dueDate = 'Your are free'
     // add properties like done 
   }
   // Add Task TO Panel
@@ -22,13 +24,14 @@ class Task {
     taskDiv.innerHTML = `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
     <div class="task-content">
-    <p class="task-title">${task.title}</p>
-    <p class="task-tag">${task.tag}</p>
+      <p class="task-title">${task.title}</p>
+      <p class="task-tag">${task.tag}</p>
     </div>
     <button class="TaskItemDelete"></button>
     `;
     
     taskPanel.appendChild(taskDiv);
+    
   }
   
   // Take input

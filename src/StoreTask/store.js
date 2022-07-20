@@ -13,10 +13,14 @@ class store {
     return tasks;
   }
 
+  static saveTask (tasks){
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
   static addTaskToLS(task){
     let tasks = store.getTasks();
     tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.saveTask(tasks);
   }
   // remove Task
   static LSremoveTask(e){

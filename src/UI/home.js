@@ -44,6 +44,10 @@ class home {
     const todoPanel = document.querySelector('.todo-panel');
     todoPanel.textContent = '';
   }
+  static clearDescPanel(){
+    const descPanel = document.querySelector('.taskDescPanel');
+    descPanel.remove();
+  }
 }
 
 

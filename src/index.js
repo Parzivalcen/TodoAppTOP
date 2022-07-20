@@ -4,6 +4,7 @@ import './styles/styles.css';
 import { store } from "./StoreTask/store";
 import { home } from "./UI/home";
 import sideBar from "./UI/sideBar";
+import taskDescPanel from "./UI/taskPanel";
 
 const body = document.body;
 const main = document.createElement('main');
@@ -33,5 +34,6 @@ document.addEventListener('click', (e) => {
   sideBar.showAddCategoryPanel(e);
   sideBar.addNewCategoryBtn(e);
   sideBar.deleteCategory(e);
+  taskDescPanel.showPanel(e);
 })
 // task done
