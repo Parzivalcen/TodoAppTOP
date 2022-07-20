@@ -12,6 +12,10 @@ class store {
     }
     return tasks;
   }
+  
+  static getSingleTask = (title) => {
+
+  }
 
   static saveTask (tasks){
     localStorage.setItem('tasks', JSON.stringify(tasks));

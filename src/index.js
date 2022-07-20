@@ -35,5 +35,6 @@ document.addEventListener('click', (e) => {
   sideBar.addNewCategoryBtn(e);
   sideBar.deleteCategory(e);
   taskDescPanel.showPanel(e);
+  taskDescPanel.getDate(e);
 })
 // task done
