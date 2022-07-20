@@ -1,12 +1,15 @@
+import { store } from "../StoreTask/store";
 import { home } from "./home";
 
 export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
     panel.classList.add('taskDescPanel')
+    console.log(task);
+    console.log(task.title);
     panel.innerHTML = `
     <div class="title title--task">
-      <h1>${task}</h1>
+      <h1>${task.title}</h1>
     </div>
     <div>
       <label for="due-Date">Due Date</label>
@@ -17,7 +20,7 @@ export default class taskDescPanel {
       <input id="notes" name="notes" type="text">
       <label for="notes">notes</label>
       <button class="add-task-note">Add</button>
-      <p></p>
+      <p>Deadline: ${task.dueDate}</p>
     </div>
     <div>
       <p>Date created</p>
@@ -33,9 +36,11 @@ export default class taskDescPanel {
   static showPanel(e){
     if(e.target.parentElement.classList.contains('task-content')){
       const hero = document.querySelector('.container-hero')
-      const taskTitle =  e.target.parentElement.firstElementChild.textContent
+      const taskTitle =  e.target.parentElement.firstElementChild.textContent;
+      console.log(taskTitle);
+      const task = store.getSingleTask(taskTitle);
       // The e.target gets the title
-      hero.appendChild(this.panel(taskTitle))
+      hero.appendChild(this.panel(task))
       
     }
   }

@@ -7,7 +7,7 @@ class Task {
     this.tag = tag;
     this.done = 'undone';
     this.dueDate = 'Your are free'
-    // add properties like done 
+    // add date created, storing the date the task is created. 
   }
   // Add Task TO Panel
   static addTaskPanel (task) {

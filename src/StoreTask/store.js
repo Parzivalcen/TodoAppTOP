@@ -13,8 +13,16 @@ class store {
     return tasks;
   }
   
-  static getSingleTask = (title) => {
+  static getSingleTask = (taskTitle) => {
+    let tasks = this.getTasks();
+    let task;
+    tasks.forEach((singleTask) => {
+      if(singleTask.title == taskTitle){
 
+        task = singleTask
+      };
+    })
+    return task;
   }
 
   static saveTask (tasks){
