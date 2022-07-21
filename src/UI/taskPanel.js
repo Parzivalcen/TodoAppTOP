@@ -5,8 +5,7 @@ export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
     panel.classList.add('taskDescPanel')
-    console.log(task);
-    console.log(task.title);
+
     panel.innerHTML = `
     <div class="title title--task">
       <h1>${task.title}</h1>
@@ -44,11 +43,14 @@ export default class taskDescPanel {
       
     }
   }
+  
     // Date
     static getDate (e){
       if (e.target.classList.contains('due-Date-btn')){
         const date = document.querySelector('#due-Date').value;
-        console.log(date);
+        const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
+        console.log('get date', date);
+        store.addDate(title, date);
         return date;
       }
     }

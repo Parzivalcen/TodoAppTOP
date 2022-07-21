@@ -1,4 +1,5 @@
 import { Task } from "../UI/addTask";
+import taskDescPanel from "../UI/taskPanel";
 
 //-Create Task Array with the task tags-//
 class store {
@@ -34,6 +35,13 @@ class store {
     tasks.push(task);
     this.saveTask(tasks);
   }
+  // Add Date
+  static addDate(taskTitle, date){
+    let tasks = this.getTasks();
+    let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
+    tasks[taskIndex].dueDate = date; 
+    this.saveTask(tasks);
+  }
   // remove Task
   static LSremoveTask(e){
     if(e.target.classList.contains('TaskItemDelete')){
@@ -53,7 +61,7 @@ class store {
     if (e.target.classList.contains('TaskItemCheckbox')){
         // get title
         let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-        console.log('chang', title)
+
         let tasks = store.getTasks();
         let taskIndex = tasks.findIndex((task) => task.title == title )
         if (tasks[taskIndex].done == 'undone'){
@@ -104,6 +112,14 @@ class store {
       store.deleteTasksFromCategory(tasks, title);
     })
   }
+  // dates
+  // static saveDueDate (e){
+  //   if (e.target.classList.contains('due-Date-btn')){
+  //     const date = document.querySelector('#due-Date').value;
+  //     const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
+  //     store.addDate(title, date);
+  //   }
+  // }
 
 }
 
