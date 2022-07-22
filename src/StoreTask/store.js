@@ -27,7 +27,7 @@ class store {
   }
 
   static saveTask (tasks){
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.saveTask(tasks);
   }
 
   static addTaskToLS(task){
@@ -52,7 +52,7 @@ class store {
         if(task.title == title){
           tasks.splice(index, 1);
         }
-        localStorage.setItem('tasks', JSON.stringify(tasks))
+        this.saveTask(tasks)
       });
     }
   }
@@ -70,7 +70,7 @@ class store {
         }else{
           tasks[taskIndex].done = 'undone';
         }
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+          this.saveTask(tasks)
   
         };
   }
@@ -97,7 +97,7 @@ class store {
   static deleteTasksFromCategory(tasks, category){
     tasks = tasks.filter(task => task.tag !== category)
   
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.saveTask(tasks);
   }
 
   static LSdeleteCategory(e){

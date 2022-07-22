@@ -8,7 +8,7 @@ export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
     panel.classList.add('taskDescPanel')
-
+    // get date for date input value
     panel.innerHTML = `
     <div class="title title--task">
       <h1>${task.title}</h1>
@@ -18,13 +18,12 @@ export default class taskDescPanel {
       <button class="due-Date-btn">Set</button>
     </div>
     <div>
-      <input id="notes" name="notes" type="text">
-      <label for="notes">notes</label>
+      <p contenteditable="true">Add notes here</p>
       <button class="add-task-note">Add</button>
       <p class="deadline">Deadline: ${task.dueDate}</span></p>
     </div>
     <div>
-      <p>Date created</p>
+      <p>Date Created: ${task.dateCreated}</p>
     </div>
     `
     const hero = document.querySelector('.container-hero')

@@ -1,12 +1,14 @@
 import { store } from "../StoreTask/store";
 import taskDescPanel from "./taskPanel";
+import format from "date-fns/format";
 
 class Task {
-  constructor(title, tag){
+  constructor(title, tag, dateCreated){
     this.title = title;
     this.tag = tag;
     this.done = 'undone';
     this.dueDate = 'Your are free'
+    this.dateCreated = dateCreated;
     // add date created, storing the date the task is created. 
   }
   // Add Task TO Panel
@@ -42,7 +44,11 @@ class Task {
       if(title.length < 3){
         alert("Please enter more than three characters")
       }else{
-        let newTask = new Task(title, tag);
+        // get Today's date 
+        let date = new Date().toJSON().slice(0,10);
+        // format date to mm/dd/yyyy
+        date = format(new Date(date.replace(/-/g, '/')), 'MM/dd/yyyy');
+        let newTask = new Task(title, tag, date);
         // add task to DOM
         Task.addTaskPanel(newTask);
         // Store task on Local storage
