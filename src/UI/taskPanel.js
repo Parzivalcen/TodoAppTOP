@@ -1,5 +1,8 @@
 import { store } from "../StoreTask/store";
 import { home } from "./home";
+// date-fns
+import { format } from "date-fns";
+import addDays from "date-fns/addDays";
 
 export default class taskDescPanel {
   static panel (task) {
@@ -11,7 +14,6 @@ export default class taskDescPanel {
       <h1>${task.title}</h1>
     </div>
     <div>
-      <label for="due-Date">Due Date</label>
       <input type="date" id="due-Date" name="due-Date">
       <button class="due-Date-btn">Set</button>
     </div>
@@ -19,7 +21,7 @@ export default class taskDescPanel {
       <input id="notes" name="notes" type="text">
       <label for="notes">notes</label>
       <button class="add-task-note">Add</button>
-      <p>Deadline: ${task.dueDate}</p>
+      <p class="deadline">Deadline: ${task.dueDate}</span></p>
     </div>
     <div>
       <p>Date created</p>
@@ -47,12 +49,19 @@ export default class taskDescPanel {
     // Date
     static getDate (e){
       if (e.target.classList.contains('due-Date-btn')){
-        const date = document.querySelector('#due-Date').value;
+        let date = document.querySelector('#due-Date').value;
+        date = format(new Date(date.replace(/-/g, '/')), 'MM/dd/yyyy')
         const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
-        console.log('get date', date);
         store.addDate(title, date);
+        this.updateDate(title);
         return date;
       }
+    }
+    static updateDate(title){
+      // Show date
+      const deadline = document.querySelector('.deadline');
+      const task = store.getSingleTask(title)
+      deadline.innerHTML = `Deadline: ${task.dueDate}`;
     }
   
 }
