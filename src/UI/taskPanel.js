@@ -18,11 +18,11 @@ export default class taskDescPanel {
       <button class="due-Date-btn">Set</button>
     </div>
     <div>
-      <p contenteditable="true">Add notes here</p>
+      <p class="task-notes" contenteditable="true">${task.notes}</p>
       <button class="add-task-note">Add</button>
-      <p class="deadline">Deadline: ${task.dueDate}</span></p>
-    </div>
+      </div>
     <div>
+      <p class="deadline">Deadline: ${task.dueDate}</span></p>
       <p>Date Created: ${task.dateCreated}</p>
     </div>
     `
@@ -42,6 +42,7 @@ export default class taskDescPanel {
       // The e.target gets the title
       hero.appendChild(this.panel(task))
       
+      
     }
   }
   
@@ -53,6 +54,7 @@ export default class taskDescPanel {
         const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
         store.addDate(title, date);
         this.updateDate(title);
+        
         return date;
       }
     }
@@ -61,6 +63,17 @@ export default class taskDescPanel {
       const deadline = document.querySelector('.deadline');
       const task = store.getSingleTask(title)
       deadline.innerHTML = `Deadline: ${task.dueDate}`;
+    }
+    static updateNotes (e){
+      if(e.target.classList.contains('add-task-note')){
+        const notes = document.querySelector('.task-notes').textContent;
+        const taskTitle = e.target.parentElement.parentElement.firstElementChild.firstElementChild.textContent;
+        console.log(taskTitle);
+        console.log(notes);
+        store.SaveNotes(taskTitle, notes);
+          // store.SaveNotes(taskTitle, notes.textContent)
+
+      }
     }
   
 }

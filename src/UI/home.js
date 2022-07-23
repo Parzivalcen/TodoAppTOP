@@ -35,6 +35,7 @@ class home {
     const hero = document.createElement('div');
     hero.classList.add('container', 'container-hero');
     hero.appendChild(todoPanel('All Tasks'));
+    // Desc Panel, Just for styling
     // Display categories on side panel.
     sideBar.displayCategories()
     return hero;

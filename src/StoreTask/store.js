@@ -27,7 +27,7 @@ class store {
   }
 
   static saveTask (tasks){
-    this.saveTask(tasks);
+    localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
   static addTaskToLS(task){
@@ -70,7 +70,7 @@ class store {
         }else{
           tasks[taskIndex].done = 'undone';
         }
-          this.saveTask(tasks)
+        this.saveTask(tasks);
   
         };
   }
@@ -112,14 +112,14 @@ class store {
       store.deleteTasksFromCategory(tasks, title);
     })
   }
-  // dates
-  // static saveDueDate (e){
-  //   if (e.target.classList.contains('due-Date-btn')){
-  //     const date = document.querySelector('#due-Date').value;
-  //     const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
-  //     store.addDate(title, date);
-  //   }
-  // }
+ // save on changes 
+ static SaveNotes(taskTitle, htmlValue) {
+  let tasks = this.getTasks();
+  let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
+  console.log('index', taskIndex);
+  tasks[taskIndex].notes = htmlValue; 
+  this.saveTask(tasks);
+ }
 
 }
 

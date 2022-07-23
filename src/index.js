@@ -36,6 +36,8 @@ document.addEventListener('click', (e) => {
   sideBar.deleteCategory(e);
   taskDescPanel.showPanel(e);
   taskDescPanel.getDate(e);
+  taskDescPanel.updateNotes(e);
   // store.saveDueDate(e);
 })
+
 // task done
