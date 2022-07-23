@@ -1,4 +1,5 @@
 import { Task } from "../UI/addTask";
+import taskDescPanel from "../UI/taskPanel";
 
 //-Create Task Array with the task tags-//
 class store {
@@ -13,17 +14,32 @@ class store {
     return tasks;
   }
   
-  static getSingleTask = (title) => {
+  static getSingleTask = (taskTitle) => {
+    let tasks = this.getTasks();
+    let task;
+    tasks.forEach((singleTask) => {
+      if(singleTask.title == taskTitle){
 
+        task = singleTask
+      };
+    })
+    return task;
   }
 
   static saveTask (tasks){
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
   static addTaskToLS(task){
     let tasks = store.getTasks();
     tasks.push(task);
+    this.saveTask(tasks);
+  }
+  // Add Date
+  static addDate(taskTitle, date){
+    let tasks = this.getTasks();
+    let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
+    tasks[taskIndex].dueDate = date; 
     this.saveTask(tasks);
   }
   // remove Task
@@ -36,7 +52,7 @@ class store {
         if(task.title == title){
           tasks.splice(index, 1);
         }
-        localStorage.setItem('tasks', JSON.stringify(tasks))
+        this.saveTask(tasks)
       });
     }
   }
@@ -45,7 +61,7 @@ class store {
     if (e.target.classList.contains('TaskItemCheckbox')){
         // get title
         let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-        console.log('chang', title)
+
         let tasks = store.getTasks();
         let taskIndex = tasks.findIndex((task) => task.title == title )
         if (tasks[taskIndex].done == 'undone'){
@@ -54,7 +70,7 @@ class store {
         }else{
           tasks[taskIndex].done = 'undone';
         }
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+        this.saveTask(tasks);
   
         };
   }
@@ -81,7 +97,7 @@ class store {
   static deleteTasksFromCategory(tasks, category){
     tasks = tasks.filter(task => task.tag !== category)
   
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.saveTask(tasks);
   }
 
   static LSdeleteCategory(e){
@@ -95,6 +111,14 @@ class store {
       localStorage.setItem('categories', JSON.stringify(categories));
       store.deleteTasksFromCategory(tasks, title);
     })
+  }
+ // save on changes 
+  static SaveNotes(taskTitle, htmlValue) {
+    let tasks = this.getTasks();
+    let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
+    console.log('index', taskIndex);
+    tasks[taskIndex].notes = htmlValue; 
+    this.saveTask(tasks);
   }
 
 }

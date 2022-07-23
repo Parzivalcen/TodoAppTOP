@@ -1,6 +1,8 @@
+import { store } from '../StoreTask/store';
 import '../styles/home.css'
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
+import taskDescPanel from './taskPanel';
 class home {
   static header(){
     const header = document.createElement('header');
@@ -35,6 +37,8 @@ class home {
     const hero = document.createElement('div');
     hero.classList.add('container', 'container-hero');
     hero.appendChild(todoPanel('All Tasks'));
+    // Desc Panel, Just for styling
+
     // Display categories on side panel.
     sideBar.displayCategories()
     return hero;
