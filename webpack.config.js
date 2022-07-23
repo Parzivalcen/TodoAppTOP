@@ -6,9 +6,11 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    addTask: './src/UI/addTask.js',
-    addToDo: './src/UI/addToDo.js',
-    hero: './src/UI/home.js',
+    addTask: './src/modules/addTask.js',
+    addToDo: './src/modules/addToDo.js',
+    hero: './src/modules/home.js',
+    sideBar: './src/modules/sideBar.js',
+    taskPanel: './src/modules/taskPanel.js',
     storage: './src/StoreTask/store.js',
     
   },

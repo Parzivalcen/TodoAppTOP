@@ -2,7 +2,6 @@ import { store } from "../StoreTask/store";
 import '../styles/taskPanel.css';
 // date-fns
 import { format } from "date-fns";
-import addDays from "date-fns/addDays";
 import { home } from "./home";
 
 export default class taskDescPanel {

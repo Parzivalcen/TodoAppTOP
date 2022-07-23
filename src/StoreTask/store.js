@@ -1,6 +1,3 @@
-import { Task } from "../UI/addTask";
-import taskDescPanel from "../UI/taskPanel";
-
 //-Create Task Array with the task tags-//
 class store {
   //TASKS//

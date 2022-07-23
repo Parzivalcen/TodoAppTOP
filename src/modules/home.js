@@ -1,8 +1,8 @@
-import { store } from '../StoreTask/store';
+
 import '../styles/home.css'
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
-import taskDescPanel from './taskPanel';
+
 class home {
   static header(){
     const header = document.createElement('header');

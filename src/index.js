@@ -1,10 +1,10 @@
-import { Task } from "./UI/addTask";
+import { Task } from "./modules/addTask";
 import './styles/styles.css';
 
 import { store } from "./StoreTask/store";
-import { home } from "./UI/home";
-import sideBar from "./UI/sideBar";
-import taskDescPanel from "./UI/taskPanel";
+import { home } from "./modules/home";
+import sideBar from "./modules/sideBar";
+import taskDescPanel from "./modules/taskPanel";
 
 const body = document.body;
 const main = document.createElement('main');

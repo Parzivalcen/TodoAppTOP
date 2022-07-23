@@ -1,5 +1,5 @@
 import { store } from "../StoreTask/store";
-import taskDescPanel from "./taskPanel";
+
 import format from "date-fns/format";
 
 class Task {
