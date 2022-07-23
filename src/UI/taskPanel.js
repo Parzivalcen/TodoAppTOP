@@ -1,8 +1,9 @@
 import { store } from "../StoreTask/store";
-import { home } from "./home";
+import '../styles/taskPanel.css';
 // date-fns
 import { format } from "date-fns";
 import addDays from "date-fns/addDays";
+import { home } from "./home";
 
 export default class taskDescPanel {
   static panel (task) {
@@ -12,15 +13,16 @@ export default class taskDescPanel {
     panel.innerHTML = `
     <div class="title title--task">
       <h1>${task.title}</h1>
+      <button class="hide-desc-panel"></button>
     </div>
-    <div>
+    <div class="set-date">
       <input type="date" id="due-Date" name="due-Date">
-      <button class="due-Date-btn">Set</button>
+      <button class="due-Date-btn"></button>
     </div>
-    <div>
+    <div class="notes-panel">
       <p class="task-notes" contenteditable="true">${task.notes}</p>
       <button class="add-task-note">Add</button>
-      </div>
+    </div>
     <div>
       <p class="deadline">Deadline: ${task.dueDate}</span></p>
       <p>Date Created: ${task.dateCreated}</p>
@@ -29,7 +31,7 @@ export default class taskDescPanel {
     const hero = document.querySelector('.container-hero')
     // The e.target gets the title
     hero.appendChild(panel)
-    home.clearDescPanel();
+    
 
     return panel
   }
@@ -43,6 +45,11 @@ export default class taskDescPanel {
       hero.appendChild(this.panel(task))
       
       
+    }
+  }
+  static removePanel(e) {
+    if(e.target.classList.contains('hide-desc-panel')){
+      home.clearDescPanel();
     }
   }
   

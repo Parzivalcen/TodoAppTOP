@@ -113,13 +113,13 @@ class store {
     })
   }
  // save on changes 
- static SaveNotes(taskTitle, htmlValue) {
-  let tasks = this.getTasks();
-  let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
-  console.log('index', taskIndex);
-  tasks[taskIndex].notes = htmlValue; 
-  this.saveTask(tasks);
- }
+  static SaveNotes(taskTitle, htmlValue) {
+    let tasks = this.getTasks();
+    let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
+    console.log('index', taskIndex);
+    tasks[taskIndex].notes = htmlValue; 
+    this.saveTask(tasks);
+  }
 
 }
 
