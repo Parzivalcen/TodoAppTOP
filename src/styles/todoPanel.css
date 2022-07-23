@@ -6,8 +6,8 @@
     position: relative;
     padding: 1em;
     border-radius: 10px;
-    min-height: 40vh;
-    width: 33vh;
+    min-height: 45vh;
+    width: 35vh;
     background-color: #258d81;
     color: white;
   }
@@ -34,8 +34,8 @@
     height: 2vh;
     /* Change Icon color */
     background-color: #800020;
-    -webkit-mask-image: url(../imgs/closeMenu.svg) ;
-    mask-image: url(../imgs/closeMenu.svg) ;
+    -webkit-mask-image: url(../imgs/minusDelete.svg) ;
+    mask-image: url(../imgs/minusDelete.svg) ;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
   }
@@ -69,6 +69,11 @@
     display: flex;
     align-items: center;
     bottom: .5em;
+    width: 30vh;
+    
+  }
+  #add-task-text{
+    width: inherit;
   }
   .add-task-container > label{
     display: block;
@@ -83,7 +88,7 @@
   .add-task-container > input{
     /* position: relative; */
     padding-left: 1em;
-    flex-grow: 2;
+    flex-grow: 1;
     outline: none;
     border: none;
     display:block;
@@ -93,6 +98,7 @@
   }
   #add-task-text {
     border-radius: 10px;
+    width: 30vh;
   }
   #add-task-text:focus + .add-task-label {
     opacity: 0;

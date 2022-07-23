@@ -77,6 +77,7 @@ export default class taskDescPanel {
         console.log(taskTitle);
         console.log(notes);
         store.SaveNotes(taskTitle, notes);
+        alert('notes saved');
           // store.SaveNotes(taskTitle, notes.textContent)
 
       }

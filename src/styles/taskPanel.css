@@ -25,8 +25,8 @@
     height: 2vh;
     /* Change Icon color */
     background-color: #800020;
-    -webkit-mask-image: url(../imgs/closeMenu.svg) ;
-    mask-image: url(../imgs/closeMenu.svg) ;
+    -webkit-mask-image: url(../imgs/minusDelete.svg) ;
+    mask-image: url(../imgs/minusDelete.svg) ;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     position: absolute;
