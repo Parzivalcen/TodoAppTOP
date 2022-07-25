@@ -1,12 +1,15 @@
 @media screen and (min-width: 0px){
   .taskDescPanel{
     position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 20%);
     min-height: 40vh;
     width: 33vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgba(233, 197, 106, 0.9);
+    background-color: rgba(233, 197, 106);
     backdrop-filter: blur(8px);
     padding: 1em;
     border-radius: 10px;

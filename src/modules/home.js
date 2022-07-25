@@ -52,6 +52,15 @@ class home {
     const descPanel = document.querySelector('.taskDescPanel');
     descPanel.remove();
   }
+
+  // wrap all elements when popup is clicked, so the pop up isnt wrapped. 
+  static blurElements(){
+    document.querySelector('main').classList.add('blur-document');
+    // console.log(main);
+  }
+  static deBlurElements(){
+    document.querySelector('main').classList.remove('blur-document');
+  }
 }
 
 

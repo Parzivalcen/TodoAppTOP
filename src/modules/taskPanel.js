@@ -37,12 +37,13 @@ export default class taskDescPanel {
   }
   static showPanel(e){
     if(e.target.parentElement.classList.contains('task-content')){
-      const hero = document.querySelector('.container-hero')
+      const body = document.body;
       const taskTitle =  e.target.parentElement.firstElementChild.textContent;
       console.log(taskTitle);
       const task = store.getSingleTask(taskTitle);
       // The e.target gets the title
-      hero.appendChild(this.panel(task))
+      body.appendChild(this.panel(task))
+      home.blurElements();
       
       
     }
@@ -50,6 +51,7 @@ export default class taskDescPanel {
   static removePanel(e) {
     if(e.target.classList.contains('hide-desc-panel')){
       home.clearDescPanel();
+      home.deBlurElements();
     }
   }
   

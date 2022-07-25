@@ -162,7 +162,21 @@ TODO
 -------------- */
 .container-hero{
   background-color: #264653;
-  height: 100vh;
+  height: 90vh;
   display: grid;
   place-items: center;
+}
+/* BLUR */
+.blur-document{
+  filter: blur(20px);
+}
+
+
+@media screen and (min-width:900px) {
+  .container-hero{
+    background-image: url(../imgs/bg-Desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
 }

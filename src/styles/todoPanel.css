@@ -19,9 +19,12 @@
   .TaskItemCheckbox{
     place-self: center;
     border-radius: 50%;
-    background: transparent;
     border: none;
-    background-image: url(../imgs/uncheck.svg);
+    background-color: #e9c46a;
+    -webkit-mask-image: url(../imgs/uncheck.svg) ;
+    mask-image: url(../imgs/uncheck.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     width: 2vh;
     height: 2vh;
     cursor: pointer;
@@ -76,7 +79,7 @@
     display: flex;
     align-items: center;
     bottom: .5em;
-    left: 1.5em;
+    left: 2.8vh;
     width: 30vh;
     
   }
@@ -119,14 +122,15 @@
     width: 2em;
     height: 2em;
     /* Change Icon color */
-    background-color: grey;
+    background-color: rgb(216, 183, 99);
     -webkit-mask-image: url(../imgs/arrowUp.svg) ;
     mask-image: url(../imgs/arrowUp.svg) ;
+    cursor: pointer;
   }
 
 
 
 }
 @media screen and(min-width: 800px) {
-  
+
 }

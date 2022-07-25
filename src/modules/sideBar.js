@@ -48,6 +48,7 @@ export default class sideBar {
   static showAddCategoryPanel(e) {
     const addProjectPopUp = document.querySelector('.add-project-popUp');
     if(e.target.id == 'add-categories'){
+      home.blurElements();
 
       addProjectPopUp.setAttribute('project-pop-visible', true);
       
@@ -61,6 +62,7 @@ export default class sideBar {
     const cancelBtn = document.querySelector('.cancel-project-btn');
     cancelBtn.addEventListener('click', () => {
       addProjectPopUp.setAttribute('project-pop-visible', false);
+      home.deBlurElements();
     })
   }
 
@@ -76,6 +78,7 @@ export default class sideBar {
         sideBar.addCategory(title);
         // Local Storage
         store.storeCategory(title);
+        home.deBlurElements();
       }
       
       Task.clearInputField('#add-project-text');

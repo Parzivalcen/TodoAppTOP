@@ -14,6 +14,7 @@ side Panel
     /*BLUR bg  */
     backdrop-filter: blur(8px);
     color: white;
+    max-height: 90vh;
   }
   .categories-navigation[data-visible="true"]{
     transform: translateX(0%);
@@ -29,11 +30,13 @@ side Panel
     gap: 0.5rem;
   }
   .add-categories{
-    background-image: url(../imgs/plus.svg);
+    background-color: #e9c46a;
+    -webkit-mask-image: url(../imgs/plus.svg) ;
+    mask-image: url(../imgs/plus.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     width: 1.5rem;
     height: 1.5rem;
-    background-color: transparent;
-    background-repeat: no-repeat;
     border: 0;
     z-index: 1000;
     cursor: pointer;
@@ -59,14 +62,17 @@ side Panel
   /* TOGGLE */
   .mobile-toggle{
     display: block;
-    background-image: url(../imgs/hamMenu.svg);
+    /* Change Icon color */
+    background-color: #e9c46a;
+    -webkit-mask-image: url(../imgs/hamMenu.svg) ;
+    mask-image: url(../imgs/hamMenu.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     position: absolute;
     width: 2rem;
     height: 2rem;
     left: 1rem;
     margin-top: 1rem;
-    background-color: transparent;
-    background-repeat: no-repeat;
     border: 0;
     z-index: 1000;
     cursor: pointer;
@@ -74,7 +80,8 @@ side Panel
     
   }
   .mobile-toggle[aria-expanded="true"]{
-    background-image: url(../imgs/closeMenu.svg);  
+    -webkit-mask-image: url(../imgs/closeMenu.svg) ;
+    mask-image: url(../imgs/closeMenu.svg) ;
   }
 
   /* -----------
@@ -92,7 +99,7 @@ side Panel
     position: absolute;
     top: 20%;
     left: 50%;
-    z-index: 1001;
+    z-index: 1005;
     transform: translate(-50%, 20%);
   }
   .add-project-popUp > input, button{
