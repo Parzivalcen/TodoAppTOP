@@ -66,6 +66,10 @@ select {
   appearance: none;
   
 }
+input:focus{
+ outline: none;
+  appearance: none;
+}
 
 
 /* remove animation for people who turned them off */

@@ -15,6 +15,7 @@ export default class taskDescPanel {
       <button class="hide-desc-panel"></button>
     </div>
     <div class="set-date">
+      <label class="add-date-label" for="due-Date">Add due date</label>
       <input type="date" id="due-Date" name="due-Date">
       <button class="due-Date-btn"></button>
     </div>

@@ -34,13 +34,17 @@
     cursor: pointer;
   }
   .set-date{
+    position: relative;
     display: grid;
     place-items: center;
     padding: .2em;
     border-radius: 10px;
     grid-template-columns: 1fr 4vh;
-
     border: 1px solid white;
+  }
+  .add-date-label{
+    position: absolute;
+    z-index: -1;
   }
   #due-Date{
     border: none;
@@ -59,9 +63,14 @@
   .notes-panel{
     position: relative;
     margin-top: 1rem;
+    min-height: 10vh;
     padding: .3em;
     border: 1px solid white;
     border-radius: 10px;
+    background: rgba(221, 192, 117, 0.9);
+  }
+  .task-notes:focus{
+    outline: none;
   }
   .notes-panel > .add-task-note{
     background: transparent;
@@ -69,4 +78,10 @@
     bottom: .5vh;
     right    : 1vh;
   }
+}
+@media screen and (min-width: 800px) {
+  .add-date-label{
+    display: none;
+  }
+  
 }

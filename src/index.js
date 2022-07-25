@@ -5,6 +5,7 @@ import { store } from "./StoreTask/store";
 import { home } from "./modules/home";
 import sideBar from "./modules/sideBar";
 import taskDescPanel from "./modules/taskPanel";
+import footer from "./modules/footer";
 
 const body = document.body;
 const main = document.createElement('main');
@@ -18,6 +19,8 @@ sideBar.toggle();
 body.appendChild(main);
 
 main.appendChild(home.hero());
+
+body.appendChild(footer())
 
 document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
