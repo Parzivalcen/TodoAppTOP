@@ -31,6 +31,7 @@
     mask-repeat: no-repeat;
     position: absolute;
     right: 1vh;
+    cursor: pointer;
   }
   .set-date{
     display: grid;

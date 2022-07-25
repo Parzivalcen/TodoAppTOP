@@ -136,7 +136,7 @@ utility clases
 .container {
   padding-inline: 0rem;
   margin-inline: auto;
-  max-width: 1200px;
+  max-width: inherit;
 }
 
 /* for the visually impaired -Hide Contten- */

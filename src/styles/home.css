@@ -13,9 +13,13 @@ side Panel
     transition: 0.4s ease-in-out;
     /*BLUR bg  */
     backdrop-filter: blur(8px);
+    color: white;
   }
   .categories-navigation[data-visible="true"]{
     transform: translateX(0%);
+  }
+  .category:hover{
+    cursor: pointer;
   }
   /* categorieS TITLE */
   .categories-title{
@@ -38,14 +42,16 @@ side Panel
   .category > div {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
   .delete-category{
-    
-    background-image: url(../imgs/minusDelete.svg);
     width: 1rem;
     height: 1rem;
-    background-color: transparent;
-    background-repeat: no-repeat;
+    background-color: #800020;
+    -webkit-mask-image: url(../imgs/minusDelete.svg) ;
+    mask-image: url(../imgs/minusDelete.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     border: 0;
     cursor: pointer;
 
@@ -114,5 +120,27 @@ side Panel
   /* Attribute swicth */
   .add-project-popUp[project-pop-visible="true"]{
     display: block;
+  }
+}
+@media screen and (min-width: 900px) {
+  .categories-navigation{
+    transform: translateX(0%);
+    inset: 0 70% 0 0;
+    box-shadow: 11px 3px 5px -6px rgba(0,0,0,0.75);
+    
+  }
+  .mobile-toggle{
+    display: none;
+  }
+
+}
+@media screen and (min-width: 1200px) {
+  .categories-navigation{
+    inset: 0 75% 0 0;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .categories-navigation{
+    inset: 0 80% 0 0;
   }
 }
