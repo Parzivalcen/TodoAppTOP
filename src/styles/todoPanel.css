@@ -1,5 +1,6 @@
 @media screen and (min-width: 0px) {
   .title{
+    margin-bottom: 1.5vh;
     border-bottom: 1px solid white;
   }
   .todo-panel{
@@ -7,13 +8,23 @@
     padding: 1em;
     border-radius: 10px;
     min-height: 45vh;
+    max-height: 60vh;
     width: 35vh;
     background-color: #258d81;
     color: white;
+    overflow: auto;
     
   }
+/* Make tasks scrollable */
+  .tasks{
+    max-height: 40vh;
+    overflow: auto;
+  }
+
+  
+  
   .task{
-    padding: 2vh;
+    padding: .8vh;
     grid-template-columns: 2vh 1fr 2vh;
   }
   .TaskItemCheckbox{
@@ -76,13 +87,13 @@
   
   /* INPUT TASK FIELD */
   .add-task-container{
-    position: absolute;
+    position: sticky;
     display: flex;
     gap: .5vh;
     border-radius: 10px;
     align-items: center;
-    bottom: .5em;
-    left: 2.8vh;
+    bottom: .1vh;
+    left: .5vh;
     width: 30vh;
     height: 5vh;
 
@@ -136,6 +147,11 @@
 
 }
 @media screen and (min-width: 500px) {
+
+  .add-task-container{
+    bottom: .05em;
+    left: 2.8vh;
+  }
   .add-task-container > label{
     top: 1.6vh;
     left: 2vh;
