@@ -20,6 +20,7 @@
     place-self: center;
     border-radius: 50%;
     border: none;
+    color: #e9c46a;
     background-color: #e9c46a;
     -webkit-mask-image: url(../imgs/uncheck.svg) ;
     mask-image: url(../imgs/uncheck.svg) ;
@@ -77,29 +78,31 @@
   .add-task-container{
     position: absolute;
     display: flex;
+    gap: .5vh;
+    border-radius: 10px;
     align-items: center;
     bottom: .5em;
     left: 2.8vh;
     width: 30vh;
+    height: 5vh;
+
     
   }
   #add-task-text{
-    width: inherit;
+    width: 25vh;
   }
   .add-task-container > label{
     display: block;
     position: absolute;
-    top: .5em;
-    left: 2em;
+    top: .8em;
+    left: 2vh;
     opacity: .4;
     font-size: 12px;
     color: black;
   }
   
   .add-task-container > input{
-    /* position: relative; */
     padding-left: 1em;
-    flex-grow: 1;
     outline: none;
     border: none;
     display:block;
@@ -109,28 +112,39 @@
   }
   #add-task-text {
     border-radius: 10px;
-    width: 30vh;
+    
   }
   #add-task-text:focus + .add-task-label {
     opacity: 0;
   }
   .add-task-btn{
-    position: absolute;
-    right: 1em;
     background: transparent;
     border: none;
-    width: 2em;
-    height: 2em;
+    width: 5vh;
+    height: 5vh;
+    color: #e9c46a;
     /* Change Icon color */
     background-color: rgb(216, 183, 99);
     -webkit-mask-image: url(../imgs/arrowUp.svg) ;
     mask-image: url(../imgs/arrowUp.svg) ;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
     cursor: pointer;
   }
 
 
 
 }
-@media screen and(min-width: 800px) {
+@media screen and (min-width: 500px) {
+  .add-task-container > label{
+    top: 1.6vh;
+    left: 2vh;
+  }
+  .add-task-btn{
+    width: 3vh;
+    height: 3vh;
+  }
+}
+@media screen and (min-width: 800px) {
 
 }

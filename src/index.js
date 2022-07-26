@@ -44,4 +44,8 @@ document.addEventListener('click', (e) => {
   // store.saveDueDate(e);
 })
 
-// task done
+// Check if HMR interface is enabled
+if (module.hot) {
+  // Accept hot update
+  module.hot.accept();
+}
