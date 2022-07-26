@@ -24,7 +24,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'To-do App',
+      title: 'Get Things Done',
+      favicon: "./src/imgs/climb.png"
     }),
   ],
   output: {
