@@ -1,3 +1,6 @@
 node_modules
 eg.html
 snipets.js
+.firebaserc
+firebase.json
+.firebase
