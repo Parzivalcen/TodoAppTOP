@@ -4,3 +4,4 @@ snipets.js
 .firebaserc
 firebase.json
 .firebase
+runtime.bundle.js
