@@ -7,8 +7,13 @@ import { home } from "./home";
 export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
-    panel.classList.add('taskDescPanel')
-    // get date for date input value
+    panel.classList.add('taskDescPanel');
+
+    // FORMAT the stored date value for showing it on screen to mm/dd/yyyy. 
+    let dateCreated = new Date(task.dateCreated).toJSON().slice(0,10);
+    console.log(dateCreated);
+    dateCreated = format(new Date(dateCreated.replace(/-/g, '/')), 'MM/dd/yyyy');
+
     panel.innerHTML = `
     <div class="title title--task">
       <h1>${task.title}</h1>
@@ -25,7 +30,7 @@ export default class taskDescPanel {
     </div>
     <div>
       <p class="deadline">Deadline: ${task.dueDate}</span></p>
-      <p>Date Created: ${task.dateCreated}</p>
+      <p>Date Created: ${dateCreated}</p>
     </div>
     `
     const hero = document.querySelector('.container-hero')

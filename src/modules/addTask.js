@@ -7,7 +7,7 @@ class Task {
     this.title = title;
     this.tag = tag;
     this.done = 'undone';
-    this.dueDate = 'Your are free'
+    this.dueDate = null;
     this.dateCreated = dateCreated;
     this.notes = 'Add notes here';
     // add date created, storing the date the task is created. 
@@ -46,9 +46,8 @@ class Task {
         alert("Please enter more than three characters")
       }else{
         // get Today's date 
-        let date = new Date().toJSON().slice(0,10);
-        // format date to mm/dd/yyyy
-        date = format(new Date(date.replace(/-/g, '/')), 'MM/dd/yyyy');
+        // let date = new Date().toJSON().slice(0,10);
+        const date = new Date();
         let newTask = new Task(title, tag, date);
         // add task to DOM
         Task.addTaskPanel(newTask);
