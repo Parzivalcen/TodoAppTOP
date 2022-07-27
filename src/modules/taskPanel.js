@@ -8,7 +8,8 @@ export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
     panel.classList.add('taskDescPanel');
-    const dueDate = task.dueDate === null ? 'No Due date added' : task.dueDate;
+    const dueDate = task.dueDate === null ? 'No Due date added' :
+                                    this.onScreenDateFormat(task.dueDate) ;
 
     panel.innerHTML = `
     <div class="title title--task">
@@ -36,6 +37,8 @@ export default class taskDescPanel {
 
     return panel
   }
+
+
   static showPanel(e){
     if(e.target.parentElement.classList.contains('task-content')){
       const body = document.body;
@@ -75,10 +78,10 @@ export default class taskDescPanel {
         const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
         store.addDate(title, date);
         this.updateDate(title);
-        
-        // return date;
+
       }
     }
+
     static updateDate(title){
       // Show date
       const deadline = document.querySelector('.deadline');
@@ -86,6 +89,7 @@ export default class taskDescPanel {
       
       deadline.innerHTML = `Deadline: ${this.onScreenDateFormat(task.dueDate)}`;
     }
+
     static updateNotes (e){
       if(e.target.classList.contains('add-task-note')){
         const notes = document.querySelector('.task-notes').textContent;
@@ -94,8 +98,6 @@ export default class taskDescPanel {
         console.log(notes);
         store.SaveNotes(taskTitle, notes);
         alert('notes saved');
-          // store.SaveNotes(taskTitle, notes.textContent)
-
       }
     }
   
