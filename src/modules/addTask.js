@@ -35,13 +35,14 @@ class Task {
     
   }
   
+
   // Take input
-  static takeInput (category) {
-    const addBtn = document.querySelector('.add-task-btn');
-    addBtn.addEventListener('click', () => {
+  static takeInputEvent (category) {
+    // Funtion to take input on enter key pressed or click
+    const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;
-      if(title.length < 3){
-        alert("Please enter more than three characters")
+      if(title.length < 1){
+        alert("Please enter at least one character")
       }else{
         // get Today's date 
         const date = new Date();
@@ -52,8 +53,19 @@ class Task {
         store.addTaskToLS(newTask);
       }
       Task.clearInputField('#add-task-text');
+    }
+    
+    const addBtn = document.querySelector('.add-task-btn');
+    addBtn.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter'){
+        takeInput(category)
+      }
+    })
+    addBtn.addEventListener('click', () =>{
+      takeInput(category);
     })
   }
+  
   // Clear Input fields
   static clearInputField(element) {
     document.querySelector(element).value = '';

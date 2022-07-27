@@ -147,12 +147,12 @@ export default class sideBar {
     `
     if (category == 'All'){
       Task.displayTasks();
-      Task.takeInput('General')
+      Task.takeInputEvent('general')
     }else{
       Task.displayTasksCategorically(category);
     }
     
-    Task.takeInput(category)
+    Task.takeInputEvent(category)
   }
     
   // Delete categories. 
