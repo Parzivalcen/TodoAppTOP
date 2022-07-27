@@ -67,13 +67,14 @@ export default class sideBar {
   }
 
   //Add Category when pop Up <<add>> btn is pressed
-  static addNewCategoryBtn (e) {
-    if(e.target.classList.contains('add-project-btn')){
-      const addProjectPopUp = document.querySelector('.add-project-popUp');
+  static addNewCategoryBtn () {
+
+    const addProjectPopUp = document.querySelector('.add-project-popUp');
+    const takeInput = () =>{
       let title = document.querySelector('#add-project-text').value;
       title = title.toLowerCase();
-
-      if(title.length < 3){
+  
+      if(title.length < 1){
         alert('Please enter at least THREE characters')
       }else{
         sideBar.addCategory(title);
@@ -86,6 +87,17 @@ export default class sideBar {
       // Hide BTN
       addProjectPopUp.setAttribute('project-pop-visible', false);
     }
+
+    const addCatBtn = document.querySelector('.add-project-btn');
+    addProjectPopUp.addEventListener('keypress', (e)=>{
+      if(e.key === 'Enter'){
+        takeInput()
+      }
+    })
+    // mouseup unlike click does not interact with the enter key
+    addCatBtn.addEventListener('mouseup', ()=>{
+      takeInput();
+    })
   }
 
   // Add Category //
@@ -145,7 +157,7 @@ export default class sideBar {
       <button class="add-task-btn btn">Add</button>
     </div>
     `
-    if (category == 'All'){
+    if (category == 'All Tasks'){
       Task.displayTasks();
       Task.takeInputEvent('general')
     }else{

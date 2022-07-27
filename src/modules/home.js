@@ -17,7 +17,7 @@ class home {
         </div>    
         <li class="category">
           <div>
-            <p class="category--title">All</p>
+            <p class="category--title">All Tasks</p>
             
           </div> 
         </li>

@@ -32,7 +32,6 @@ document.addEventListener('click', (e) => {
   store.changeDoneState(e);
   sideBar.categoryPressed(e);
   sideBar.showAddCategoryPanel(e);
-  sideBar.addNewCategoryBtn(e);
   sideBar.deleteCategory(e);
   taskDescPanel.showPanel(e);
   taskDescPanel.getDate(e);
@@ -42,8 +41,9 @@ document.addEventListener('click', (e) => {
 })
 
 /*Take the input user input 
-  from the text box, this file is located on ./UI/addTask.js*/  
+from the text box, this file is located on ./UI/addTask.js*/  
 Task.takeInputEvent('general');
+sideBar.addNewCategoryBtn();
 
 // Check if HMR interface is enabled
 if (module.hot) {
