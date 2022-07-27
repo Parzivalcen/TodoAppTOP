@@ -1,7 +1,5 @@
 import { store } from "../StoreTask/store";
 
-import format from "date-fns/format";
-
 class Task {
   constructor(title, category, dateCreated){
     this.title = title;
@@ -9,7 +7,7 @@ class Task {
     this.done = false;
     this.dueDate = null;
     this.dateCreated = dateCreated;
-    this.notes = 'Add notes here';
+    this.notes = 'add notes here';
     // add date created, storing the date the task is created. 
   }
   // Add Task TO Panel
