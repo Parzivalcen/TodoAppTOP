@@ -24,9 +24,6 @@ body.appendChild(footer())
 
 document.addEventListener('DOMContentLoaded', Task.displayTasks());
 
-/*Take the input user input 
-  from the text box, this file is located on ./UI/addTask.js*/  
-Task.takeInput('general');
 // delete
 document.addEventListener('click', (e) => {
   Task.deleteTask(e);
@@ -43,6 +40,10 @@ document.addEventListener('click', (e) => {
   taskDescPanel.removePanel(e);
   // store.saveDueDate(e);
 })
+
+/*Take the input user input 
+  from the text box, this file is located on ./UI/addTask.js*/  
+Task.takeInputEvent('general');
 
 // Check if HMR interface is enabled
 if (module.hot) {

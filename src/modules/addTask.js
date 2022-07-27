@@ -41,9 +41,7 @@ class Task {
     // Funtion to take input on enter key pressed or click
     const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;
-      if(title.length < 1){
-        alert("Please enter at least one character")
-      }else{
+      if(title.length > 0){
         // get Today's date 
         const date = new Date();
         let newTask = new Task(title, category, date);
@@ -51,13 +49,16 @@ class Task {
         Task.addTaskPanel(newTask);
         // Store task on Local storage
         store.addTaskToLS(newTask);
+      }else{
+        alert("Please enter at least one character")
       }
       Task.clearInputField('#add-task-text');
     }
-    
+    const taskContainer = document.querySelector('.add-task-container');
     const addBtn = document.querySelector('.add-task-btn');
-    addBtn.addEventListener('keypress', (e) => {
+    taskContainer.addEventListener('keypress', (e) => {
       if(e.key === 'Enter'){
+        // ENTER KEY
         takeInput(category)
       }
     })
@@ -65,7 +66,7 @@ class Task {
       takeInput(category);
     })
   }
-  
+
   // Clear Input fields
   static clearInputField(element) {
     document.querySelector(element).value = '';
