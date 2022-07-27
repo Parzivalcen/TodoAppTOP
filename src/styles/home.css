@@ -42,6 +42,9 @@ side Panel
     cursor: pointer;
   }
   /* SINGLE CATEGORY */
+  .category--title{
+    text-transform: capitalize;
+  }
   .category > div {
     display: grid;
     grid-template-columns: 1fr 1fr;

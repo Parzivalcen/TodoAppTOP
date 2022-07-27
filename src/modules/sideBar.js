@@ -66,11 +66,12 @@ export default class sideBar {
     })
   }
 
-  //Add Category POPUP Btn
+  //Add Category when pop Up <<add>> btn is pressed
   static addNewCategoryBtn (e) {
     if(e.target.classList.contains('add-project-btn')){
       const addProjectPopUp = document.querySelector('.add-project-popUp');
-      const title = document.querySelector('#add-project-text').value;
+      let title = document.querySelector('#add-project-text').value;
+      title = title.toLowerCase();
 
       if(title.length < 3){
         alert('Please enter at least THREE characters')

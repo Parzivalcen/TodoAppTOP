@@ -60,12 +60,14 @@ class store {
         let title = e.target.nextElementSibling.firstElementChild.innerHTML;
 
         let tasks = store.getTasks();
+      /*Get index by the task title pressed. 
+      So that we change the state of only that task*/ 
         let taskIndex = tasks.findIndex((task) => task.title == title )
-        if (tasks[taskIndex].done == 'undone'){
-          tasks[taskIndex].done = 'done';
+        if (tasks[taskIndex].done){
+          tasks[taskIndex].done = false;
           console.log('chang', tasks[taskIndex].done)
         }else{
-          tasks[taskIndex].done = 'undone';
+          tasks[taskIndex].done = true;
         }
         this.saveTask(tasks);
   

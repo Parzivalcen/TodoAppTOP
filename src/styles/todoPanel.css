@@ -67,7 +67,7 @@
       
 
   }
-  .task[aria-disabled="true"] .task-tag {
+  .task[aria-disabled="true"] .task-category {
     display: none;
   }
   .task-title{
@@ -79,8 +79,9 @@
     text-decoration: line-through;
     
   }
-  .task-tag{
+  .task-category{
     color: rgb(104, 104, 104);
+    text-transform: capitalize;
     
 
   }

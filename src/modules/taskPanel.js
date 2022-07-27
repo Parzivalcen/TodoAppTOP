@@ -8,11 +8,8 @@ export default class taskDescPanel {
   static panel (task) {
     const panel = document.createElement('div');
     panel.classList.add('taskDescPanel');
-
-    // FORMAT the stored date value for showing it on screen to mm/dd/yyyy. 
-    let dateCreated = new Date(task.dateCreated).toJSON().slice(0,10);
-    console.log(dateCreated);
-    dateCreated = format(new Date(dateCreated.replace(/-/g, '/')), 'MM/dd/yyyy');
+    const dueDate = task.dueDate === null ? 'No Due date added' :
+                                    this.onScreenDateFormat(task.dueDate) ;
 
     panel.innerHTML = `
     <div class="title title--task">
@@ -29,8 +26,8 @@ export default class taskDescPanel {
       <button class="add-task-note">Add</button>
     </div>
     <div>
-      <p class="deadline">Deadline: ${task.dueDate}</span></p>
-      <p>Date Created: ${dateCreated}</p>
+      <p class="deadline">Deadline: ${dueDate}</span></p>
+      <p>Date Created: ${this.onScreenDateFormat(task.dateCreated)}</p>
     </div>
     `
     const hero = document.querySelector('.container-hero')
@@ -40,6 +37,8 @@ export default class taskDescPanel {
 
     return panel
   }
+
+
   static showPanel(e){
     if(e.target.parentElement.classList.contains('task-content')){
       const body = document.body;
@@ -59,25 +58,38 @@ export default class taskDescPanel {
       home.deBlurElements();
     }
   }
+
+  /*
+  FORMAT the stored date value for showing it on screen to mm/dd/yyyy. 
+  */
+  static onScreenDateFormat(date){
+    let toFormat = new Date(date).toJSON().slice(0,10);
+    let formatedDate = format(new Date(toFormat.replace(/-/g, '/')), 'MM/dd/yyyy');
+    return formatedDate;
+  }
   
     // Date
     static getDate (e){
       if (e.target.classList.contains('due-Date-btn')){
         let date = document.querySelector('#due-Date').value;
-        date = format(new Date(date.replace(/-/g, '/')), 'MM/dd/yyyy')
+        console.log(date);
+        // note: this should be a default date, format it on update date
+        date = new Date(date);
         const title = e.target.parentElement.previousElementSibling.firstElementChild.textContent;
         store.addDate(title, date);
         this.updateDate(title);
-        
-        return date;
+
       }
     }
+
     static updateDate(title){
       // Show date
       const deadline = document.querySelector('.deadline');
-      const task = store.getSingleTask(title)
-      deadline.innerHTML = `Deadline: ${task.dueDate}`;
+      const task = store.getSingleTask(title);
+      
+      deadline.innerHTML = `Deadline: ${this.onScreenDateFormat(task.dueDate)}`;
     }
+
     static updateNotes (e){
       if(e.target.classList.contains('add-task-note')){
         const notes = document.querySelector('.task-notes').textContent;
@@ -86,8 +98,6 @@ export default class taskDescPanel {
         console.log(notes);
         store.SaveNotes(taskTitle, notes);
         alert('notes saved');
-          // store.SaveNotes(taskTitle, notes.textContent)
-
       }
     }
   
