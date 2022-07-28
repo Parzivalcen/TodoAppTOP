@@ -36,6 +36,7 @@
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     position: absolute;
+    top: 1vh;
     right: 1vh;
     cursor: pointer;
   }
@@ -69,13 +70,23 @@
   .notes-panel{
     position: relative;
     margin-top: 1rem;
-    min-height: 10vh;
+    min-height: 5vh;
     padding: .3em;
     border: 1px solid white;
     border-radius: 10px;
     background: rgba(221, 192, 117, 0.9);
   }
-  .task-notes:focus{
+  .textarea{
+    display: block;
+    min-height: 4.8vh;
+    width: 100%;
+  }
+  /* If textarea empty show place holder */
+  .textarea:empty::before{
+    content: 'Add notes';
+    color: grey;
+  }
+  .textarea:focus{
     outline: none;
   }
   .notes-panel > .add-task-note{
@@ -83,6 +94,7 @@
     position: absolute;
     bottom: .5vh;
     right    : 1vh;
+    cursor: pointer;
   }
 }
 @media screen and (min-width: 800px) {

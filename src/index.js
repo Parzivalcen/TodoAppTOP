@@ -45,8 +45,3 @@ from the text box, this file is located on ./UI/addTask.js*/
 Task.takeInputEvent('general');
 sideBar.addNewCategoryBtn();
 
-// Check if HMR interface is enabled
-if (module.hot) {
-  // Accept hot update
-  module.hot.accept();
-}

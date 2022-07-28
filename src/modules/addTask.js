@@ -7,7 +7,7 @@ class Task {
     this.done = false;
     this.dueDate = null;
     this.dateCreated = dateCreated;
-    this.notes = 'add notes here';
+    this.notes = undefined;
     // add date created, storing the date the task is created. 
   }
   // Add Task TO Panel

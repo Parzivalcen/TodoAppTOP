@@ -10,11 +10,12 @@ export default class taskDescPanel {
     panel.classList.add('taskDescPanel');
     const dueDate = task.dueDate === null ? 'No Due date added' :
                                     this.onScreenDateFormat(task.dueDate) ;
+    const notes = task.notes === undefined ? '' : task.notes;
 
     panel.innerHTML = `
+    <button class="hide-desc-panel"></button>
     <div class="title title--task">
       <h1>${task.title}</h1>
-      <button class="hide-desc-panel"></button>
     </div>
     <div class="set-date">
       <label class="add-date-label" for="due-Date">Add due date</label>
@@ -22,8 +23,7 @@ export default class taskDescPanel {
       <button class="due-Date-btn"></button>
     </div>
     <div class="notes-panel">
-      <p><span class="textarea" role="textbox" contenteditable>${task.notes}</span></p>
-      <button class="add-task-note">Add</button>
+        <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
     </div>
     <div>
       <p class="deadline">Deadline: ${dueDate}</span></p>
@@ -34,7 +34,7 @@ export default class taskDescPanel {
     // The e.target gets the title
     hero.appendChild(panel)
     
-
+    this.updateNotesOnIput();
     return panel
   }
 
@@ -43,7 +43,6 @@ export default class taskDescPanel {
     if(e.target.parentElement.classList.contains('task-content')){
       const body = document.body;
       const taskTitle =  e.target.parentElement.firstElementChild.textContent;
-      console.log(taskTitle);
       const task = store.getSingleTask(taskTitle);
       // The e.target gets the title
       body.appendChild(this.panel(task))
@@ -90,9 +89,23 @@ export default class taskDescPanel {
       deadline.innerHTML = `Deadline: ${this.onScreenDateFormat(task.dueDate)}`;
     }
 
+    static updateNotesOnIput(){
+      const notesListener = document.querySelector('.textarea');
+      const panel = notesListener.parentElement.parentElement;
+      // Key up works on mobile as well
+      notesListener.addEventListener('keyup', ()=>{
+        const notes = document.querySelector('.textarea').innerHTML;
+        // this line to get an element is neat 
+        const taskTitle = panel.getElementsByTagName('h1')[0].textContent;
+        store.SaveNotes(taskTitle, notes);
+
+      })
+
+    }
     static updateNotes (e){
       if(e.target.classList.contains('add-task-note')){
-        const notes = document.querySelector('.task-notes').textContent;
+
+        const notes = document.querySelector('.textarea').innerHTML;
         const taskTitle = e.target.parentElement.parentElement.firstElementChild.firstElementChild.textContent;
         console.log(taskTitle);
         console.log(notes);
