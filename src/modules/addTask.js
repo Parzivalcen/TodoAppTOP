@@ -56,13 +56,18 @@ class Task {
     }
     const taskContainer = document.querySelector('.add-task-container');
     const addBtn = document.querySelector('.add-task-btn');
+    // ENTER KEY
     taskContainer.addEventListener('keypress', (e) => {
       if(e.key === 'Enter'){
-        // ENTER KEY
         takeInput(category)
       }
     })
-    addBtn.addEventListener('click', () =>{
+    // mouseup unlike click does not interact with the enter key
+    addBtn.addEventListener('mouseup', () =>{
+      takeInput(category);
+    })
+    // mobile handler
+    addBtn.addEventListener('touchend', () =>{
       takeInput(category);
     })
   }
