@@ -5,3 +5,5 @@ snipets.js
 firebase.json
 .firebase
 runtime.bundle.js
+webpack-deploy.config.js
+prod.webpack.config.js
