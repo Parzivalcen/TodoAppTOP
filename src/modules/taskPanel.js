@@ -22,7 +22,7 @@ export default class taskDescPanel {
       <button class="due-Date-btn"></button>
     </div>
     <div class="notes-panel">
-      <p class="task-notes" contenteditable="true">${task.notes}</p>
+      <p><span class="textarea" role="textbox" contenteditable>${task.notes}</span></p>
       <button class="add-task-note">Add</button>
     </div>
     <div>
