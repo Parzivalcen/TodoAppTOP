@@ -66,6 +66,10 @@ class Task {
     addBtn.addEventListener('mouseup', () =>{
       takeInput(category);
     })
+    // mobile handler
+    addBtn.addEventListener('touchend', () =>{
+      takeInput(category);
+    })
   }
 
   // Clear Input fields

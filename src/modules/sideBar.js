@@ -75,7 +75,7 @@ export default class sideBar {
       title = title.toLowerCase();
   
       if(title.length < 1){
-        alert('Please enter at least THREE characters')
+        alert('Please enter at least one character')
       }else{
         sideBar.addCategory(title);
         // Local Storage
@@ -96,6 +96,10 @@ export default class sideBar {
     })
     // mouseup unlike click does not interact with the enter key
     addCatBtn.addEventListener('mouseup', ()=>{
+      takeInput();
+    })
+    // mobile handler
+    addCatBtn.addEventListener('touchend', ()=>{
       takeInput();
     })
   }
