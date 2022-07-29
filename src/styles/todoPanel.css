@@ -19,6 +19,7 @@
   .tasks{
     max-height: 40vh;
     overflow: auto;
+    margin-bottom: 3vh;
   }
 
   
@@ -88,16 +89,16 @@
   
   /* INPUT TASK FIELD */
   .add-task-container{
-    position: sticky;
+    position: absolute;
     display: flex;
     gap: .5vh;
     border-radius: 10px;
     align-items: center;
-    bottom: .1vh;
-    left: .5vh;
+    bottom: .3vh;
+    left: 3vh;
     width: 30vh;
     height: 5vh;
-
+    margin-right: ;
     
   }
   #add-task-text{
@@ -106,7 +107,7 @@
   .add-task-container > label{
     display: block;
     position: absolute;
-    top: .8em;
+    top: .7em;
     left: 2vh;
     opacity: .4;
     font-size: 12px;
@@ -152,7 +153,7 @@
 
   .add-task-container{
     bottom: .05em;
-    left: 2.8vh;
+    left: 3vh;
   }
   .add-task-container > label{
     top: 1.6vh;
