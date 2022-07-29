@@ -1,6 +1,6 @@
 import { Task } from "./modules/addTask";
-import './styles/styles.css';
-
+// import './styles/styles.css';
+import './styles/style.scss';
 import { store } from "./StoreTask/store";
 import { home } from "./modules/home";
 import sideBar from "./modules/sideBar";

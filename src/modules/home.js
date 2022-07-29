@@ -1,5 +1,5 @@
 
-import '../styles/home.css'
+import '../styles/sassModules/_home.scss'
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
 
