@@ -46,7 +46,7 @@ export default class taskDescPanel {
       const task = store.getSingleTask(taskTitle);
       // The e.target gets the title
       body.appendChild(this.panel(task))
-      home.blurElements();
+
       
       
     }
@@ -54,7 +54,7 @@ export default class taskDescPanel {
   static removePanel(e) {
     if(e.target.classList.contains('hide-desc-panel')){
       home.clearDescPanel();
-      home.deBlurElements();
+
     }
   }
 

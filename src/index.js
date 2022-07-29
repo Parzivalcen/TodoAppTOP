@@ -9,10 +9,10 @@ import footer from "./modules/footer";
 
 const body = document.body;
 const main = document.createElement('main');
-// Append header and side panel 
-body.appendChild(home.header());
 // Add new Project/Category
 body.appendChild(sideBar.CategoryPopUpPanel());
+// Append header and side panel 
+body.appendChild(home.header());
 // Toggle to show side panel 
 sideBar.toggle();
 
