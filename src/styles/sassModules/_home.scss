@@ -1,0 +1,52 @@
+@use '../custom' as *;
+
+/* -------------
+TODO Hero/home
+-------------- */
+@media screen and (min-width: 0px) {
+  .container-hero{
+    background-color: $primary-background;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+  }
+  /* BLUR */
+  .blur-document{
+    filter: blur(20px);
+  }
+}
+
+
+@media screen and (min-width:900px) {
+  .container-hero{
+    background-image: url(../../imgs/bg-Desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  } 
+}
+
+@media screen and (min-width: 0px) {
+  .categories-navigation{
+    position: fixed;
+    flex-direction: column;
+    inset: 0 20% 0 0;
+    z-index: 999;
+    padding: min(10rem, 8vh);
+    background-color: $primary-background-light-opacity;
+    transform: translateX(-100%);
+    transition: 0.4s ease-in-out;
+    /*BLUR bg  */
+    backdrop-filter: blur(8px);
+    color: white;
+    max-height: 90vh;
+  }
+
+  [data-visible="true"]{
+    transform: translateX(0%);
+  }
+  .category{
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

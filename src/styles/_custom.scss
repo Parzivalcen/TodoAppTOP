@@ -1,0 +1,153 @@
+// Variables
+$primary-background: #f3d2c1;
+$primary-background-opacity: rgba(243, 210, 193, 0.773);
+$primary-background-light: #FFE6D9;
+$primary-background-light-opacity: rgba(255, 230, 217, 0.8);
+$font-title-color: #001858;
+$font-title-grey: #343F5E;
+$font-p-color: #27355C;
+$secondary-background: #fef6e4;
+$secondary-background-dark: #F5EDDC;
+
+
+
+/* FONT FAMILY */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
+/*
+=============== 
+Global Styles/ Reset
+===============
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4 p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+a,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+
+  grid-template-rows: -webkit-min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  overflow-x: hidden;
+}
+
+/* imgs easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  
+}
+input:focus{
+  outline: none;
+  appearance: none;
+}
+
+
+/* remove animation for people who turned them off */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01sms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========
+utility clases 
+=========== */
+.hidden {
+  display: none;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+
+/* SPACING .flow */
+/* Seclect all the elements of a divider except the first Child */
+/* It is use to make the top and botton line heights and borders the same */
+/* Where is a way to group things, is lower on specificy so we dont overwrite things*/
+
+.container {
+  padding-inline: 0rem;
+  margin-inline: auto;
+  max-width: inherit;
+}
+
+/* for the visually impaired -Hide Contten- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
