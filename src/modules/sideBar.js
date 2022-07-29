@@ -36,7 +36,7 @@ export default class sideBar {
     
     // This should be on the header I think. I mean on the main by default
     addProjectPopUp.innerHTML = `
-    <label for="add-project-text">Project name</label>
+    <label for="add-project-text">Project name:</label>
     <input type="text" id="add-project-text" name="add-project-text">
     <div class="btns-popUp">
       <button class="cancel-project-btn">Cancel</button>

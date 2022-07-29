@@ -7,3 +7,5 @@ firebase.json
 runtime.bundle.js
 webpack-deploy.config.js
 prod.webpack.config.js
+.css-unused
+_Shome.css

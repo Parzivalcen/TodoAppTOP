@@ -1,4 +1,4 @@
-import '../styles/todoPanel.css'
+import '../styles/sassModules/_todoPanel.scss'
 const todoPanel = (folder) => {
   const container = document.createElement('div');
   container.classList.add('todo-panel');
