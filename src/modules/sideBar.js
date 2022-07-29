@@ -1,7 +1,8 @@
 import { store } from "../StoreTask/store";
 import { Task } from "./addTask";
 import { home } from "./home";
-import '../styles/todoPanel.css';
+// import '../styles/sassModules/_todoPanel.scss'
+
 
 export default class sideBar {
   // Toggle
