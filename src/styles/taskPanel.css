@@ -27,17 +27,17 @@
   .hide-desc-panel{
     background: transparent;
     border: none;
-    width: 2vh;
-    height: 2vh;
+    width: 3vh;
+    height: 4vh;
     /* Change Icon color */
     background-color: #800020;
-    -webkit-mask-image: url(../imgs/minusDelete.svg) ;
-    mask-image: url(../imgs/minusDelete.svg) ;
+    -webkit-mask-image: url(../imgs/Close.svg) ;
+    mask-image: url(../imgs/Close.svg) ;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     position: absolute;
     top: 1vh;
-    right: 1vh;
+    right: 1.5vh;
     cursor: pointer;
   }
   .set-date{

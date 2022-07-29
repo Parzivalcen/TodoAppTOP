@@ -119,7 +119,8 @@
     border: none;
     display:block;
     line-height: 1.5em;
-    font-size: 14pt;
+    height: 2.2em;
+    font-size: .8em;
     
   }
   #add-task-text {
@@ -163,5 +164,9 @@
   }
 }
 @media screen and (min-width: 800px) {
-
+  .add-task-container > input{
+    height: 1.8em;
+    font-size: 1em;
+    
+  }
 }
