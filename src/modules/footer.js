@@ -1,4 +1,4 @@
-import '../styles/footer.css'
+import '../styles/sassModules/_footer.scss'
 const footer = () => {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
@@ -15,9 +15,9 @@ const footer = () => {
   </div>
   <a class="contribute" target="_blank" href="https://github.com/Parzivalcen/TodoAppModular">
 Contribute</a>
-  <div class="made">
-    <p>made by <a target="_blank" href="https://github.com/Parzivalcen">DavidCentz</a></p>
-  </div>
+
+  <a class="gitHub" target="_blank" href="https://github.com/Parzivalcen"></a>
+
   </div>`;
   return footer;
 }

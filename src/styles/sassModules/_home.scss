@@ -6,6 +6,9 @@ TODO Hero/home
 @media screen and (min-width: 0px) {
   .container-hero{
     background-color: $primary-background;
+    background-image: url(../../imgs/bg-desktop-pink.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 90vh;
     display: grid;
     place-items: center;
@@ -17,13 +20,6 @@ TODO Hero/home
 }
 
 
-@media screen and (min-width:900px) {
-  .container-hero{
-    background-image: url(../../imgs/bg-Desktop.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  } 
-}
 
 @media screen and (min-width: 0px) {
   .mobile-toggle{
@@ -70,7 +66,7 @@ TODO Hero/home
       align-items: center;
       grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
-
+      
       .add-categories{
         background-color: $high-ligh-icon;
         -webkit-mask-image: url(../../imgs/plus.svg) ;
@@ -84,12 +80,12 @@ TODO Hero/home
         cursor: pointer;
       }
     }
-
+    
     .category{
       &:hover{
         cursor: pointer;
       }
-          /* SINGLE CATEGORY */
+      /* SINGLE CATEGORY */
       .category--title{
         text-transform: capitalize;
       }
@@ -98,7 +94,7 @@ TODO Hero/home
         gap: .4em;
         grid-template-columns: 1fr 1fr;
         align-items: center;
-
+        
         .delete-category{
           width: 1rem;
           height: 1rem;
@@ -109,16 +105,16 @@ TODO Hero/home
           mask-repeat: no-repeat;
           border: 0;
           cursor: pointer;
-  
+          
         }
       }
       
     }
     // When Toggle is pressed
-
+    
     &[data-visible="true"]{
       transform: translateX(0%);
-  
+      
     }
   }
   /*-----------
@@ -142,7 +138,7 @@ TODO Hero/home
     // text color
     color: $font-p-color;
     letter-spacing: $letter-spacing;
-
+    
     input, button{
       border-radius: 10px;
       border: none;
@@ -169,14 +165,14 @@ TODO Hero/home
         color: $red;
         cursor: pointer;
       }
-
+      
     }
-
+    
     &[project-pop-visible="true"]{
       display: grid;
     }
   }
-
+  
 }
 
 @media screen and (min-width: 900px) {
@@ -189,7 +185,7 @@ TODO Hero/home
   .mobile-toggle{
     display: none;
   }
-
+  
 }
 
 @media screen and (min-width: 1200px) {
