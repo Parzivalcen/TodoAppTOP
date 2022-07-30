@@ -160,10 +160,13 @@ TODO Hero/home
       }
       .add-project-btn{
         color: $font-title-bg-color;
+        letter-spacing: $letter-spacing;
         cursor: pointer;
       }
       .cancel-project-btn{
         color: $red;
+        text-shadow: 1px 0.4px $font-title-bg-color;
+        letter-spacing: $letter-spacing;
         cursor: pointer;
       }
       
@@ -199,4 +202,9 @@ TODO Hero/home
     inset: 0 80% 0 0;
   }
 }
+@media screen and (max-height: 596px) {
+  .add-project-popUp{
+    max-width: 90vh;
+  }
 
+}
