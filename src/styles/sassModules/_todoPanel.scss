@@ -193,11 +193,15 @@
       overflow: auto;
           /* INPUT TASK FIELD */
       .add-task-container{
-        gap: .5vh;
-        bottom: .3vh;
+        gap: 1vh;
+        bottom: 1vh;
         left: 8vh;
         width: 80%;
-        height: 4vh;
+        height: 3vh;
+        padding-bottom: 4vh;
+        label{
+          top: .01vh;
+        }
         #add-task-text{
           width: 80%;
         }
