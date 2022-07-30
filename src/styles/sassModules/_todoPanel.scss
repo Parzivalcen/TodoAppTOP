@@ -1,0 +1,212 @@
+@use '../custom' as *;
+@media screen and (min-width: 0px) {
+  .todo-panel{
+    position: relative;
+    padding: 1em;
+    border-radius: 10px;
+    min-height: 45vh;
+    max-height: 60vh;
+    width: 35vh;
+    background-color: $font-title-bg-color;
+    color: $secondary-background-dark;
+    overflow: auto;
+    
+    .title{
+      margin-bottom: 1.5vh;
+      border-bottom: 1px solid white;
+    }
+    /* Make tasks scrollable */
+    .tasks{
+      max-height: 40vh;
+      overflow: auto;
+      margin-bottom: 3vh;
+
+      .task{
+        padding: .8vh;
+        grid-template-columns: 2vh 1fr 2vh;
+        .task-category{
+          color: $high-ligh-icon;
+          font-size: .9em;
+        }
+        .task-title{
+          cursor: pointer;
+          z-index: 2;
+        }
+        .TaskItemCheckbox{
+          place-self: center;
+          border-radius: 50%;
+          border: none;
+          color: $high-ligh-icon;
+          background-color: $high-ligh-icon;
+          -webkit-mask-image: url(../../imgs/uncheck.svg) ;
+          mask-image: url(../../imgs/uncheck.svg) ;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          width: 2.4vh;
+          height: 2.4vh;
+          cursor: pointer;
+          
+        }
+        .TaskItemDelete{
+          background: transparent;
+          border: none;
+          text-align: center;
+          place-self: center;
+          width: 2.4vh;
+          height: 2.4vh;
+          /* Change Icon color */
+          background-color: $red;
+          -webkit-mask-image: url(../../imgs/minusDelete.svg) ;
+          mask-image: url(../../imgs/minusDelete.svg) ;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          cursor: pointer;
+        }
+
+        // When task is done
+        &[aria-disabled="true"]{
+          color: rgb(104, 104, 104);
+          text-decoration: line-through;
+          .TaskItemCheckbox {
+            /* Change Icon color */
+            background-color: #a0a0a0;
+            -webkit-mask-image: url(../../imgs/check.svg) ;
+            mask-image: url(../../imgs/check.svg) ;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;  
+          }
+          .task-category {
+            display: none;
+          }
+        }
+      }
+    }
+    /* INPUT TASK FIELD */
+    .add-task-container{
+      position: absolute;
+      display: flex;
+      gap: .5vh;
+      border-radius: 10px;
+      align-items: center;
+      bottom: .3vh;
+      left: 3vh;
+      width: 30vh;
+      height: 5vh;
+
+      #add-task-text{
+        width: 25vh;
+        border-radius: 10px;
+      }
+      label{
+        display: block;
+        position: absolute;
+        top: 1vh;
+        left: 2vh;
+        opacity: .4;
+        font-size: 12px;
+        color: black;
+      }
+      input{
+        padding-left: 1em;
+        outline: none;
+        border: none;
+        display:block;
+        line-height: 1.5em;
+        height: 2.2em;
+        font-size: .8em;
+
+        // label disappear on focus
+        &:focus{
+          & + label{
+            opacity: 0;
+          }
+        }
+      }
+      .add-task-btn{
+        background: transparent;
+        border: none;
+        width: 5vh;
+        height: 5vh;
+        color: $high-ligh-icon;
+        /* Change Icon color */
+        background-color: $high-ligh-icon;
+        -webkit-mask-image: url(../../imgs/arrowUp.svg) ;
+        mask-image: url(../../imgs/arrowUp.svg) ;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (min-width: 500px) {
+  .todo-panel{
+    .tasks{
+      .task{
+        .TaskItemCheckbox{
+          width: 2vh;
+          height: 2vh;
+        }
+        .TaskItemDelete{
+          width: 2vh;
+          height: 2vh;
+        }
+      }
+    } 
+    /* INPUT TASK FIELD */
+    .add-task-container{
+      bottom: .05em;
+      left: 3vh;
+      
+      label{
+        top: 1.6vh;
+        left: 2vh;
+      }
+      
+      .add-task-btn{
+        width: 3vh;
+        height: 3vh;
+      }
+    }
+  }
+  }
+  @media screen and (min-width: 800px) {
+    .todo-panel{
+      .add-task-container 
+        input{
+          height: 1.8em;
+          font-size: 1em;
+        
+      }
+    }
+  }
+  @media screen and (max-height: 596px) {
+    .todo-panel{
+      position: relative;
+      padding: 1em;
+      border-radius: 10px;
+      min-height: 45vh;
+      max-height: 85%;
+      width: 80%;
+      background-color: $font-title-bg-color;
+      color: $secondary-background-dark;
+      overflow: auto;
+          /* INPUT TASK FIELD */
+      .add-task-container{
+        gap: .5vh;
+        bottom: .3vh;
+        left: 8vh;
+        width: 80%;
+        height: 4vh;
+        #add-task-text{
+          width: 80%;
+        }
+        .add-task-btn{
+          width: 6vh;
+          height: 6vh;
+        }
+      }
+  }
+}
+  
+  

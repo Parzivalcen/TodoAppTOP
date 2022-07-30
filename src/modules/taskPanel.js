@@ -1,5 +1,5 @@
 import { store } from "../StoreTask/store";
-import '../styles/taskPanel.css';
+import '../styles/sassModules/_taskPanel.scss';
 // date-fns
 import { format } from "date-fns";
 import { home } from "./home";

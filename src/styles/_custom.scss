@@ -1,3 +1,25 @@
+// Variables
+$primary-background: #f3d2c1;
+$primary-background-opacity: rgba(243, 210, 193, 0.9);
+$primary-background-light: #FFE6D9;
+$primary-background-light-opacity: rgba(255, 230, 217, 0.9);
+$font-title-color: #001858;
+$font-title-grey: #343F5E;
+$font-p-color: #27355C;
+$font-p-color-light: #e6dfd0;
+$font-title-bg-color: rgba(0, 23, 88, 0.9);
+$secondary-background: #fef6e4;
+$secondary-background-dark: #F5EDDC;
+$secondary-background-dark-opacity: rgba(245, 237, 220, 0.9);
+
+$high-ligh-icon: #f582ae;
+$red: #F96961;
+
+$letter-spacing: 0.01em;
+
+
+
+
 /* FONT FAMILY */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap");
 /*
@@ -67,7 +89,7 @@ select {
   
 }
 input:focus{
- outline: none;
+  outline: none;
   appearance: none;
 }
 
@@ -112,30 +134,11 @@ utility clases
   display: block;
 }
 
-/* header */
-.logo {
-  margin: clamp(1.5rem, 5vw, 2rem);
-}
-
-.primary-header {
-  align-items: center;
-  justify-content: space-between;
-}
-
-@media screen and (max-width: 768px) {
-  .flex {
-    flex-wrap: wrap;
-  }
-}
 
 /* SPACING .flow */
 /* Seclect all the elements of a divider except the first Child */
 /* It is use to make the top and botton line heights and borders the same */
 /* Where is a way to group things, is lower on specificy so we dont overwrite things*/
-.flow>*:where(:not(:first-child)) {
-  margin-top: var(--flow-space, 1rem);
-  /* outline: 1px solid red; */
-}
 
 .container {
   padding-inline: 0rem;
@@ -157,26 +160,3 @@ utility clases
   border: 0;
 }
 
-/* -------------
-TODO 
--------------- */
-.container-hero{
-  background-color: #264653;
-  height: 90vh;
-  display: grid;
-  place-items: center;
-}
-/* BLUR */
-.blur-document{
-  filter: blur(20px);
-}
-
-
-@media screen and (min-width:900px) {
-  .container-hero{
-    background-image: url(../imgs/bg-Desktop.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-}

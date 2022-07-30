@@ -1,5 +1,5 @@
 
-import '../styles/home.css'
+import '../styles/sassModules/_home.scss'
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
 
@@ -10,7 +10,9 @@ class home {
     header.innerHTML = `
     <button aria-expanded="false" class="mobile-toggle" aria-controls="categories-navigation"></button>
     <div class="side-panel"> 
+    
     <ul id="categories-navigation" class="categories-navigation flex" data-visible="false">
+
         <div class="categories-title">
           <h2>Categories</h2>
           <span class="add-categories" id="add-categories"></span>
