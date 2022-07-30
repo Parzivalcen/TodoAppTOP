@@ -94,8 +94,7 @@ class store {
 
   // Delete Task if task category == category
   static deleteTasksFromCategory(tasks, category){
-    tasks = tasks.filter(task => task.tag !== category)
-  
+    tasks = tasks.filter(task => task.tag === category)
     this.saveTask(tasks);
   }
 
