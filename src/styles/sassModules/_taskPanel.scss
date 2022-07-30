@@ -1,0 +1,126 @@
+@use "../custom" as *;
+
+@media screen and (min-width: 0px){
+  .taskDescPanel{
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, 14%);
+    min-height: 50vh;
+    padding: 1em;
+    width: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: $primary-background;
+    border-radius: 10px;
+    color: $font-p-color;
+    overflow: auto;
+
+    // Hide Panel btn
+    .hide-desc-panel{
+      background: transparent;
+      border: none;
+      width: 4vh;
+      height: 4vh;
+      /* Change Icon color */
+      background-color: rgb(196, 0, 0);
+      -webkit-mask-image: url(../../imgs/Close.svg) ;
+      mask-image: url(../../imgs/Close.svg) ;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      position: absolute;
+      top: 1vh;
+      right: 1.6vh;
+      cursor: pointer;
+    }
+
+    .title--task{
+      h1{
+        font-size: 1.4em;
+      }
+    }
+    .set-date{
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: .2em;
+      border: 1px solid $font-title-bg-color;
+      border-radius: 10px;
+      grid-template-columns: 1fr 4vh;
+      .add-date-label{
+        position: absolute;
+        left: 6.5vh;
+        z-index: -1;
+      }
+      input{
+        color: transparent;
+        background: transparent;
+        border: none;
+      }
+
+      .due-Date-btn{
+        background: transparent;
+        background-color: $font-title-bg-color;
+        -webkit-mask-image: url(../../imgs/plus.svg) ;
+        mask-image: url(../../imgs/plus.svg) ;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        width: 4vh;
+        height: 4vh;
+        border: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  /* PANEL FOR NOTES */
+  .notes-panel{
+    position: relative;
+    margin-top: 1rem;
+    min-height: 5vh;
+    padding: .3em;
+    border: 1px solid $font-title-bg-color;
+    border-radius: 10px;
+    .textarea{
+      display: block;
+      min-height: 4.8vh;
+      width: 100%;
+      // IF text area empty show a place Holder
+      &:empty::before{
+        content: 'Add notes';
+        color: grey;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .taskDescPanel{
+    // Hide Panel btn
+    .hide-desc-panel{
+      top: 1vh;
+      right: 1vh;
+
+    }
+    .set-date{
+      .due-Date-btn{
+        width: 3vh;
+        height: 3vh;
+      }
+    }
+  }
+}
+@media screen and (max-height: 596px) {
+  .taskDescPanel{
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, 14%);
+    min-height: 50vh;
+    padding: 1em;
+    width: 100%;
+    color: $font-p-color;
+    overflow: auto;
+  }
+}

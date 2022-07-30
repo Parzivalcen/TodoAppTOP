@@ -49,9 +49,11 @@ TODO Hero/home
   .categories-navigation{
     position: fixed;
     flex-direction: column;
+    align-content: center;
     inset: 0 20% 0 0;
     z-index: 999;
-    padding: min(10rem, 8vh);
+    padding-top: 8vh;
+    padding-left: min(8vh, 10vh);
     background-color: $font-title-bg-color;
     transform: translateX(-100%);
     transition: 0.4s ease-in-out;
@@ -123,8 +125,7 @@ TODO Hero/home
   .add-project-popUp{
     display: none;
     box-shadow: -1px 0px 3px 4px rgba(0, 0, 0, 0.36);
-    background-color: $secondary-background-dark-opacity;
-    backdrop-filter: blur(8px);
+    background-color: $primary-background;
     max-width: 40vh;
     text-align: center;
     border-radius: 10px;
@@ -198,3 +199,4 @@ TODO Hero/home
     inset: 0 80% 0 0;
   }
 }
+
