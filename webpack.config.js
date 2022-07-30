@@ -1,10 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 module.exports = {
   target: "web",
-  mode: 'development',
+  mode: 'production',
   entry: {
     index: './src/index.js',
     addTask: './src/modules/addTask.js',
@@ -17,18 +17,18 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer:{
-    hot: true,
+    // hot: true,
     static: path.resolve(__dirname, 'dist'),
     
     port: 8080,
     open: true,
   },
-  // this made HMR work, praying to it lol
-  optimization: {
-    runtimeChunk: 'single'
-},
+//   // this made HMR work, praying to it lol
+//   optimization: {
+//     runtimeChunk: 'single'
+// },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Get Things Done',
       favicon: "./src/imgs/climb.png"
