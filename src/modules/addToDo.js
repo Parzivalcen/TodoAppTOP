@@ -1,4 +1,4 @@
-import '../styles/sassModules/_todoPanel.scss'
+import '../styles/sassModules/_todoPanel.scss';
 const todoPanel = (folder) => {
   const container = document.createElement('div');
   container.classList.add('todo-panel');
@@ -16,8 +16,8 @@ const todoPanel = (folder) => {
       <label class="add-task-label" for="add-task-text">Add new task</label>
       <button class="add-task-btn btn"><span class="sr-only">add task btn</span></button>
     </div>
-  `
+  `;
   
   return container;
-}
+};
 export default todoPanel;

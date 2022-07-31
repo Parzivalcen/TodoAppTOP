@@ -1,5 +1,5 @@
 
-import '../styles/sassModules/_home.scss'
+import '../styles/sassModules/_home.scss';
 import todoPanel from './addToDo';
 import sideBar from './sideBar';
 
@@ -31,7 +31,7 @@ class home {
         </li>
       </ul>
     </div>
-    `
+    `;
     return header;
   }
   
@@ -42,7 +42,7 @@ class home {
     // Desc Panel, Just for styling
 
     // Display categories on side panel.
-    sideBar.displayCategories()
+    sideBar.displayCategories();
     return hero;
   }
 
@@ -68,4 +68,4 @@ class home {
 
 
 
-export {home}
+export {home};

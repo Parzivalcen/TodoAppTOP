@@ -4,7 +4,7 @@
   "description": "Modular To-do App",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack.config.prod.js",
     "start": "webpack serve --open"
   },
   "author": "Davidcentz",
@@ -13,6 +13,7 @@
     "core-js": "^3.24.0",
     "css-loader": "^6.7.1",
     "date-fns": "^2.29.0",
+    "eslint": "^8.20.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",

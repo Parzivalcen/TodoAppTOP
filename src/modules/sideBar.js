@@ -1,8 +1,6 @@
-import { store } from "../StoreTask/store";
-import { Task } from "./addTask";
-import { home } from "./home";
-// import '../styles/sassModules/_todoPanel.scss'
-
+import { store } from '../StoreTask/store';
+import { Task } from './addTask';
+import { home } from './home';
 
 export default class sideBar {
   // Toggle
@@ -22,7 +20,7 @@ export default class sideBar {
         categoriesNav.setAttribute('data-visible', false);
         toggle.setAttribute('aria-expanded', false);
       }
-    })
+    });
   }
 
   // POP UP //
@@ -43,7 +41,7 @@ export default class sideBar {
       <button class="cancel-project-btn">Cancel</button>
       <button class="add-project-btn">Add</button>
     </div>
-    `
+    `;
     return addProjectPopUp;
   }
   static showAddCategoryPanel(e) {
@@ -64,7 +62,7 @@ export default class sideBar {
     cancelBtn.addEventListener('click', () => {
       addProjectPopUp.setAttribute('project-pop-visible', false);
       home.deBlurElements();
-    })
+    });
   }
 
   //Add Category when pop Up <<add>> btn is pressed
@@ -76,7 +74,7 @@ export default class sideBar {
       title = title.toLowerCase();
   
       if(title.length < 1){
-        alert('Please enter at least one character')
+        alert('Please enter at least one character');
       }else{
         sideBar.addCategory(title);
         // Local Storage
@@ -87,22 +85,22 @@ export default class sideBar {
       Task.clearInputField('#add-project-text');
       // Hide BTN
       addProjectPopUp.setAttribute('project-pop-visible', false);
-    }
+    };
 
     const addCatBtn = document.querySelector('.add-project-btn');
     addProjectPopUp.addEventListener('keypress', (e)=>{
       if(e.key === 'Enter'){
-        takeInput()
+        takeInput();
       }
-    })
+    });
     // mouseup unlike click does not interact with the enter key
     addCatBtn.addEventListener('mouseup', ()=>{
       takeInput();
-    })
+    });
     // mobile handler
     addCatBtn.addEventListener('touchend', ()=>{
       takeInput();
-    })
+    });
   }
 
   // Add Category //
@@ -127,14 +125,14 @@ export default class sideBar {
     const categories = store.getCategories();
     categories.map((category) => {
       sideBar.addCategory(category);
-    })
+    });
   }
 
   // Switch bettween categories //
   // Create new todo Panel when a Category is pressed. 
   static categoryPressed(e) {
     if (e.target.classList.contains('category--title')){
-      sideBar.newToDoPanel(e.target.innerHTML)
+      sideBar.newToDoPanel(e.target.innerHTML);
     }
   }
   // New todo Panel
@@ -161,15 +159,15 @@ export default class sideBar {
       <label class="add-task-label" for="add-task-text">Add new task</label>
       <button class="add-task-btn btn">Add</button>
     </div>
-    `
+    `;
     if (category == 'All Tasks'){
       Task.displayTasks();
-      Task.takeInputEvent('general')
+      Task.takeInputEvent('general');
     }else{
       Task.displayTasksCategorically(category);
     }
     
-    Task.takeInputEvent(category)
+    Task.takeInputEvent(category);
   }
     
   // Delete categories. 

@@ -1,4 +1,4 @@
-import '../styles/sassModules/_footer.scss'
+import '../styles/sassModules/_footer.scss';
 const footer = () => {
   const footer = document.createElement('footer');
   footer.classList.add('footer');
@@ -20,5 +20,5 @@ Contribute</a>
 
   </div>`;
   return footer;
-}
-export default footer
+};
+export default footer;

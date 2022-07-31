@@ -9,7 +9,7 @@ class store {
       tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     return tasks;
-  }
+  };
   
   static getSingleTask = (taskTitle) => {
     let tasks = this.getTasks();
@@ -17,14 +17,14 @@ class store {
     tasks.forEach((singleTask) => {
       if(singleTask.title == taskTitle){
 
-        task = singleTask
-      };
-    })
+        task = singleTask;
+      }
+    });
     return task;
-  }
+  };
 
   static saveTask (tasks){
-    localStorage.setItem('tasks', JSON.stringify(tasks))
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
   static addTaskToLS(task){
@@ -49,29 +49,29 @@ class store {
         if(task.title == title){
           tasks.splice(index, 1);
         }
-        this.saveTask(tasks)
+        this.saveTask(tasks);
       });
     }
   }
   // Change done state on LS
   static changeDoneState(e){
     if (e.target.classList.contains('TaskItemCheckbox')){
-        // get title
-        let title = e.target.nextElementSibling.firstElementChild.innerHTML;
+      // get title
+      let title = e.target.nextElementSibling.firstElementChild.innerHTML;
 
-        let tasks = store.getTasks();
+      let tasks = store.getTasks();
       /*Get index by the task title pressed. 
       So that we change the state of only that task*/ 
-        let taskIndex = tasks.findIndex((task) => task.title == title )
-        if (tasks[taskIndex].done){
-          tasks[taskIndex].done = false;
-          console.log('chang', tasks[taskIndex].done)
-        }else{
-          tasks[taskIndex].done = true;
-        }
-        this.saveTask(tasks);
+      let taskIndex = tasks.findIndex((task) => task.title == title );
+      if (tasks[taskIndex].done){
+        tasks[taskIndex].done = false;
+        console.log('chang', tasks[taskIndex].done);
+      }else{
+        tasks[taskIndex].done = true;
+      }
+      this.saveTask(tasks);
   
-        };
+    }
   }
 
 
@@ -87,14 +87,14 @@ class store {
     if(localStorage.getItem('categories') === null){
       categories = [];
     }else{
-      categories = JSON.parse(localStorage.getItem('categories'))
+      categories = JSON.parse(localStorage.getItem('categories'));
     }
     return categories;
   }
 
   // Delete Task if task category == category
   static deleteTasksFromCategory(tasks, category){
-    tasks = tasks.filter(task => task.tag === category)
+    tasks = tasks.filter(task => task.tag === category);
     this.saveTask(tasks);
   }
 
@@ -108,9 +108,9 @@ class store {
       }
       localStorage.setItem('categories', JSON.stringify(categories));
       store.deleteTasksFromCategory(tasks, title);
-    })
+    });
   }
- // save on changes 
+  // save on changes 
   static SaveNotes(taskTitle, htmlValue) {
     let tasks = this.getTasks();
     let taskIndex = tasks.findIndex((task) => task.title == taskTitle);

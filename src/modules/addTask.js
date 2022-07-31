@@ -1,4 +1,4 @@
-import { store } from "../StoreTask/store";
+import { store } from '../StoreTask/store';
 
 class Task {
   constructor(title, category, dateCreated){
@@ -18,9 +18,9 @@ class Task {
     
     // Display task done or undone
     if (task.done) {
-      taskDiv.setAttribute('aria-disabled', true)
+      taskDiv.setAttribute('aria-disabled', true);
     }else{
-      taskDiv.setAttribute('aria-disabled', false)
+      taskDiv.setAttribute('aria-disabled', false);
     }
     taskDiv.innerHTML = `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
@@ -50,22 +50,22 @@ class Task {
         // Store task on Local storage
         store.addTaskToLS(newTask);
       }else{
-        alert("Please enter at least one character")
+        alert('Please enter at least one character');
       }
       Task.clearInputField('#add-task-text');
-    }
+    };
     const taskContainer = document.querySelector('.add-task-container');
     const addBtn = document.querySelector('.add-task-btn');
     // ENTER KEY
     taskContainer.addEventListener('keypress', (e) => {
       if(e.key === 'Enter'){
-        takeInput(category)
+        takeInput(category);
       }
-    })
+    });
     // mouseup unlike click does not interact with the enter key
     addBtn.addEventListener('mouseup', () =>{
       takeInput(category);
-    })
+    });
     // mobile handler
     // addBtn.addEventListener('touchend', () =>{
     //   takeInput(category);
@@ -86,7 +86,7 @@ class Task {
       const tasks = store.getTasks();
       /*Get index by the task title pressed. 
       So that we change the state of only that task*/ 
-      let taskIndex = tasks.findIndex((task) => task.title == title )
+      let taskIndex = tasks.findIndex((task) => task.title == title );
       if (tasks[taskIndex].done){
         task.setAttribute('aria-disabled', false);
         
@@ -107,10 +107,10 @@ class Task {
   static displayTasks = () => {
     let tasks = store.getTasks();
     tasks.forEach((task) => {
-      Task.addTaskPanel(task)
+      Task.addTaskPanel(task);
       
     });
-  }
+  };
   
   static displayTasksCategorically = (category) => {
     let tasks = store.getTasks();
@@ -118,8 +118,8 @@ class Task {
       if(task.category == category) {
         Task.addTaskPanel(task);
       }
-    })
-  }
+    });
+  };
   
 }
 
