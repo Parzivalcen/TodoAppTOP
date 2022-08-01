@@ -28,14 +28,13 @@ The index.js file is used to render all the components
       |File name| Content|
       |------------|--------|
       |addTask.js  | Contains the task object constructor and functions to change things inside the to-do Panel|
-      |addToDo.js  | Contains the To-Do Panel|
+      |addToDo.js  | Contains the To-Do Panel HTML|
       |footer.js   | Just the footer :) |
       |home.js     | Contains the sidebar HTML, the hero, and functions to clean and blur the hero |
       |sideBar.js  | All events and interactions with the sidebar    |
-      |taskPanel.js| Task descriptions panel, dates, and notes are handled here    |
+      |taskPanel.js| Task descriptions panel HTML, dates, and notes are handled here    |
     
-  - ## StoreTask
-    Modules dealing with localStorage API
+
 
 
 ## Please feel free to contribute :)
