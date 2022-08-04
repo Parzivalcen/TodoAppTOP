@@ -51,17 +51,19 @@ class home {
     todoPanel.textContent = '';
   }
   static clearDescPanel(){
-    const descPanel = document.querySelector('.taskDescPanel');
-    descPanel.remove();
+    const descPanel = document.querySelector('.modal--taskDescPanel');
+    descPanel.textContent = '';
   }
 
-  // wrap all elements when popup is clicked, so the pop up isnt wrapped. 
-  static blurElements(){
-    document.querySelector('main').classList.add('blur-document');
-    // console.log(main);
-  }
-  static deBlurElements(){
-    document.querySelector('main').classList.remove('blur-document');
+  static clickOutsideModal(){
+    let modals = document.querySelectorAll('.modal');
+    modals.forEach((modal)=>{
+      modal.addEventListener('click', (e)=>{
+        if(e.target.classList.contains('modal')){
+          modal.setAttribute('data-visible', false);
+        }
+      });
+    });
   }
 }
 
