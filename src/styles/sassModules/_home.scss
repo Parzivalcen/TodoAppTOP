@@ -123,7 +123,7 @@ TODO Hero/home
   POP UP
   -------------*/ 
   .add-project-popUp{
-    display: none;
+    display: grid;
     box-shadow: -1px 0px 3px 4px rgba(0, 0, 0, 0.36);
     background-color: $primary-background;
     max-width: 40vh;
@@ -172,9 +172,6 @@ TODO Hero/home
       
     }
     
-    &[project-pop-visible="true"]{
-      display: grid;
-    }
   }
   
 }

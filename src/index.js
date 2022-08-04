@@ -13,6 +13,9 @@ const main = document.createElement('main');
 body.appendChild(sideBar.CategoryPopUpPanel());
 // Append header and side panel 
 body.appendChild(home.header());
+
+body.appendChild(taskDescPanel.panel());
+
 // Toggle to show side panel 
 sideBar.toggle();
 
@@ -23,7 +26,7 @@ main.appendChild(home.hero());
 body.appendChild(footer());
 
 document.addEventListener('DOMContentLoaded', Task.displayTasks());
-
+home.clickOutsideModal();
 // delete
 document.addEventListener('click', (e) => {
   Task.deleteTask(e);

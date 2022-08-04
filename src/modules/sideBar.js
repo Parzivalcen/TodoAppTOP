@@ -30,26 +30,28 @@ export default class sideBar {
   */ 
   static CategoryPopUpPanel () {
     const addProjectPopUp = document.createElement('div');
-    addProjectPopUp.classList.add('add-project-popUp');
-    addProjectPopUp.setAttribute('project-pop-visible', false);
+    addProjectPopUp.classList.add('modal', 'modal--popUp');
+    addProjectPopUp.setAttribute('data-visible', false);
     
     // This should be on the header I think. I mean on the main by default
     addProjectPopUp.innerHTML = `
-    <label for="add-project-text">Project name:</label>
-    <input type="text" id="add-project-text" name="add-project-text">
-    <div class="btns-popUp">
+    <div class="add-project-popUp">
+      <label for="add-project-text">Project name:</label>
+      <input type="text" id="add-project-text" name="add-project-text">
+      <div class="btns-popUp">
       <button class="cancel-project-btn">Cancel</button>
       <button class="add-project-btn">Add</button>
+      </div>
     </div>
     `;
     return addProjectPopUp;
   }
   static showAddCategoryPanel(e) {
-    const addProjectPopUp = document.querySelector('.add-project-popUp');
+    const addProjectPopUp = document.querySelector('.modal--popUp');
     if(e.target.id == 'add-categories'){
-      home.blurElements();
 
-      addProjectPopUp.setAttribute('project-pop-visible', true);
+
+      addProjectPopUp.setAttribute('data-visible', true);
       
       sideBar.cancelPopUpBtn();
     }
@@ -57,18 +59,17 @@ export default class sideBar {
 
   // cancel BTN on POPUP (this btn also makes the popUP disappear.)
   static cancelPopUpBtn (){
-    const addProjectPopUp = document.querySelector('.add-project-popUp');
+    const addProjectPopUp = document.querySelector('.modal--popUp');
     const cancelBtn = document.querySelector('.cancel-project-btn');
     cancelBtn.addEventListener('click', () => {
-      addProjectPopUp.setAttribute('project-pop-visible', false);
-      home.deBlurElements();
+      addProjectPopUp.setAttribute('data-visible', false);
     });
   }
 
   //Add Category when pop Up <<add>> btn is pressed
   static addNewCategoryBtn () {
 
-    const addProjectPopUp = document.querySelector('.add-project-popUp');
+    const addProjectPopUp = document.querySelector('.modal--popUp');
     const takeInput = () =>{
       let title = document.querySelector('#add-project-text').value;
       title = title.toLowerCase();
@@ -79,12 +80,12 @@ export default class sideBar {
         sideBar.addCategory(title);
         // Local Storage
         store.storeCategory(title);
-        home.deBlurElements();
+
       }
       
       Task.clearInputField('#add-project-text');
       // Hide BTN
-      addProjectPopUp.setAttribute('project-pop-visible', false);
+      addProjectPopUp.setAttribute('data-visible', false);
     };
 
     const addCatBtn = document.querySelector('.add-project-btn');
