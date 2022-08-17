@@ -78,6 +78,8 @@
     position: relative;
     margin-top: 1rem;
     min-height: 5vh;
+    max-height: 20vh;
+    overflow-y: auto;
     padding: .3em;
     border: 1px solid $font-title-bg-color;
     border-radius: 10px;
