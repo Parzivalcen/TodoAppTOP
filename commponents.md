@@ -33,7 +33,7 @@
 - the input field on the notes container should just be a way to add notes quickly
 - Make task title editable on the task description panel
 - Add shortcuts for upcoming deadlines {Today, next 7 days, this month}
-## Task Description Display
+## Task Description Display 
 - The "X" icon is not Ideal, it basically tells the user that the operation will be cancelled, so you can add a save button to it
 - Don't save notes on input, save them when the save btn is pressed. 
 ## More general things

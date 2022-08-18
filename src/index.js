@@ -6,13 +6,15 @@ import { home } from './modules/home';
 import sideBar from './modules/sideBar';
 import taskDescPanel from './modules/taskPanel';
 import footer from './modules/footer';
+import header from './modules/header';
 
 const body = document.body;
 const main = document.createElement('main');
 // Add new Project/Category
 body.appendChild(sideBar.CategoryPopUpPanel());
 // Append header and side panel 
-body.appendChild(home.header());
+// body.appendChild(home.header());
+body.appendChild(header());
 
 body.appendChild(taskDescPanel.panel());
 

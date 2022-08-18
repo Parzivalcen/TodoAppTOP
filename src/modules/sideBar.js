@@ -118,7 +118,10 @@ export default class sideBar {
       <button class="delete-category"></button>
     </div>`;
     // add to dom list
-    categoriesList.appendChild(formatTitle);
+
+
+    
+    // categoriesList.appendChild(formatTitle);
   }
 
   // Display Categories

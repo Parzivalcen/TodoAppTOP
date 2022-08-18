@@ -22,29 +22,29 @@ TODO Hero/home
 
 
 @media screen and (min-width: 0px) {
-  .mobile-toggle{
-    display: block;
-    /* Change Icon color */
-    background-color: $font-title-bg-color;
-    -webkit-mask-image: url(../../imgs/hamMenu.svg) ;
-    mask-image: url(../../imgs/hamMenu.svg) ;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    left: 1rem;
-    margin-top: 1rem;
-    border: 0;
-    z-index: 1000;
-    cursor: pointer;
+  // .mobile-toggle{
+  //   display: block;
+  //   /* Change Icon color */
+  //   background-color: $font-title-bg-color;
+  //   -webkit-mask-image: url(../../imgs/hamMenu.svg) ;
+  //   mask-image: url(../../imgs/hamMenu.svg) ;
+  //   -webkit-mask-repeat: no-repeat;
+  //   mask-repeat: no-repeat;
+  //   position: absolute;
+  //   width: 2rem;
+  //   height: 2rem;
+  //   left: 1rem;
+  //   margin-top: 1rem;
+  //   border: 0;
+  //   z-index: 1000;
+  //   cursor: pointer;
     
-    &[aria-expanded="true"]{
-      background-color: $red;
-      -webkit-mask-image: url(../../imgs/closeMenu.svg) ;
-      mask-image: url(../../imgs/closeMenu.svg) ;
-    }
-  }
+  //   &[aria-expanded="true"]{
+  //     background-color: $red;
+  //     -webkit-mask-image: url(../../imgs/closeMenu.svg) ;
+  //     mask-image: url(../../imgs/closeMenu.svg) ;
+  //   }
+  // }
   
   .categories-navigation{
     position: fixed;
