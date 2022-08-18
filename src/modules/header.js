@@ -11,7 +11,7 @@ const header = () => {
   
   header.innerHTML = `
   <div class="container container--header">
-    <i class="icon"></i>
+    
     <h1> Get things done</h1>
     <div class="menu--container">
       <button aria-expanded="false" class="mobile-toggle" aria-controls="categories-navigation"></button>

@@ -7,19 +7,20 @@ import sideBar from './modules/sideBar';
 import taskDescPanel from './modules/taskPanel';
 import footer from './modules/footer';
 import header from './modules/header';
+import panel from './modules/panel';
 
 const body = document.body;
 const main = document.createElement('main');
 // Add new Project/Category
-body.appendChild(sideBar.CategoryPopUpPanel());
+body.appendChild(panel.CategoryPopUpPanel());
 // Append header and side panel 
 // body.appendChild(home.header());
 body.appendChild(header());
 
-body.appendChild(taskDescPanel.panel());
+body.appendChild(panel.panel());
 
 // Toggle to show side panel 
-sideBar.toggle();
+panel.toggle();
 
 body.appendChild(main);
 
@@ -35,9 +36,9 @@ document.addEventListener('click', (e) => {
   Task.taskDone(e);
   store.LSremoveTask(e);
   store.changeDoneState(e);
-  sideBar.categoryPressed(e);
-  sideBar.showAddCategoryPanel(e);
-  sideBar.deleteCategory(e);
+  panel.categoryPressed(e);
+  panel.showAddCategoryPanel(e);
+  panel.deleteCategory(e);
   taskDescPanel.showPanel(e);
   taskDescPanel.getDate(e);
   taskDescPanel.updateNotes(e);
@@ -48,5 +49,5 @@ document.addEventListener('click', (e) => {
 /*Take the input user input 
 from the text box, this file is located on ./UI/addTask.js*/  
 Task.takeInputEvent('general');
-sideBar.addNewCategoryBtn();
+panel.addNewCategoryBtn();
 
