@@ -1,0 +1,51 @@
+@use '../custom' as *;
+@media screen and (min-width: 0px) {
+  .container--header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    .icon{
+      position: absolute;
+      width: 6vh;
+      height: 6vh;
+      background: transparent;
+      background-repeat: space;
+      background-image: url(../../imgs/climb.png);
+      background-size: cover;
+    }
+    h1{
+      margin-left: 3rem ;
+    }
+    
+
+    .user{
+      display: none;
+    }
+  }
+  .mobile-toggle{
+    display: block;
+    /* Change Icon color */
+    background-color: $font-title-bg-color;
+    -webkit-mask-image: url(../../imgs/hamMenu.svg) ;
+    mask-image: url(../../imgs/hamMenu.svg) ;
+    transform: rotate(180deg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    
+    width: 2rem;
+    height: 2rem;
+
+
+    border: 0;
+    z-index: 1000;
+    cursor: pointer;
+    
+    &[aria-expanded="true"]{
+      background-color: $red;
+      -webkit-mask-image: url(../../imgs/closeMenu.svg) ;
+      mask-image: url(../../imgs/closeMenu.svg) ;
+    }
+  }
+}
