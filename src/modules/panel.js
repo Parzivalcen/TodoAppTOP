@@ -1,37 +1,36 @@
 import { store } from '../StoreTask/store';
 import { Task } from './addTask';
 import { home } from './home';
+import '../styles/sassModules/_panel.scss';
 
 export default class panel {
   static panel () {
     const panel = document.createElement('div');
     panel.classList.add('panel');
-    panel.innerHTML =  `
-      <ul id="categories-navigation" class="categories-navigation flex" data-visible="false">
-        
+    panel.innerHTML =   `
+      <div id="categories-navigation" class="categories-navigation flex" data-visible="false">
+      <div class="shortcuts">
+        <button class="btn btn-panel-task">Add Task</button>        
+        <p class="today">today</p>
+        <p class="this-week">this week</p>
+        <p class="next-week">next week</p>
+      </div>
+      
         <div class="categories-title">
           <h2>Categories</h2>
           <span class="add-categories" id="add-categories"></span>
         </div>    
-        <li class="category">
-          <div>
-            <p class="category--title">All Tasks</p>
-            
-          </div> 
-        </li>
-        <li class="category">
-          <div>
+
+        <div class="category">
+            <p class="category--title">All Tasks</p>                   
+        </div>
+        <div class="category">
             <p class="category--title">Shopping list</p>
-            
-          </div> 
-        </li>
-        <li class="category">
-          <div>
-            <p class="category--title">Work</p>
-            
-          </div> 
-        </li>
-      </ul> 
+        </div>
+        <div class="category">    
+            <p class="category--title">Work</p>  
+        </div>
+      </div> 
     `;
     return panel;
   }

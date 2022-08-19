@@ -1,12 +1,19 @@
 @use '../custom' as *;
 @media screen and (min-width: 0px) {
+  header{
+    position: relative;
+  }
   .container--header{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    padding-inline: 1rem;
     position: relative;
     background-color: $primary-background;
+    position: relative;
+    z-index: 999;
+
     
 
     .user{
@@ -32,6 +39,9 @@
     cursor: pointer;
     
     &[aria-expanded="true"]{
+      position: absolute;
+      top: 110%;
+      right: 4vw;
       background-color: $red;
       -webkit-mask-image: url(../../imgs/closeMenu.svg) ;
       mask-image: url(../../imgs/closeMenu.svg) ;

@@ -1,6 +1,6 @@
 import { Task } from './modules/addTask';
 // import './styles/styles.css';
-import './styles/style.scss';
+// import './styles/style.scss';
 import { store } from './StoreTask/store';
 import { home } from './modules/home';
 import sideBar from './modules/sideBar';
@@ -17,7 +17,7 @@ body.appendChild(panel.CategoryPopUpPanel());
 // body.appendChild(home.header());
 body.appendChild(header());
 
-body.appendChild(panel.panel());
+// body.appendChild(panel.panel());
 
 // Toggle to show side panel 
 panel.toggle();

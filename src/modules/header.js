@@ -1,5 +1,6 @@
 import '../styles/sassModules/_header.scss';
 import Icon from '../imgs/climb.png';
+import panel from './panel';
 
 
 const header = () => {
@@ -10,7 +11,7 @@ const header = () => {
   myIcon.src = Icon;
   
   header.innerHTML = `
-  <div class="container container--header">
+  <div class=" container--header">
     
     <h1> Get things done</h1>
     <div class="menu--container">
@@ -22,6 +23,7 @@ const header = () => {
       </div>
     </div>
   </div>`;
+  header.appendChild(panel.panel());
   return header;
 };
 export default header;
