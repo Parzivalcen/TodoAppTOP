@@ -1,0 +1,80 @@
+@use '../custom' as *;
+@media screen and (min-width: 0px) {
+  .categories-navigation{
+    display: none;
+    flex-direction: column;
+    align-content: center;
+ 
+    z-index: 500;
+    padding-top: 8vh;
+    padding-left: min(8vh, 10vh);
+    background-color: $font-title-bg-color;
+    transform: translateX(150%);
+    transition: 0.2s ease-in-out;
+    /*BLUR bg  */
+    backdrop-filter: blur(8px);
+    color: $secondary-background-dark;
+    height: 80vh;
+    width: 100vw;
+    overflow-y: auto;
+
+    
+    // CATEGORIES TITLE 
+    .categories-title{
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      
+      .add-categories{
+        background-color: $high-ligh-icon;
+        -webkit-mask-image: url(../../imgs/plus.svg) ;
+        mask-image: url(../../imgs/plus.svg) ;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 0;
+        z-index: 1000;
+        cursor: pointer;
+      }
+    }
+    
+    .category{
+      &:hover{
+        cursor: pointer;
+      }
+      /* SINGLE CATEGORY */
+      .category--title{
+        text-transform: capitalize;
+      }
+      div {
+        display: grid;
+        gap: .4em;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        
+        .delete-category{
+          width: 1rem;
+          height: 1rem;
+          background-color: $red;
+          -webkit-mask-image: url(../../imgs/minusDelete.svg) ;
+          mask-image: url(../../imgs/minusDelete.svg) ;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          border: 0;
+          cursor: pointer;
+          
+        }
+      }
+      
+    }
+    // When Toggle is pressed
+    
+    &[data-visible="true"]{
+      display: flex;
+      transform: translateX(0%);
+      
+    }
+  }
+}
