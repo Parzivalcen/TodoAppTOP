@@ -1,6 +1,6 @@
 
 import '../styles/sassModules/_home.scss';
-import todoPanel from './addToDo';
+import addToDo from './addToDo';
 import sideBar from './sideBar';
 
 class home {
@@ -38,7 +38,7 @@ class home {
   static hero() {
     const hero = document.createElement('div');
     hero.classList.add('container', 'container-hero');
-    hero.appendChild(todoPanel('All Tasks'));
+    hero.appendChild(addToDo.todoPanel('All Tasks'));
     // Desc Panel, Just for styling
 
     // Display categories on side panel.

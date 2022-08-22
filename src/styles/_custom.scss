@@ -175,3 +175,8 @@ utility clases
     z-index: 1000;
   }
 }
+*{
+  &[data-visible=false]{
+    display: none;
+  }
+}

@@ -10,6 +10,19 @@ class Task {
     this.notes = undefined;
     // add date created, storing the date the task is created. 
   }
+
+  // Add task with description BTN
+  static showAddTaskForm (){
+    const addTaskbtn = document.querySelector('.btn-panel-task');
+    addTaskbtn.addEventListener('mouseup', ()=>{
+      const addTaskContainer = document.querySelector('.add-task-container');
+      const visibility = addTaskContainer.getAttribute('data-visible');
+      visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
+      
+      
+    });
+  }
+
   // Add Task TO Panel
   static addTaskPanel (task) {
     const taskPanel = document.querySelector('.tasks');
@@ -35,49 +48,7 @@ class Task {
     
   }
   
-  static addTask(){
-    const addTaskBtn = document.querySelector('btn-panel-task');
-    const addTaskPanel = document.createElement('div');
-    addTaskPanel.classList.add('add-task-container');
-    addTaskPanel.innerHTML = html`
-      <div class="title">
-        <input type="text" id="add-task-title" name="add-task-title">
-        <label class="add-task-title-label" for="add-task-title">I want to...</label>
-      </div>
-
-      <div class="notes">
-        <div class="notes-panel">
-          <span class="textarea" role="textbox" contenteditable="true"></span>
-        </div>
-      </div>
-
-      <div class="select-category">
-        <button class="drop-down-categories">select category</button>
-        <ul class="categories-list" data-visible="false">
-
-        </ul>
-      </div>
-
-      <div class="set-date">
-        <label class="add-date-label" for="due-Date">Add due date</label>
-        <input type="date" id="due-Date" name="due-Date">
-        <button class="due-Date-btn"></button>
-      </div>
-
-      <div class="priority">
-        <ul>
-          <li>high</li>
-          <li>medium</li>
-          <li>low</li>
-        </ul>
-      </div>
-
-    `
-
-    addTaskBtn.addEventListener('mouseup', ()=>{
-
-    });
-  }
+  
 
   // Take input
   static takeInputEvent (category) {

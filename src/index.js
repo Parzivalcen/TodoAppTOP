@@ -3,24 +3,26 @@ import { Task } from './modules/addTask';
 // import './styles/style.scss';
 import { store } from './StoreTask/store';
 import { home } from './modules/home';
-import sideBar from './modules/sideBar';
 import taskDescPanel from './modules/taskPanel';
 import footer from './modules/footer';
 import header from './modules/header';
 import panel from './modules/panel';
+import addToDo from './modules/addToDo';
 
 const body = document.body;
 const main = document.createElement('main');
 // Add new Project/Category
 body.appendChild(panel.CategoryPopUpPanel());
 // Append header and side panel 
-// body.appendChild(home.header());
 body.appendChild(header());
 
-// body.appendChild(panel.panel());
 
 // Toggle to show side panel 
 panel.toggle();
+
+// Add big task adder form;
+body.appendChild(addToDo.addTask());
+
 
 body.appendChild(main);
 
