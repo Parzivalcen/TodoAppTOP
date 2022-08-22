@@ -9,12 +9,12 @@ export default class panel {
     panel.classList.add('panel');
     panel.innerHTML =   `
       <div id="categories-navigation" class="categories-navigation flex" data-visible="false">
-      <div class="shortcuts">
-        <button class="btn btn-panel-task">Add Task</button>        
-        <p class="today">today</p>
-        <p class="this-week">this week</p>
-        <p class="next-week">next week</p>
-      </div>
+        <div class="shortcuts">
+          <button class="btn btn-panel-task">Add Task</button>        
+          <p class="today">today</p>
+          <p class="this-week">this week</p>
+          <p class="next-week">next week</p>
+        </div>
       
         <div class="categories-title">
           <h2>Categories</h2>
@@ -109,7 +109,7 @@ export default class panel {
       if(title.length < 1){
         alert('Please enter at least one character');
       }else{
-        panel.addCategory(title);
+        panel.addCategory(title, 'categories-navigation');
         // Local Storage
         store.storeCategory(title);
 
@@ -137,9 +137,9 @@ export default class panel {
   }
 
   // Add Category //
-  static addCategory (category) {
+  static addCategory (category, elementID) {
     const formatTitle = document.createElement('li');
-    const categoriesList = document.querySelector('#categories-navigation');
+    const categoriesList = document.querySelector(`#${elementID}`);
     // Create category title Paragraph element. 
     const categoryTitle = `<p class="category--title">${category}</p>`;
     formatTitle.classList.add('category');
@@ -153,14 +153,14 @@ export default class panel {
 
 
 
-    // categoriesList.appendChild(formatTitle);
+    categoriesList.appendChild(formatTitle);
   }
 
   // Display Categories
   static displayCategories () {
     const categories = store.getCategories();
     categories.map((category) => {
-      panel.addCategory(category);
+      panel.addCategory(category, 'categories-navigation');
     });
   }
 
