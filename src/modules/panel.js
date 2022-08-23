@@ -55,6 +55,31 @@ export default class panel {
     });
   }
 
+  // Add task with description BTN
+  static showAddTaskForm (){
+    const addTaskbtn = document.querySelector('.btn-panel-task');
+    addTaskbtn.addEventListener('mouseup', ()=>{
+      const addTaskContainer = document.querySelector('.add-task-container');
+      const visibility = addTaskContainer.getAttribute('data-visible');
+
+      // categories 
+      const dropCategories = addTaskContainer.querySelector('#categories-list');
+      const categories = store.getCategories();
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.classList.add(cat.split(' ')[0]);
+        option.innerHTML = cat;
+        dropCategories.appendChild(option);
+        
+      });
+
+
+      visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
+      
+      
+    });
+  }
+
   // POP UP //
   /*
   When Icon(+) to add category is pressed

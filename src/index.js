@@ -52,4 +52,5 @@ document.addEventListener('click', (e) => {
 from the text box, this file is located on ./UI/addTask.js*/  
 Task.takeInputEvent('general');
 panel.addNewCategoryBtn();
+Task.addTaskFromPanel();
 

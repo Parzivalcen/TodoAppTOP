@@ -11,7 +11,7 @@ module.exports = {
     addTask: './src/modules/addTask.js',
     addToDo: './src/modules/addToDo.js',
     hero: './src/modules/home.js',
-    sideBar: './src/modules/sideBar.js',
+    panel: './src/modules/panel.js',
     taskPanel: './src/modules/taskPanel.js',
     storage: './src/StoreTask/store.js',
     

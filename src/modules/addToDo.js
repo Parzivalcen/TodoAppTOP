@@ -1,5 +1,6 @@
 import '../styles/sassModules/_todoPanel.scss';
-import { Task } from './addTask';
+// import { Task } from './addTask';
+import panel from './panel';
 class addToDo {
   static todoPanel = (folder) => {
     const container = document.createElement('div');
@@ -40,33 +41,35 @@ class addToDo {
       </div>
 
       <div class="select-category">
-        <button class="drop-down-categories">select category</button>
-        <ul class="categories-list" data-visible="false">
-
-        </ul>
+        <label for="categories-list" class="drop-down-cats">select category</label>
+        <select name="categories-list" id="categories-list">
+          <option value="all">all task</option>
+          <option value="shopping">Shopping List</option>
+          <option value="work">work</option>
+        </select>
       </div>
 
       <div class="set-date">
         <label class="add-date-label" for="due-Date">Add due date</label>
         <input type="date" id="due-Date" name="due-Date">
-        <button class="due-Date-btn"></button>
       </div>
 
       <div class="priority">
-        <p>priority</p>
-        <ul data-visible="false">
-          <li>high</li>
-          <li>medium</li>
-          <li>low</li>
-        </ul>
+        <label for="priority">priority</label>
+        <select name="priority" id="priority">
+          <option value="high">high</option>
+          <option value="medium">medium</option>
+          <option value="low">low</option>
+        </select>
       </div>
 
-    <div class="add-main-task-btn">
-      <button>Add Task</button>
+    <div class="add-main-task">
+      <button class="add-main-task-btn">Add Task</button>
     </div>
 
     `;
-    Task.showAddTaskForm();
+    panel.showAddTaskForm();
+
 
     return addTaskPanel;
   }

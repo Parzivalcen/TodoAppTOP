@@ -11,17 +11,25 @@ class Task {
     // add date created, storing the date the task is created. 
   }
 
-  // Add task with description BTN
-  static showAddTaskForm (){
-    const addTaskbtn = document.querySelector('.btn-panel-task');
-    addTaskbtn.addEventListener('mouseup', ()=>{
-      const addTaskContainer = document.querySelector('.add-task-container');
-      const visibility = addTaskContainer.getAttribute('data-visible');
-      visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
-      
-      
+  // add task from main task btn
+  static addTaskFromPanel (){
+    const addTaskBtn = document.querySelector('.add-main-task-btn');
+    const container = document.querySelector('.add-task-container');
+    const select = container.querySelector('#priority');
+    addTaskBtn.addEventListener('mouseup', ()=>{
+      const taskTitle = container.querySelector('#add-task-title').value;
+      const notes = container.querySelector('.textarea').innerHTML;
+      let date = container.querySelector('#due-Date').value;
+      date = new Date(date);
+      const priority = select.options[select.selectedIndex].value;
+      console.log(taskTitle, notes, date, priority);
     });
   }
+
+  // static formValidation(formSelector, btn){
+  //   const errors = document.querySelector()
+
+  // }
 
   // Add Task TO Panel
   static addTaskPanel (task) {

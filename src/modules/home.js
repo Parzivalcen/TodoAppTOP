@@ -1,7 +1,7 @@
 
 import '../styles/sassModules/_home.scss';
 import addToDo from './addToDo';
-import sideBar from './sideBar';
+import panel from './panel';
 
 class home {
   static header(){
@@ -42,7 +42,7 @@ class home {
     // Desc Panel, Just for styling
 
     // Display categories on side panel.
-    sideBar.displayCategories();
+    panel.displayCategories();
     return hero;
   }
 
