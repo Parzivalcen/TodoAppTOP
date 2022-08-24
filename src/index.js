@@ -22,6 +22,7 @@ panel.toggle();
 
 // Add big task adder form;
 body.appendChild(addToDo.addTask());
+panel.displayCategoriesDropDown();
 
 
 body.appendChild(main);

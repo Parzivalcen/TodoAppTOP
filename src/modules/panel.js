@@ -61,25 +61,32 @@ export default class panel {
     addTaskbtn.addEventListener('mouseup', ()=>{
       const addTaskContainer = document.querySelector('.add-task-container');
       const visibility = addTaskContainer.getAttribute('data-visible');
-
-      // categories 
-      const dropCategories = addTaskContainer.querySelector('#categories-list');
-      const categories = store.getCategories();
-      categories.forEach(cat => {
-        const option = document.createElement('option');
-        option.classList.add(cat.split(' ')[0]);
-        option.innerHTML = cat;
-        dropCategories.appendChild(option);
-        
-      });
-
-
       visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
-      
       
     });
   }
 
+  static addCategoriesDown (category){
+    const dropCategories = document.querySelector('#categories-list');
+
+    // categories drop down
+
+    const option = document.createElement('option');
+    option.classList.add('added-option');
+    option.classList.add(category.split(' ')[0]);
+    option.innerHTML = `${category}`;
+    dropCategories.appendChild(option);
+      
+
+  }
+  // Display Categories
+  static displayCategoriesDropDown () {
+    const categories = store.getCategories();
+    categories.map((category) => {
+      this.addCategoriesDown(category);
+    });
+  }
+  
   // POP UP //
   /*
   When Icon(+) to add category is pressed
@@ -135,6 +142,8 @@ export default class panel {
         alert('Please enter at least one character');
       }else{
         panel.addCategory(title, 'categories-navigation');
+        this.addCategoriesDown(title);
+
         // Local Storage
         store.storeCategory(title);
 
