@@ -36,7 +36,7 @@ class addToDo {
 
       <div class="notes">
         <div class="notes-panel">
-          <span class="textarea" role="textbox" contenteditable="true"></span>
+          <span class="textarea-main" role="textbox" contenteditable="true"></span>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ class addToDo {
 
       <div class="set-date">
         <label class="add-date-label" for="due-Date">Add due date</label>
-        <input type="date" id="due-Date" name="due-Date">
+        <input type="date" id="due-Date-main" name="due-Date">
       </div>
 
       <div class="priority">

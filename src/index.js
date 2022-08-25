@@ -24,6 +24,9 @@ panel.toggle();
 body.appendChild(addToDo.addTask());
 panel.displayCategoriesDropDown();
 
+// Task Desc Panel
+body.appendChild(taskDescPanel.panel());
+
 
 body.appendChild(main);
 

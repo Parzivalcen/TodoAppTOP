@@ -1,13 +1,14 @@
 import { store } from '../StoreTask/store';
 
 class Task {
-  constructor(title, category, dateCreated){
+  constructor(title, category, dateCreated, notes, dueDate, priority){
     this.title = title;
     this.category = category;
     this.done = false;
-    this.dueDate = null;
+    this.dueDate = dueDate === undefined ? null : dueDate;
     this.dateCreated = dateCreated;
-    this.notes = undefined;
+    this.notes = notes === undefined ? undefined : notes;
+    this.priority = priority;
     // add date created, storing the date the task is created. 
   }
 
@@ -15,14 +16,21 @@ class Task {
   static addTaskFromPanel (){
     const addTaskBtn = document.querySelector('.add-main-task-btn');
     const container = document.querySelector('.add-task-container');
-    const select = container.querySelector('#priority');
+    const selectPriority = container.querySelector('#priority');
+    const selectCategory= container.querySelector('#categories-list');
     addTaskBtn.addEventListener('mouseup', ()=>{
+
       const taskTitle = container.querySelector('#add-task-title').value;
-      const notes = container.querySelector('.textarea').innerHTML;
-      let date = container.querySelector('#due-Date').value;
+      const notes = container.querySelector('.textarea-main').innerHTML;
+      let date = container.querySelector('#due-Date-main').value;
+
+      const category = selectCategory.options[selectCategory.selectedIndex].value;
       date = new Date(date);
-      const priority = select.options[select.selectedIndex].value;
-      console.log(taskTitle, notes, date, priority);
+      const dateCreated = new Date();
+
+      const priority = selectPriority.options[selectPriority.selectedIndex].value;
+      const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
+      console.log(task);
     });
   }
 
