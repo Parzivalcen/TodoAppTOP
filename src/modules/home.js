@@ -3,8 +3,8 @@ import '../styles/sassModules/_home.scss';
 import addToDo from './addToDo';
 import panel from './panel';
 
-class home {
-  static header(){
+const home =  {
+  header(){
     const header = document.createElement('header');
     header.classList.add('primary-header');
     header.innerHTML = `
@@ -33,9 +33,9 @@ class home {
     </div>
     `;
     return header;
-  }
+  },
   
-  static hero() {
+  hero() {
     const hero = document.createElement('div');
     hero.classList.add('container', 'container-hero');
     hero.appendChild(addToDo.todoPanel('All Tasks'));
@@ -44,18 +44,18 @@ class home {
     // Display categories on side panel.
     panel.displayCategories();
     return hero;
-  }
+  },
 
-  static clearHero () {
+  clearHero () {
     const todoPanel = document.querySelector('.todo-panel');
     todoPanel.textContent = '';
-  }
-  static clearDescPanel(){
+  },
+  clearDescPanel(){
     const descPanel = document.querySelector('.modal--taskDescPanel');
     descPanel.textContent = '';
-  }
+  },
 
-  static clickOutsideModal(){
+  clickOutsideModal(){
     let modals = document.querySelectorAll('.modal');
     modals.forEach((modal)=>{
       modal.addEventListener('click', (e)=>{
@@ -65,9 +65,9 @@ class home {
       });
     });
   }
-}
+};
 
 
 
-
+Object.freeze(home);
 export {home};
