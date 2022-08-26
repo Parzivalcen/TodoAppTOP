@@ -25,7 +25,7 @@ export default class panel {
             <p class="category--title">All Tasks</p>                   
         </div>
         <div class="category">
-            <p class="category--title">Shopping list</p>
+            <p class="category--title">Shopping List</p>
         </div>
         <div class="category">    
             <p class="category--title">Work</p>  
@@ -218,7 +218,7 @@ export default class panel {
     // New todo panel
     todoPanel.innerHTML = `
     <div class="title">
-    <h1>${category}</h1>
+    <h1 class="task-category-title">${category}</h1>
     </div>
     <div class="tasks">
     <!-- task 1 -->

@@ -6,8 +6,8 @@ class addToDo {
     const container = document.createElement('div');
     container.classList.add('todo-panel');
     container.innerHTML = `
-      <div class="title">
-        <h1>${folder}</h1>
+      <div class="title task-category-title">
+        <h1 class="task-category-title">${folder}</h1>
       </div>
       <div class="tasks">
         <!-- task 1 -->
@@ -43,9 +43,9 @@ class addToDo {
       <div class="select-category">
         <label for="categories-list" class="drop-down-cats">select category</label>
         <select name="categories-list" id="categories-list">
-          <option value="all">all task</option>
+          <option value="all">general</option>
           <option value="shopping">Shopping List</option>
-          <option value="work">work</option>
+          <option value="work">Work</option>
         </select>
       </div>
 

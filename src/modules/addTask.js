@@ -24,13 +24,15 @@ class Task {
       const notes = container.querySelector('.textarea-main').innerHTML;
       let date = container.querySelector('#due-Date-main').value;
 
-      const category = selectCategory.options[selectCategory.selectedIndex].value;
+      const category = selectCategory.options[selectCategory.selectedIndex].text;
       date = new Date(date);
       const dateCreated = new Date();
 
       const priority = selectPriority.options[selectPriority.selectedIndex].value;
+      console.log(category);
       const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
-      console.log(task);
+      this.addTaskPanel(task);
+      store.addTaskToLS(task);
     });
   }
 
@@ -42,9 +44,9 @@ class Task {
   // Add Task TO Panel
   static addTaskPanel (task) {
     const taskPanel = document.querySelector('.tasks');
+    const categoryTitle = document.querySelector('.task-category-title').textContent; 
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
-    
     // Display task done or undone
     if (task.done) {
       taskDiv.setAttribute('aria-disabled', true);
@@ -59,8 +61,10 @@ class Task {
     </div>
     <button class="TaskItemDelete"></button>
     `;
+   
+      taskPanel.appendChild(taskDiv);
     
-    taskPanel.appendChild(taskDiv);
+
     
   }
   
