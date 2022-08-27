@@ -43,7 +43,6 @@ class addToDo {
       <div class="select-category">
         <label for="categories-list" class="drop-down-cats">select category</label>
         <select name="categories-list" id="categories-list">
-          <option value="all">general</option>
           <option value="shopping">Shopping List</option>
           <option value="work">Work</option>
         </select>

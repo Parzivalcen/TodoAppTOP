@@ -31,8 +31,8 @@ class Task {
       const priority = selectPriority.options[selectPriority.selectedIndex].value;
       console.log(category);
       const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
-      this.addTaskPanel(task);
       store.addTaskToLS(task);
+      this.addTaskPanelTWO(task);
     });
   }
 
@@ -43,8 +43,8 @@ class Task {
 
   // Add Task TO Panel
   static addTaskPanel (task) {
-    const taskPanel = document.querySelector('.tasks');
     const categoryTitle = document.querySelector('.task-category-title').textContent; 
+    const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
     // Display task done or undone
@@ -61,8 +61,35 @@ class Task {
     </div>
     <button class="TaskItemDelete"></button>
     `;
-   
+    taskPanel.appendChild(taskDiv);
+
+    
+
+    
+  }
+  // Add Task TO Panel TWO
+  static addTaskPanelTWO (task) {
+    const categoryTitle = document.querySelector('.task-category-title').textContent; 
+    const taskPanel = document.querySelector('.tasks');
+    let taskDiv = document.createElement('div');
+    taskDiv.classList.add('task', 'grid');
+    // Display task done or undone
+    if (task.done) {
+      taskDiv.setAttribute('aria-disabled', true);
+    }else{
+      taskDiv.setAttribute('aria-disabled', false);
+    }
+    taskDiv.innerHTML = `
+    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
+    <div class="task-content">
+      <p class="task-title">${task.title}</p>
+      <p class="task-category">${task.category}</p>
+    </div>
+    <button class="TaskItemDelete"></button>
+    `;
+    if (categoryTitle === task.category || categoryTitle === 'All Tasks'){
       taskPanel.appendChild(taskDiv);
+    }
     
 
     
@@ -149,7 +176,7 @@ class Task {
   static displayTasksCategorically = (category) => {
     let tasks = store.getTasks();
     tasks.map((task) => {
-      if(task.category == category) {
+      if(task.category === category) {
         Task.addTaskPanel(task);
       }
     });
