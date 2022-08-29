@@ -1,4 +1,4 @@
-import { Task } from './modules/addTask';
+import { Task, addTask } from './modules/addTask';
 // import './styles/styles.css';
 // import './styles/style.scss';
 import { store } from './StoreTask/store';
@@ -34,12 +34,12 @@ main.appendChild(home.hero());
 
 body.appendChild(footer());
 
-document.addEventListener('DOMContentLoaded', Task.displayTasks());
+document.addEventListener('DOMContentLoaded', addTask.displayTasks());
 home.clickOutsideModal();
 // delete
 document.addEventListener('click', (e) => {
-  Task.deleteTask(e);
-  Task.taskDone(e);
+  addTask.deleteTask(e);
+  addTask.taskDone(e);
   store.LSremoveTask(e);
   store.changeDoneState(e);
   panel.categoryPressed(e);
@@ -54,7 +54,7 @@ document.addEventListener('click', (e) => {
 
 /*Take the input user input 
 from the text box, this file is located on ./UI/addTask.js*/  
-Task.takeInputEvent('general');
+addTask.takeInputEvent('general');
 panel.addNewCategoryBtn();
-Task.addTaskFromPanel();
+addTask.addTaskFromPanel();
 

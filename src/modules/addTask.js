@@ -11,9 +11,12 @@ class Task {
     this.priority = priority;
     // add date created, storing the date the task is created. 
   }
+}
+
+const addTask = {
 
   // add task from main task btn
-  static addTaskFromPanel (){
+  addTaskFromPanel (){
     const addTaskBtn = document.querySelector('.add-main-task-btn');
     const container = document.querySelector('.add-task-container');
     const selectPriority = container.querySelector('#priority');
@@ -23,7 +26,7 @@ class Task {
       const taskTitle = container.querySelector('#add-task-title').value;
       const notes = container.querySelector('.textarea-main').innerHTML;
       let date = container.querySelector('#due-Date-main').value;
-
+      
       const category = selectCategory.options[selectCategory.selectedIndex].text;
       date = new Date(date);
       const dateCreated = new Date();
@@ -34,15 +37,15 @@ class Task {
       store.addTaskToLS(task);
       this.addTaskPanelTWO(task);
     });
-  }
+  },
 
-  // static formValidation(formSelector, btn){
+  //  formValidation(formSelector, btn){
   //   const errors = document.querySelector()
-
+    
   // }
 
   // Add Task TO Panel
-  static addTaskPanel (task) { 
+  addTaskPanel (task) { 
     const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
@@ -55,35 +58,28 @@ class Task {
     taskDiv.innerHTML = `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
     <div class="task-content">
-      <p class="task-title">${task.title}</p>
-      <p class="task-category">${task.category}</p>
+    <p class="task-title">${task.title}</p>
+    <p class="task-category">${task.category}</p>
     </div>
     <button class="TaskItemDelete"></button>
     `;
     taskPanel.appendChild(taskDiv);
+  },
 
-    
-
-    
-  }
   // Add Task TO Panel TWO
-  static addTaskPanelTWO (task) {
+  addTaskPanelTWO (task) {
     const categoryTitle = document.querySelector('.task-category-title').innerText; 
     console.log( document.querySelector('.task-category-title').innerText); 
     const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
-    // Display task done or undone
-    if (task.done) {
-      taskDiv.setAttribute('aria-disabled', true);
-    }else{
-      taskDiv.setAttribute('aria-disabled', false);
-    }
+    taskDiv.setAttribute('aria-disabled', false);
+    
     taskDiv.innerHTML = `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
     <div class="task-content">
-      <p class="task-title">${task.title}</p>
-      <p class="task-category">${task.category}</p>
+    <p class="task-title">${task.title}</p>
+    <p class="task-category">${task.category}</p>
     </div>
     <button class="TaskItemDelete"></button>
     `;
@@ -93,12 +89,12 @@ class Task {
     
 
     
-  }
+  },
   
   
-
+  
   // Take input
-  static takeInputEvent (category) {
+  takeInputEvent (category) {
     // Funtion to take input on enter key pressed or click
     const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;
@@ -131,18 +127,18 @@ class Task {
     // addBtn.addEventListener('touchend', () =>{
     //   takeInput(category);
     // })
-  }
+  },
 
   // Clear Input fields
-  static clearInputField(element) {
+  clearInputField(element) {
     document.querySelector(element).value = '';
-  }
+  },
   
   // Change task dones status on screen
-  static taskDone(e) {
+  taskDone(e) {
     if (e.target.classList.contains('TaskItemCheckbox')){
       const task = e.target.parentElement;
-    
+      
       let title = e.target.nextElementSibling.firstElementChild.innerHTML;
       const tasks = store.getTasks();
       /*Get index by the task title pressed. 
@@ -155,33 +151,34 @@ class Task {
         task.setAttribute('aria-disabled', true);
       } 
     }
-  }
-
+  },
+  
   // Delete Task
-  static deleteTask(e){
+  deleteTask(e){
     if (e.target.classList.contains('TaskItemDelete')){
       e.target.parentElement.remove();
     }
-  }
-
+  },
+  
   // Display tasks
-  static displayTasks = () => {
+  displayTasks () {
     let tasks = store.getTasks();
     tasks.forEach((task) => {
-      Task.addTaskPanel(task);
+      this.addTaskPanel(task);
       
     });
-  };
+  },
   
-  static displayTasksCategorically = (category) => {
+  displayTasksCategorically (category) {
     let tasks = store.getTasks();
     tasks.map((task) => {
       if(task.category === category) {
-        Task.addTaskPanel(task);
+        this.addTaskPanel(task);
       }
     });
-  };
+  },
   
-}
+};
 
-export{Task};
+Object.freeze(addTask);
+export{Task, addTask};
