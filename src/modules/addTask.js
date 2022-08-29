@@ -103,18 +103,20 @@ const addTask = {
         const date = new Date();
         let newTask = new Task(title, category, date);
         // add task to DOM
-        Task.addTaskPanel(newTask);
+        this.addTaskPanel(newTask);
         // Store task on Local storage
         store.addTaskToLS(newTask);
       }else{
         alert('Please enter at least one character');
       }
-      Task.clearInputField('#add-task-text');
+      this.clearInputField('#add-task-text');
     };
     const taskContainer = document.querySelector('.add-task-container');
     const addBtn = document.querySelector('.add-task-btn');
     // ENTER KEY
+  
     taskContainer.addEventListener('keypress', (e) => {
+      
       if(e.key === 'Enter'){
         takeInput(category);
       }
@@ -123,10 +125,6 @@ const addTask = {
     addBtn.addEventListener('mouseup', () =>{
       takeInput(category);
     });
-    // mobile handler
-    // addBtn.addEventListener('touchend', () =>{
-    //   takeInput(category);
-    // })
   },
 
   // Clear Input fields

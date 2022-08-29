@@ -26,7 +26,7 @@ class addToDo {
 
   static addTask(){
     const addTaskPanel = document.createElement('div');
-    addTaskPanel.classList.add('add-task-container');
+    addTaskPanel.classList.add('add-task-container-main');
     addTaskPanel.setAttribute('data-visible', false);
     addTaskPanel.innerHTML = `
       <div class="title">

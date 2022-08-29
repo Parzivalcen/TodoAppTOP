@@ -1,5 +1,5 @@
 import { store } from '../StoreTask/store';
-import { Task } from './addTask';
+import { Task, addTask } from './addTask';
 import { home } from './home';
 import '../styles/sassModules/_panel.scss';
 
@@ -149,7 +149,7 @@ export default class panel {
 
       }
       
-      Task.clearInputField('#add-project-text');
+      addTask.clearInputField('#add-project-text');
       // Hide BTN
       addProjectPopUp.setAttribute('data-visible', false);
     };
@@ -231,13 +231,13 @@ export default class panel {
     </div>
     `;
     if (category == 'All Tasks'){
-      Task.displayTasks();
-      Task.takeInputEvent('general');
+      addTask.displayTasks();
+      addTask.takeInputEvent('general');
     }else{
-      Task.displayTasksCategorically(category);
+      addTask.displayTasksCategorically(category);
     }
     
-    Task.takeInputEvent(category);
+    addTask.takeInputEvent(category);
   }
     
   // Delete categories. 
