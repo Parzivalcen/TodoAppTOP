@@ -42,8 +42,7 @@ class Task {
   // }
 
   // Add Task TO Panel
-  static addTaskPanel (task) {
-    const categoryTitle = document.querySelector('.task-category-title').textContent; 
+  static addTaskPanel (task) { 
     const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
@@ -69,7 +68,8 @@ class Task {
   }
   // Add Task TO Panel TWO
   static addTaskPanelTWO (task) {
-    const categoryTitle = document.querySelector('.task-category-title').textContent; 
+    const categoryTitle = document.querySelector('.task-category-title').innerText; 
+    console.log( document.querySelector('.task-category-title').innerText); 
     const taskPanel = document.querySelector('.tasks');
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
@@ -87,7 +87,7 @@ class Task {
     </div>
     <button class="TaskItemDelete"></button>
     `;
-    if (categoryTitle === task.category || categoryTitle === 'All Tasks'){
+    if (categoryTitle === 'All Tasks' || categoryTitle === task.category){
       taskPanel.appendChild(taskDiv);
     }
     
