@@ -39,8 +39,6 @@
     cursor: pointer;
     
     &[aria-expanded="true"]{
-      position: absolute;
-      top: 110%;
       right: 4vw;
       background-color: $red;
       -webkit-mask-image: url(../../imgs/closeMenu.svg) ;

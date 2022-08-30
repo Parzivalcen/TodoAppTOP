@@ -2,6 +2,8 @@
 @media screen and (min-width: 0px) {
   .categories-navigation{
     display: none;
+    position: absolute;
+    top: 0;
     flex-direction: column;
     align-content: center;
  
@@ -14,7 +16,7 @@
     /*BLUR bg  */
     backdrop-filter: blur(8px);
     color: $secondary-background-dark;
-    height: 80vh;
+    height: 100vh;
     width: 100vw;
     overflow-y: auto;
 
