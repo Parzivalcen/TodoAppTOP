@@ -18,7 +18,7 @@ const addTask = {
   // add task from main task btn
   addTaskFromPanel (){
     const addTaskBtn = document.querySelector('.add-main-task-btn');
-    const container = document.querySelector('.add-task-container');
+    const container = document.querySelector('.add-task-container-main');
     const selectPriority = container.querySelector('#priority');
     const selectCategory= container.querySelector('#categories-list');
     addTaskBtn.addEventListener('mouseup', ()=>{
@@ -39,10 +39,16 @@ const addTask = {
     });
   },
 
-  //  formValidation(formSelector, btn){
-  //   const errors = document.querySelector()
-    
-  // }
+  taskDivHTML (task){
+    return `
+    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
+    <div class="task-content">
+    <p class="task-title">${task.title}</p>
+    <p class="task-category">${task.category}</p>
+    </div>
+    <button class="TaskItemDelete"></button>
+    `;
+  },
 
   // Add Task TO Panel
   addTaskPanel (task) { 
@@ -55,14 +61,7 @@ const addTask = {
     }else{
       taskDiv.setAttribute('aria-disabled', false);
     }
-    taskDiv.innerHTML = `
-    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
-    <div class="task-content">
-    <p class="task-title">${task.title}</p>
-    <p class="task-category">${task.category}</p>
-    </div>
-    <button class="TaskItemDelete"></button>
-    `;
+    taskDiv.innerHTML = this.taskDivHTML(task);
     taskPanel.appendChild(taskDiv);
   },
 
@@ -75,20 +74,10 @@ const addTask = {
     taskDiv.classList.add('task', 'grid');
     taskDiv.setAttribute('aria-disabled', false);
     
-    taskDiv.innerHTML = `
-    <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
-    <div class="task-content">
-    <p class="task-title">${task.title}</p>
-    <p class="task-category">${task.category}</p>
-    </div>
-    <button class="TaskItemDelete"></button>
-    `;
+    taskDiv.innerHTML = this.taskDivHTML(task);
     if (categoryTitle === 'All Tasks' || categoryTitle === task.category){
       taskPanel.appendChild(taskDiv);
     }
-    
-
-    
   },
   
   

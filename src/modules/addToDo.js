@@ -30,7 +30,7 @@ class addToDo {
     addTaskPanel.setAttribute('data-visible', false);
     addTaskPanel.innerHTML = `
       <div class="title">
-        <input type="text" id="add-task-title" name="add-task-title">
+        <input type="text" class="add-task-title" id="add-task-title" name="add-task-title">
         <label class="add-task-title-label" for="add-task-title">I want to...</label>
       </div>
 
