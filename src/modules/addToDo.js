@@ -1,8 +1,8 @@
 import '../styles/sassModules/_todoPanel.scss';
 // import { Task } from './addTask';
 import panel from './panel';
-class addToDo {
-  static todoPanel = (folder) => {
+const addToDo = {
+  todoPanel (folder) {
     const container = document.createElement('div');
     container.classList.add('todo-panel');
     container.innerHTML = `
@@ -22,13 +22,15 @@ class addToDo {
     `;
     
     return container;
-  };
+  },
 
-  static addTask(){
+  addTask(){
     const addTaskPanel = document.createElement('div');
-    addTaskPanel.classList.add('add-task-container-main');
+    addTaskPanel.classList.add('modal', 'modal-add-task-container-main');
     addTaskPanel.setAttribute('data-visible', false);
     addTaskPanel.innerHTML = `
+    <div class="add-task-container-main">
+
       <div class="title">
         <input type="text" class="add-task-title" id="add-task-title" name="add-task-title">
         <label class="add-task-title-label" for="add-task-title">I want to...</label>
@@ -39,7 +41,7 @@ class addToDo {
           <span class="textarea-main" role="textbox" contenteditable="true"></span>
         </div>
       </div>
-
+      
       <div class="select-category">
         <label for="categories-list" class="drop-down-cats">select category</label>
         <select name="categories-list" id="categories-list">
@@ -52,7 +54,7 @@ class addToDo {
         <label class="add-date-label" for="due-Date">Add due date</label>
         <input type="date" id="due-Date-main" name="due-Date">
       </div>
-
+      
       <div class="priority">
         <label for="priority">priority</label>
         <select name="priority" id="priority">
@@ -61,17 +63,19 @@ class addToDo {
           <option value="low">low</option>
         </select>
       </div>
-
-    <div class="add-main-task">
-      <button class="add-main-task-btn">Add Task</button>
+      
+      <div class="add-main-task">
+        <button class="add-main-task-btn">Add Task</button>
+      </div>
     </div>
-
-    `;
+      
+      `;
     panel.showAddTaskForm();
-
-
+    
+    
     return addTaskPanel;
-  }
-
-}
+  },
+  
+};
+Object.freeze(addToDo);
 export default addToDo;

@@ -39,6 +39,7 @@ const addTask = {
     });
   },
 
+  // HTML text
   taskDivHTML (task){
     return `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>

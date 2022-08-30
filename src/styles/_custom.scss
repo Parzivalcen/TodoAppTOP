@@ -159,7 +159,11 @@ utility clases
   /* added line */
   border: 0;
 }
-
+body{
+  background-image: url(../../imgs/bg-desktop-pink.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .modal{
   display: none;
   position: absolute;
