@@ -32,9 +32,8 @@ const addToDo = {
     addTaskPanel.innerHTML = `
     
 
-      <div class="title">
-        <input type="text" class="add-task-title" id="add-task-title" name="add-task-title">
-        <label class="add-task-title-label" for="add-task-title">I want to...</label>
+      <div class="title-task-input">
+        <input type="text" placeholder="I want to..." class="add-task-title" id="add-task-title" name="add-task-title">
       </div>
 
       <div class="notes">
@@ -66,7 +65,7 @@ const addToDo = {
       </div>
       
       <div class="add-main-task">
-        <button class="add-main-task-btn">Add Task</button>
+        <button class="btn add-main-task-btn">Add Task</button>
       </div>
       
       `;
