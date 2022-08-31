@@ -21,6 +21,8 @@ const addTask = {
     const container = document.querySelector('.add-task-container-main');
     const selectPriority = container.querySelector('#priority');
     const selectCategory= container.querySelector('#categories-list');
+    const nav = document.querySelector('#categories-navigation');
+    const toggle = document.querySelector('.mobile-toggle');
     addTaskBtn.addEventListener('mouseup', ()=>{
 
       const taskTitle = container.querySelector('#add-task-title').value;
@@ -34,6 +36,13 @@ const addTask = {
       const priority = selectPriority.options[selectPriority.selectedIndex].value;
       console.log(category);
       const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
+
+
+      // hide container
+      container.setAttribute('data-visible', false);
+      toggle.setAttribute('aria-expanded', false);
+      nav.setAttribute('data-visible', false);
+
       store.addTaskToLS(task);
       this.addTaskPanelTWO(task);
     });

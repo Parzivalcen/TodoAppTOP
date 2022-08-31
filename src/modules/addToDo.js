@@ -1,4 +1,5 @@
 import '../styles/sassModules/_todoPanel.scss';
+import '../styles/sassModules/_addTaskP.scss';
 // import { Task } from './addTask';
 import panel from './panel';
 const addToDo = {
@@ -26,10 +27,10 @@ const addToDo = {
 
   addTask(){
     const addTaskPanel = document.createElement('div');
-    addTaskPanel.classList.add('modal', 'modal-add-task-container-main');
+    addTaskPanel.classList.add('add-task-container-main');
     addTaskPanel.setAttribute('data-visible', false);
     addTaskPanel.innerHTML = `
-    <div class="add-task-container-main">
+    
 
       <div class="title">
         <input type="text" class="add-task-title" id="add-task-title" name="add-task-title">
@@ -67,7 +68,6 @@ const addToDo = {
       <div class="add-main-task">
         <button class="add-main-task-btn">Add Task</button>
       </div>
-    </div>
       
       `;
     panel.showAddTaskForm();

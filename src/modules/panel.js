@@ -59,7 +59,7 @@ export default class panel {
   static showAddTaskForm (){
     const addTaskbtn = document.querySelector('.btn-panel-task');
     addTaskbtn.addEventListener('mouseup', ()=>{
-      const addTaskContainer = document.querySelector('.modal-add-task-container-main');
+      const addTaskContainer = document.querySelector('.add-task-container-main');
       const visibility = addTaskContainer.getAttribute('data-visible');
       visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
       
