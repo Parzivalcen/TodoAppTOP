@@ -27,24 +27,25 @@ const addToDo = {
 
   addTask(){
     const addTaskPanel = document.createElement('div');
-    addTaskPanel.classList.add('add-task-container-main');
+    addTaskPanel.classList.add('add-task-container-main', 'modal');
     addTaskPanel.setAttribute('data-visible', false);
     addTaskPanel.innerHTML = `
     
+    <div class="add-task-container-content">
 
       <div class="title-task-input">
         <input type="text" placeholder="I want to..." class="add-task-title" id="add-task-title" name="add-task-title">
       </div>
 
-      <div class="notes">
-        <div class="notes-panel">
-          <span class="textarea-main" role="textbox" contenteditable="true"></span>
+      
+        <div id="notes-panel-main">
+          <span class="textarea-main" placeholder="I want to..." role="textbox" contenteditable="true"></span>
         </div>
-      </div>
+      
       
       <div class="select-category">
-        <label for="categories-list" class="drop-down-cats">select category</label>
         <select name="categories-list" id="categories-list">
+          <option value="0">select category:</option>
           <option value="shopping">Shopping List</option>
           <option value="work">Work</option>
         </select>
@@ -67,6 +68,7 @@ const addToDo = {
       <div class="add-main-task">
         <button class="btn add-main-task-btn">Add Task</button>
       </div>
+    </div>
       
       `;
     panel.showAddTaskForm();

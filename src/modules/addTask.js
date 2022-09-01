@@ -29,7 +29,8 @@ const addTask = {
       const notes = container.querySelector('.textarea-main').innerHTML;
       let date = container.querySelector('#due-Date-main').value;
       
-      const category = selectCategory.options[selectCategory.selectedIndex].text;
+      let category = selectCategory.options[selectCategory.selectedIndex].text;
+      category === 'select category:' ? category = 'general' : category;
       date = new Date(date);
       const dateCreated = new Date();
 
