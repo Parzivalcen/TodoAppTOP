@@ -1,0 +1,71 @@
+@use '../custom' as *;
+@media screen and (min-width: 0px) {
+  .add-task-container-main{
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+    background-color: $font-title-bg-color;
+    color: $font-p-color-light;
+    width: 100vw;
+    height: 100vh;
+    padding-block: 5vh;
+    padding-inline: 5vw;
+    display: grid;
+    place-content: center;
+    .add-task-container-content{
+      .title-task-input{
+        position: relative;
+        #add-task-title{
+          width: 100%;
+          border-radius: 3vmin;
+          padding:1vmin;
+          padding-inline: 1.5vmin;
+          background-color: $input-bg-color;
+          border: none;
+        &::placeholder{
+          color: $secondary-background;
+        }
+        }
+      }
+
+      .select-category-container{
+        margin-top: 2vh;
+        border-radius: 3vmin;
+        background-color: $input-bg-color;
+        padding-inline: 1.5vmin;
+        padding-block: 1vmin;
+        .select-category{
+        }
+        ul{
+          border-top: .5vmin solid $secondary-background;
+          text-transform: capitalize;
+        }
+      }
+      
+    }
+
+  }
+  #notes-panel-main{
+    background-color: $input-bg-color ; 
+    margin-top: 1rem;
+    min-height: 5vh;
+    max-height: 20vh;
+    overflow-y: auto;
+    padding: .3em;
+    border: 1px solid $font-title-bg-color;
+    border-radius: 10px;
+    .textarea-main{
+      display: block;
+      min-height: 4.8vh;
+      width: 100%;
+      // IF text area empty show a place Holder
+      &:empty::before{
+        content: 'Add notes';
+        color: $secondary-background;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
