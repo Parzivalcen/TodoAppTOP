@@ -20,14 +20,16 @@ const addTask = {
     const addTaskBtn = document.querySelector('.add-main-task-btn');
     const container = document.querySelector('.add-task-container-main');
     const selectPriority = container.querySelector('#priority');
-    const selectCategory= container.querySelector('#categories-list');
     const nav = document.querySelector('#categories-navigation');
     const toggle = document.querySelector('.mobile-toggle');
     const selection = document.querySelectorAll('.cat-drop');
     let selectedCategory;
     selection.forEach((cat)=>cat.addEventListener('click', ()=>{
       selectedCategory = cat.innerHTML;
-      
+      // this should get closed and the selected category should stay in the title
+      // select cat
+      // close cat list
+      // selected cat on title
     }));
     addTaskBtn.addEventListener('mouseup', ()=>{
 
