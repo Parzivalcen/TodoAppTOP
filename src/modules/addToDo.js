@@ -1,5 +1,6 @@
 import '../styles/sassModules/_todoPanel.scss';
 import '../styles/sassModules/_addTaskP.scss';
+import { addTask } from './addTask';
 // import { Task } from './addTask';
 import panel from './panel';
 const addToDo = {
@@ -28,7 +29,8 @@ const addToDo = {
   addTask(){
     const addTaskPanel = document.createElement('div');
     addTaskPanel.classList.add('add-task-container-main', 'modal');
-    addTaskPanel.setAttribute('data-visible', false);
+    addTaskPanel.setAttribute('data-visible', true);
+
     addTaskPanel.innerHTML = `
     
     <div class="add-task-container-content">
@@ -43,12 +45,13 @@ const addToDo = {
         </div>
       
       
-      <div class="select-category">
-        <select name="categories-list" id="categories-list">
-          <option value="0">select category:</option>
-          <option value="shopping">Shopping List</option>
-          <option value="work">Work</option>
-        </select>
+      <div class="select-category-container">
+        <p class="select-category"> Select Category: <span class="menu-icon"></span></p>
+        <ul class="dropdown-categories" data-visible = "false">
+          <li class="cat-drop">general</li>
+          <li class="cat-drop">Shopping List</li>
+          <li class="cat-drop">Work</li>
+        </ul>
       </div>
 
       <div class="set-date">
@@ -72,6 +75,9 @@ const addToDo = {
       
       `;
     panel.showAddTaskForm();
+    document.addEventListener('DOMContentLoaded', ()=>{
+      addTask.dropDownCategories();
+    });
     
     
     return addTaskPanel;

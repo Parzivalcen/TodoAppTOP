@@ -67,17 +67,14 @@ export default class panel {
   }
 
   static addCategoriesDown (category){
-    const dropCategories = document.querySelector('#categories-list');
+    const dropCategories = document.querySelector('.dropdown-categories');
 
     // categories drop down
 
-    const option = document.createElement('option');
-    option.classList.add('added-option');
-    option.classList.add(category.split(' ')[0]);
+    const option = document.createElement('li');
+    option.classList.add('added-option', 'cat-drop');
     option.innerHTML = `${category}`;
     dropCategories.appendChild(option);
-      
-
   }
   // Display Categories
   static displayCategoriesDropDown () {

@@ -23,14 +23,21 @@ const addTask = {
     const selectCategory= container.querySelector('#categories-list');
     const nav = document.querySelector('#categories-navigation');
     const toggle = document.querySelector('.mobile-toggle');
+    const selection = document.querySelectorAll('.cat-drop');
+    let selectedCategory;
+    selection.forEach((cat)=>cat.addEventListener('click', ()=>{
+      selectedCategory = cat.innerHTML;
+      
+    }));
     addTaskBtn.addEventListener('mouseup', ()=>{
 
       const taskTitle = container.querySelector('#add-task-title').value;
       const notes = container.querySelector('.textarea-main').innerHTML;
       let date = container.querySelector('#due-Date-main').value;
       
-      let category = selectCategory.options[selectCategory.selectedIndex].text;
-      category === 'select category:' ? category = 'general' : category;
+
+      console.log(selectedCategory);
+      let category = selectedCategory;
       date = new Date(date);
       const dateCreated = new Date();
 
@@ -47,6 +54,29 @@ const addTask = {
       store.addTaskToLS(task);
       this.addTaskPanelTWO(task);
     });
+  },
+
+  dropDownCategories (){
+    const categoriesListCont = document.querySelector('.select-category');
+    console.log(categoriesListCont);
+    categoriesListCont.addEventListener('click', () => {
+      const categoriesList = document.querySelector('.dropdown-categories');
+      const visibility = categoriesList.getAttribute('data-visible');
+      visibility === 'false' ? categoriesList.setAttribute('data-visible', true) : 
+        categoriesList.setAttribute('data-visible', false);
+      
+     
+    });
+
+  },
+  
+  dropDownSelection(){
+    const selection = document.querySelectorAll('.cat-drop');
+    let selected = selection.forEach((cat)=>cat.addEventListener('click', ()=>{
+      return cat.innerHTML;
+      
+    }));
+    console.log(selected);
   },
 
   // HTML text
