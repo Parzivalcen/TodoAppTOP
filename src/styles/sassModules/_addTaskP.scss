@@ -41,6 +41,25 @@
           text-transform: capitalize;
         }
       }
+      .set-date{
+        margin-top: 2vh;
+        input[type="date"]::-webkit-clear-button{
+          display: none;
+        }
+        /* Removes the spin button */
+        input[type="date"]::-webkit-inner-spin-button { 
+          display: none;
+        }
+        input[type="date"]{
+          appearance: none;
+          -webkit-appearance: none;
+          border: none;
+          background-color: $input-bg-color;
+          border-radius: 2vmin;
+          padding: .6vmin;
+          color: $secondary-background;
+        }
+      }
       
     }
 
