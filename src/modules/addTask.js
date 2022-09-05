@@ -24,13 +24,15 @@ const addTask = {
     const toggle = document.querySelector('.mobile-toggle');
     const selection = document.querySelectorAll('.cat-drop');
     let selectedCategory;
+
+    // CATEGORY SELECTION
     selection.forEach((cat)=>cat.addEventListener('click', ()=>{
-      selectedCategory = cat.innerHTML;
-      // this should get closed and the selected category should stay in the title
-      // select cat
-      // close cat list
-      // selected cat on title
+      document.querySelector('.select-category').innerHTML = cat.innerHTML;
+      document.querySelector('.dropdown-categories').setAttribute('data-visible', false);
+      return selectedCategory = cat.innerHTML;
     }));
+
+    // ADD TASK BTN IS CLICKED
     addTaskBtn.addEventListener('mouseup', ()=>{
 
       const taskTitle = container.querySelector('#add-task-title').value;
@@ -47,7 +49,10 @@ const addTask = {
       console.log(category);
       const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
 
-
+      // empty fields
+      container.querySelector('#add-task-title').value = '';
+      container.querySelector('.textarea-main').innerHTML = '';
+      document.querySelector('.select-category').innerHTML = 'Select Category:';
       // hide container
       container.setAttribute('data-visible', false);
       toggle.setAttribute('aria-expanded', false);
@@ -72,13 +77,21 @@ const addTask = {
 
   },
   
-  dropDownSelection(){
+  dropDownSelectionCat(selectedCategory){
     const selection = document.querySelectorAll('.cat-drop');
-    let selected = selection.forEach((cat)=>cat.addEventListener('click', ()=>{
-      return cat.innerHTML;
-      
+
+    
+    selection.forEach((cat)=>cat.addEventListener('click', ()=>{
+      document.querySelector('.select-category').innerHTML = cat.innerHTML;
+      document.querySelector('.dropdown-categories').setAttribute('data-visible', false);
+      return selectedCategory = cat.innerHTML;
+      // this should get closed and the selected category should stay in the title
+      // select cat
+      // close cat list
+      // selected cat on title
     }));
-    console.log(selected);
+    return selectedCategory;
+    
   },
 
   // HTML text
