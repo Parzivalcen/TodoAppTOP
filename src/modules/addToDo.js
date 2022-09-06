@@ -31,7 +31,7 @@ const addToDo = {
     addTaskPanel.classList.add('add-task-container-main', 'modal');
     addTaskPanel.setAttribute('data-visible', true);
 
-    addTaskPanel.innerHTML = `
+    addTaskPanel.innerHTML =`
     
     <div class="add-task-container-content">
 
@@ -46,7 +46,7 @@ const addToDo = {
       
       
       <div class="select-category-container">
-        <p class="select-category"> Select Category: <span class="menu-icon"></span></p>
+        <p class="select-category"> Select Category: <span class="dropdown-icon"></span></p>
         <ul class="dropdown-categories" data-visible = "false">
           <li class="cat-drop">general</li>
           <li class="cat-drop">Shopping List</li>
@@ -59,17 +59,18 @@ const addToDo = {
         <input type="date" id="due-Date-main" name="due-Date">
       </div>
       
-      <div class="priority">
-        <label for="priority">priority</label>
-        <select name="priority" id="priority">
-          <option value="high">high</option>
-          <option value="medium">medium</option>
-          <option value="low">low</option>
-        </select>
+      <div class="priority-container">
+        <p class="priority">priority: <span class="dropdown-icon"></span></p>
+        <ul id="priority" data-visible = "false">
+          <li class="priority-drop">high</li>
+          <li class="priority-drop">medium</li>
+          <li class="priority-drop">low</li>
+        </ul>
       </div>
       
       <div class="add-main-task">
         <button class="btn add-main-task-btn">Add Task</button>
+        <button class="btn cancel-task-btn">Cancel</button>
       </div>
     </div>
       
@@ -77,6 +78,7 @@ const addToDo = {
     panel.showAddTaskForm();
     document.addEventListener('DOMContentLoaded', ()=>{
       addTask.dropDownCategories();
+      addTask.dropDownPriorities();
     });
     
     

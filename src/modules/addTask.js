@@ -19,17 +19,22 @@ const addTask = {
   addTaskFromPanel (){
     const addTaskBtn = document.querySelector('.add-main-task-btn');
     const container = document.querySelector('.add-task-container-main');
-    const selectPriority = container.querySelector('#priority');
-    const nav = document.querySelector('#categories-navigation');
-    const toggle = document.querySelector('.mobile-toggle');
-    const selection = document.querySelectorAll('.cat-drop');
+    let selectedPriority;
+    const selectionPriority = container.querySelectorAll('.priority-drop');
+    const selectionCat = document.querySelectorAll('.cat-drop');
     let selectedCategory;
 
-    // CATEGORY SELECTION
-    selection.forEach((cat)=>cat.addEventListener('click', ()=>{
-      document.querySelector('.select-category').innerHTML = cat.innerHTML;
+    // CATEGORY SELECTIONCat
+    selectionCat.forEach((cat)=>cat.addEventListener('click', ()=>{
+      document.querySelector('.select-category').textContent = cat.textContent;
       document.querySelector('.dropdown-categories').setAttribute('data-visible', false);
       return selectedCategory = cat.innerHTML;
+    }));
+    // PRIORITY SELECTION
+    selectionPriority.forEach((pri)=>pri.addEventListener('click',()=>{
+      document.querySelector('.priority').innerHTML = pri.innerHTML;
+      document.querySelector('#priority').setAttribute('data-visible', false);
+      return selectedPriority = pri.innerHTML;
     }));
 
     // ADD TASK BTN IS CLICKED
@@ -45,22 +50,30 @@ const addTask = {
       date = new Date(date);
       const dateCreated = new Date();
 
-      const priority = selectPriority.options[selectPriority.selectedIndex].value;
+      const priority = selectedPriority;
       console.log(category);
       const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
 
-      // empty fields
-      container.querySelector('#add-task-title').value = '';
-      container.querySelector('.textarea-main').innerHTML = '';
-      document.querySelector('.select-category').innerHTML = 'Select Category:';
-      // hide container
-      container.setAttribute('data-visible', false);
-      toggle.setAttribute('aria-expanded', false);
-      nav.setAttribute('data-visible', false);
+      // Reset Panel
+      this.resetCatAddTaskPanel(container);
+      
 
       store.addTaskToLS(task);
       this.addTaskPanelTWO(task);
     });
+  },
+
+  resetCatAddTaskPanel(container){
+    const nav = document.querySelector('#categories-navigation');
+    const toggle = document.querySelector('.mobile-toggle');
+    // empty fields
+    container.querySelector('#add-task-title').value = '';
+    container.querySelector('.textarea-main').innerHTML = '';
+    document.querySelector('.select-category').innerHTML = 'Select Category:';
+    // hide container
+    container.setAttribute('data-visible', false);
+    toggle.setAttribute('aria-expanded', false);
+    nav.setAttribute('data-visible', false);
   },
 
   dropDownCategories (){
@@ -77,21 +90,17 @@ const addTask = {
 
   },
   
-  dropDownSelectionCat(selectedCategory){
-    const selection = document.querySelectorAll('.cat-drop');
-
-    
-    selection.forEach((cat)=>cat.addEventListener('click', ()=>{
-      document.querySelector('.select-category').innerHTML = cat.innerHTML;
-      document.querySelector('.dropdown-categories').setAttribute('data-visible', false);
-      return selectedCategory = cat.innerHTML;
-      // this should get closed and the selected category should stay in the title
-      // select cat
-      // close cat list
-      // selected cat on title
-    }));
-    return selectedCategory;
-    
+  dropDownPriorities(){
+    const prioritiesListTitle = document.querySelector('.priority');
+    console.log(prioritiesListTitle);
+    prioritiesListTitle.addEventListener('click', () => {
+      const categoriesList = document.querySelector('#priority');
+      const visibility = categoriesList.getAttribute('data-visible');
+      visibility === 'false' ? categoriesList.setAttribute('data-visible', true) : 
+        categoriesList.setAttribute('data-visible', false);
+      
+     
+    });
   },
 
   // HTML text
