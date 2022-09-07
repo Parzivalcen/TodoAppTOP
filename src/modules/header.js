@@ -13,7 +13,7 @@ const header = () => {
   header.innerHTML = `
   <div class=" container--header">
     
-    <h1></h1>
+    <button class="add-task-header btn btn-panel-task">Add Task</button> 
     <div class="menu--container">
       <button aria-expanded="false" class="mobile-toggle" aria-controls="categories-navigation"></button>
 

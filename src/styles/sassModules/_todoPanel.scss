@@ -3,6 +3,147 @@
   .todo-panel{
     position: relative;
     padding: 1em;
+    height: 90vh;
+    width: 100vw;
+    background-color: $font-title-bg-color;
+    color: $secondary-background-dark;
+    overflow: auto;
+    
+    .title{
+      margin-bottom: 1.5vh;
+      border-bottom: 1px solid $secondary-background;
+      color: $secondary-background;
+    }
+    /* Make tasks scrollable */
+    .tasks{
+      max-height: 70vh;
+      overflow: auto;
+      margin-bottom: 3vh;
+
+      .task{
+        padding: .8vh;
+        grid-template-columns: 2vh 1fr 2vh;
+        .task-category{
+          color: $high-ligh-icon;
+          font-size: .9em;
+        }
+        .task-title{
+          cursor: pointer;
+          z-index: 2;
+        }
+        .TaskItemCheckbox{
+          place-self: center;
+          border-radius: 50%;
+          border: none;
+          color: $high-ligh-icon;
+          background-color: $high-ligh-icon;
+          -webkit-mask-image: url(../../imgs/uncheck.svg) ;
+          mask-image: url(../../imgs/uncheck.svg) ;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          width: 2.4vh;
+          height: 2.4vh;
+          cursor: pointer;
+          
+        }
+        .TaskItemDelete{
+          background: transparent;
+          border: none;
+          text-align: center;
+          place-self: center;
+          width: 2.4vh;
+          height: 2.4vh;
+          /* Change Icon color */
+          background-color: $red;
+          -webkit-mask-image: url(../../imgs/minusDelete.svg) ;
+          mask-image: url(../../imgs/minusDelete.svg) ;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          cursor: pointer;
+        }
+
+        // When task is done
+        &[aria-disabled="true"]{
+          color: rgb(104, 104, 104);
+          text-decoration: line-through;
+          .TaskItemCheckbox {
+            /* Change Icon color */
+            background-color: #a0a0a0;
+            -webkit-mask-image: url(../../imgs/check.svg) ;
+            mask-image: url(../../imgs/check.svg) ;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;  
+          }
+          .task-category {
+            display: none;
+          }
+        }
+      }
+    }
+    /* INPUT TASK FIELD */
+    .add-task-container{
+      position: absolute;
+      margin-inline: auto;
+      display: flex;
+      gap: .5vh;
+      border-radius: 10px;
+      align-items: center;
+      bottom: .3vh;
+      left: 0;
+      right: 0;
+      width: 80vw;
+      height: 5vh;
+
+      #add-task-text{
+        width: 80vw;
+        border-radius: 10px;
+      }
+      label{
+        display: block;
+        position: absolute;
+        top: 1vh;
+        left: 2vh;
+        opacity: .4;
+        font-size: 12px;
+        color: black;
+      }
+      input{
+        padding-left: 1em;
+        outline: none;
+        border: none;
+        display:block;
+        line-height: 1.5em;
+        height: 2.2em;
+        font-size: .8em;
+
+        // label disappear on focus
+        &:focus{
+          & + label{
+            opacity: 0;
+          }
+        }
+      }
+      .add-task-btn{
+        background: transparent;
+        border: none;
+        width: 5vh;
+        height: 5vh;
+        color: $high-ligh-icon;
+        /* Change Icon color */
+        background-color: $high-ligh-icon;
+        -webkit-mask-image: url(../../imgs/arrowUp.svg) ;
+        mask-image: url(../../imgs/arrowUp.svg) ;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .todo-panel{
+    position: relative;
+    padding: 1em;
     border-radius: 10px;
     min-height: 45vh;
     max-height: 60vh;
