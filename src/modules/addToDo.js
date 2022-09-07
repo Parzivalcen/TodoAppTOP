@@ -61,7 +61,7 @@ const addToDo = {
       
       <div class="priority-container">
         <p class="priority">priority: <span class="dropdown-icon"></span></p>
-        <ul id="priority" data-visible = "false">
+        <ul class="dropdown-priorities" data-visible = "false">
           <li class="priority-drop">high</li>
           <li class="priority-drop">medium</li>
           <li class="priority-drop">low</li>
@@ -77,8 +77,9 @@ const addToDo = {
       `;
     panel.showAddTaskForm();
     document.addEventListener('DOMContentLoaded', ()=>{
-      addTask.dropDownCategories();
-      addTask.dropDownPriorities();
+      addTask.dropDown('.select-category', '.dropdown-categories');
+      addTask.dropDown('.priority', '.dropdown-priorities');
+      addTask.addTaskCancel();
     });
     
     

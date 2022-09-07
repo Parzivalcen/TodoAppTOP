@@ -13,6 +13,9 @@
     display: grid;
     place-content: center;
     .add-task-container-content{
+      
+      padding-inline: 8vw;
+      padding-block: 8vh;
       .title-task-input{
         position: relative;
         #add-task-title{

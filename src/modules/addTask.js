@@ -76,30 +76,21 @@ const addTask = {
     nav.setAttribute('data-visible', false);
   },
 
-  dropDownCategories (){
-    const categoriesListCont = document.querySelector('.select-category');
-    console.log(categoriesListCont);
-    categoriesListCont.addEventListener('click', () => {
-      const categoriesList = document.querySelector('.dropdown-categories');
-      const visibility = categoriesList.getAttribute('data-visible');
-      visibility === 'false' ? categoriesList.setAttribute('data-visible', true) : 
-        categoriesList.setAttribute('data-visible', false);
-      
-     
+  //DROP DOWN FOR CATEGORIES AND PRIORITY
+  dropDown(titleClass, dropDownClass){
+    const dropDownTitlte = document.querySelector(titleClass);
+    dropDownTitlte.addEventListener('click', () => {
+      const dropDownList = document.querySelector(dropDownClass);
+      const visibility = dropDownList.getAttribute('data-visible');
+      visibility === 'false' ? dropDownList.setAttribute('data-visible', true) : 
+        dropDownList.setAttribute('data-visible', false);
     });
-
   },
-  
-  dropDownPriorities(){
-    const prioritiesListTitle = document.querySelector('.priority');
-    console.log(prioritiesListTitle);
-    prioritiesListTitle.addEventListener('click', () => {
-      const categoriesList = document.querySelector('#priority');
-      const visibility = categoriesList.getAttribute('data-visible');
-      visibility === 'false' ? categoriesList.setAttribute('data-visible', true) : 
-        categoriesList.setAttribute('data-visible', false);
-      
-     
+
+  addTaskCancel(){
+    const addTaskContainer = document.querySelector('.add-task-container-main');
+    addTaskContainer.querySelector('.cancel-task-btn').addEventListener('click', ()=>{
+      addTaskContainer.setAttribute('data-visible', false);
     });
   },
 

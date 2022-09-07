@@ -17,7 +17,6 @@ export default class taskDescPanel {
 
   static newPanel(task){
     const descPanel = document.querySelector('.modal--taskDescPanel');
-    
     const title = task.title;
     const dueDate = task.dueDate === null ? 'No Due date' :
       this.onScreenDateFormat(task.dueDate) ;
