@@ -26,14 +26,14 @@ const addTask = {
 
     // CATEGORY SELECTIONCat
     selectionCat.forEach((cat)=>cat.addEventListener('click', ()=>{
-      document.querySelector('.select-category').textContent = cat.textContent;
+      document.querySelector('.select-category').innerHTML = `${cat.textContent} <span class="dropdown-icon"></span>`;
       document.querySelector('.dropdown-categories').setAttribute('data-visible', false);
       return selectedCategory = cat.innerHTML;
     }));
     // PRIORITY SELECTION
     selectionPriority.forEach((pri)=>pri.addEventListener('click',()=>{
-      document.querySelector('.priority').innerHTML = pri.innerHTML;
-      document.querySelector('#priority').setAttribute('data-visible', false);
+      document.querySelector('.priority').innerHTML = `${pri.textContent} <span class="dropdown-icon"></span>`;
+      document.querySelector('.dropdown-priorities').setAttribute('data-visible', false);
       return selectedPriority = pri.innerHTML;
     }));
 
@@ -69,7 +69,7 @@ const addTask = {
     // empty fields
     container.querySelector('#add-task-title').value = '';
     container.querySelector('.textarea-main').innerHTML = '';
-    document.querySelector('.select-category').innerHTML = 'Select Category:';
+    document.querySelector('.select-category').innerHTML = 'Select Category: <span class="dropdown-icon"></span>';
     // hide container
     container.setAttribute('data-visible', false);
     toggle.setAttribute('aria-expanded', false);

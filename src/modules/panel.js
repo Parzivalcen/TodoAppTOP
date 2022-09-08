@@ -39,8 +39,12 @@ export default class panel {
   static toggle () {
     const toggle = document.querySelector('.mobile-toggle');
     const categoriesNav = document.querySelector('.categories-navigation');
+    const addTaskBtn =document.querySelector('.add-task-header');
     toggle.addEventListener('click', () => {
       const visibility = categoriesNav.getAttribute('data-visible');
+      const visibilityAddTask = addTaskBtn.getAttribute('data-visible');
+      // Add new Task BTN dissappear on toggle click.
+      visibilityAddTask === 'true' ? addTaskBtn.setAttribute('data-visible', false) : addTaskBtn.setAttribute('data-visible', true);
       if (visibility ===  'false')
       {
         // Expand nav
@@ -57,13 +61,14 @@ export default class panel {
 
   // Add task with description BTN
   static showAddTaskForm (){
-    const addTaskbtn = document.querySelector('.btn-panel-task');
-    addTaskbtn.addEventListener('mouseup', ()=>{
+    const addTaskbtn = document.querySelectorAll('.btn-panel-task');
+
+    addTaskbtn.forEach((btn)=> btn.addEventListener('mouseup', ()=>{
       const addTaskContainer = document.querySelector('.add-task-container-main');
       const visibility = addTaskContainer.getAttribute('data-visible');
       visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
       
-    });
+    }));
   }
 
   static addCategoriesDown (category){
