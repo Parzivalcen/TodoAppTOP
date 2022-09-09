@@ -205,6 +205,8 @@ export default class panel {
   static categoryPressed(e) {
     if (e.target.classList.contains('category--title')){
       panel.newToDoPanel(e.target.innerHTML);
+      // add task btn shown
+      document.querySelector('.add-task-header').setAttribute('data-visible', true);
     }
   }
   // New todo Panel

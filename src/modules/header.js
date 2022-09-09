@@ -13,7 +13,7 @@ const header = () => {
   header.innerHTML = `
   <div class=" container--header">
     
-    <button class="add-task-header btn btn-panel-task" data-visible="true">Add Task</button> 
+    <button class="add-task-header btn" data-visible="true">Add Task</button> 
     <div></div>
     <div class="menu--container">
       <button aria-expanded="false" class="mobile-toggle" aria-controls="categories-navigation"></button>
@@ -24,7 +24,11 @@ const header = () => {
       </div>
     </div>
   </div>`;
+  document.addEventListener('DOMContentLoaded', ()=>{
+    panel.showAddTaskForm();
+  });
   header.appendChild(panel.panel());
   return header;
 };
+// Object.freeze(header);
 export default header;

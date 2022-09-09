@@ -75,7 +75,6 @@ const addToDo = {
     </div>
       
       `;
-    panel.showAddTaskForm();
     document.addEventListener('DOMContentLoaded', ()=>{
       addTask.dropDown('.select-category', '.dropdown-categories');
       addTask.dropDown('.priority', '.dropdown-priorities');

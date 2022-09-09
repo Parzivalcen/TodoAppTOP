@@ -5,25 +5,21 @@
   }
   .container--header{
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     padding-inline: 1rem;
     position: relative;
-    background-color: transparent;
-    position: relative;
+    background-color: $font-title-bg-color;
     z-index: 999;
-
     
-
-    .add-task-header{
-      z-index: 1;
-    }
+    
   }
   .mobile-toggle{
     display: block;
     /* Change Icon color */
-    background-color: $font-title-bg-color;
+    background-color: $secondary-background;
     -webkit-mask-image: url(../../imgs/hamMenu.svg) ;
     mask-image: url(../../imgs/hamMenu.svg) ;
     transform: rotate(180deg);
@@ -32,10 +28,9 @@
     
     width: 2rem;
     height: 2rem;
-
-
+    
+    
     border: 0;
-    z-index: 1000;
     cursor: pointer;
     
     &[aria-expanded="true"]{

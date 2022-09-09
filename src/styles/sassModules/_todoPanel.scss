@@ -323,32 +323,17 @@
   }
   @media screen and (max-height: 596px) {
     .todo-panel{
-      position: relative;
-      padding: 1em;
-      border-radius: 10px;
-      min-height: 45vh;
-      max-height: 85%;
-      width: 80%;
-      background-color: $font-title-bg-color;
-      color: $secondary-background-dark;
-      overflow: auto;
+      padding-bottom: 0px;
           /* INPUT TASK FIELD */
       .add-task-container{
         gap: 1vh;
-        bottom: 1vh;
-        left: 8vh;
-        width: 80%;
-        height: 3vh;
-        padding-bottom: 4vh;
+        bottom: 0;
         label{
           top: .01vh;
         }
-        #add-task-text{
-          width: 80%;
-        }
         .add-task-btn{
-          width: 6vh;
-          height: 6vh;
+          width: 10vh;
+          height: 10vh;
         }
       }
   }
