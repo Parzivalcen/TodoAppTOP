@@ -29,7 +29,7 @@ const addToDo = {
   addTask(){
     const addTaskPanel = document.createElement('div');
     addTaskPanel.classList.add('add-task-container-main', 'modal');
-    addTaskPanel.setAttribute('data-visible', true);
+    addTaskPanel.setAttribute('data-visible', false);
 
     addTaskPanel.innerHTML =`
     

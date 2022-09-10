@@ -2,6 +2,7 @@ import { store } from '../StoreTask/store';
 import { Task, addTask } from './addTask';
 import { home } from './home';
 import '../styles/sassModules/_panel.scss';
+import dateFilter from './dateFilter';
 
 export default class panel {
   static panel () {
@@ -32,6 +33,9 @@ export default class panel {
         </div>
       </div> 
     `;
+    document.addEventListener('DOMContentLoaded', ()=>{
+      dateFilter.dateFilterClick('today');
+    });
     return panel;
   }
 
@@ -234,7 +238,7 @@ export default class panel {
       <button class="add-task-btn btn">Add</button>
     </div>
     `;
-    if (category == 'All Tasks'){
+    if (category === 'All Tasks'){
       addTask.displayTasks();
       addTask.takeInputEvent('general');
     }else{

@@ -25,6 +25,7 @@
           padding-inline: 1.5vmin;
           background-color: $input-bg-color;
           border: none;
+          color: $secondary-background;
         &::placeholder{
           color: $secondary-background;
         }
