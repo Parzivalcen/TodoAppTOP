@@ -4,11 +4,11 @@ import { home } from './home';
 import taskDescPanel from './taskPanel';
 
 const dateFilter = {
+  // Today filter
   date (date){
     // format date for fitering;
     date = taskDescPanel.onScreenDateFormat(date); 
     let tasks = store.getTasks();
-    let filtered = [];
     tasks.map((task)=>{
       const dueDate = taskDescPanel.onScreenDateFormat(task.dueDate);
       if(dueDate=== date) addTask.addTaskPanel(task);
@@ -17,9 +17,25 @@ const dateFilter = {
 
   },
 
+  // Week date
+  thisWeek(){
+    const week = this.getWeekDates();
+    let start = week[0];
+    let end = week[1];
+    let tasks = store.getTasks();
+
+    tasks.map((task)=>{
+      let dueDate = new Date(task.dueDate);
+      dueDate = dueDate.getTime();
+      console.log(start);
+      if(dueDate >= start && dueDate <= end) addTask.addTaskPanel(task);
+    });
+  },
+
   dateFilterClick(dateFilterClass){
     document.querySelector(`.${dateFilterClass}`).addEventListener('click', ()=>{
-      this.showDateTasks(dateFilterClass);
+      if(dateFilterClass === 'today') this.showDateTasks(dateFilterClass);
+      if(dateFilterClass === 'this-week') this.showDateTasks(dateFilterClass);
       // add task btn shown
       document.querySelector('.add-task-header').setAttribute('data-visible', true);
     });
@@ -49,8 +65,27 @@ const dateFilter = {
       <button class="add-task-btn btn">Add</button>
     </div>
     `;
-    this.date(date);
+    if (dateFilter === 'today') this.date(date);
+    if (dateFilter === 'this-week') this.thisWeek();
     addTask.takeInputEvent('general');
+  },
+
+  getWeekDates() {
+
+    let now = new Date();
+    let dayOfWeek = now.getDay(); //0-6
+    let numDay = now.getDate();
+  
+    let start = new Date(now); //copy
+    start.setDate(numDay - dayOfWeek);
+    start.setHours(0, 0, 0, 0);
+  
+  
+    let end = new Date(now); //copy
+    end.setDate(numDay + (7 - dayOfWeek));
+    end.setHours(0, 0, 0, 0);
+  
+    return [start.getTime(), end.getTime()];
   }
 };
 Object.freeze(dateFilter);

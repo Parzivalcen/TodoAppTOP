@@ -35,6 +35,7 @@ export default class panel {
     `;
     document.addEventListener('DOMContentLoaded', ()=>{
       dateFilter.dateFilterClick('today');
+      dateFilter.dateFilterClick('this-week');
     });
     return panel;
   }
