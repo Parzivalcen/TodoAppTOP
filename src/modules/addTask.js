@@ -139,7 +139,7 @@ const addTask = {
   
   
   // Take input
-  takeInputEvent (category, dateDone = new Date()) {
+  takeInputEvent (category, dateDone = null) {
     // Funtion to take input on enter key pressed or click
     const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;

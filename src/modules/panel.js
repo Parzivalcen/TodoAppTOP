@@ -247,7 +247,7 @@ export default class panel {
       addTask.displayTasksCategorically(category);
     }
     
-    addTask.takeInputEvent(category);
+    // addTask.takeInputEvent(category);
   }
     
   // Delete categories. 

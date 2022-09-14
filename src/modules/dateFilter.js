@@ -80,7 +80,7 @@ const dateFilter = {
     `;
     if (dateFilter === 'today'){
       this.date(date);
-      addTask.takeInputEvent('general');
+      addTask.takeInputEvent('general', new Date());
     } 
       
     if (dateFilter === 'this-week') {
