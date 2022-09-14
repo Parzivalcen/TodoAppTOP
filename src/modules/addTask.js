@@ -3,7 +3,7 @@ import { store } from '../StoreTask/store';
 class Task {
   constructor(title, category, dateCreated, notes, dueDate, priority){
     this.title = title;
-    this.category = category;
+    this.category = category === undefined ? 'general' : category;
     this.done = false;
     this.dueDate = dueDate === undefined ? null : dueDate;
     this.dateCreated = dateCreated;
@@ -131,7 +131,7 @@ const addTask = {
     taskDiv.setAttribute('aria-disabled', false);
     
     taskDiv.innerHTML = this.taskDivHTML(task);
-    if (categoryTitle === 'All Tasks' || categoryTitle === task.category){
+    if (categoryTitle === 'All Tasks' || categoryTitle === 'today'  || categoryTitle === task.category){
       taskPanel.appendChild(taskDiv);
     }
   },
@@ -139,14 +139,14 @@ const addTask = {
   
   
   // Take input
-  takeInputEvent (category) {
+  takeInputEvent (category, dateDone = new Date()) {
     // Funtion to take input on enter key pressed or click
     const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;
       if(title.length > 0){
         // get Today's date 
         const date = new Date();
-        let newTask = new Task(title, category, date);
+        let newTask = new Task(title, category, date, undefined, dateDone);
         // add task to DOM
         this.addTaskPanel(newTask);
         // Store task on Local storage

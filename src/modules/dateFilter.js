@@ -31,11 +31,24 @@ const dateFilter = {
       if(dueDate >= start && dueDate <= end) addTask.addTaskPanel(task);
     });
   },
+  
+  nextWeek(){
+    const week = this.getWeekDates();
+    let end = week[1];
+    let tasks = store.getTasks();
+
+    tasks.map((task)=>{
+      let dueDate = new Date(task.dueDate);
+      dueDate = dueDate.getTime();
+      if(dueDate >= end) addTask.addTaskPanel(task);
+    });
+  },
 
   dateFilterClick(dateFilterClass){
     document.querySelector(`.${dateFilterClass}`).addEventListener('click', ()=>{
       if(dateFilterClass === 'today') this.showDateTasks(dateFilterClass);
       if(dateFilterClass === 'this-week') this.showDateTasks(dateFilterClass);
+      if(dateFilterClass === 'next-week') this.showDateTasks(dateFilterClass);
       // add task btn shown
       document.querySelector('.add-task-header').setAttribute('data-visible', true);
     });
@@ -65,9 +78,20 @@ const dateFilter = {
       <button class="add-task-btn btn">Add</button>
     </div>
     `;
-    if (dateFilter === 'today') this.date(date);
-    if (dateFilter === 'this-week') this.thisWeek();
-    addTask.takeInputEvent('general');
+    if (dateFilter === 'today'){
+      this.date(date);
+      addTask.takeInputEvent('general');
+    } 
+      
+    if (dateFilter === 'this-week') {
+      this.thisWeek();
+      addTask.takeInputEvent('general', this.getWeekDates()[0]);
+    }
+      
+    if (dateFilter === 'next-week') {
+      this.nextWeek();
+      addTask.takeInputEvent('general', this.getWeekDates()[1]);
+    } 
   },
 
   getWeekDates() {
