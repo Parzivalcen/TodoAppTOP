@@ -9,12 +9,18 @@ const dateFilter = {
     // format date for fitering;
     date = taskDescPanel.onScreenDateFormat(date); 
     let tasks = store.getTasks();
+    
     tasks.map((task)=>{
       const dueDate = taskDescPanel.onScreenDateFormat(task.dueDate);
       if(dueDate=== date) addTask.addTaskPanel(task);
     });
-    // return filtered;
+    return date;
 
+  },
+
+  // if date is greater than today or next week pass to next week, else return
+  dateMap(tasks){
+    
   },
 
   // Week date
@@ -28,7 +34,7 @@ const dateFilter = {
       let dueDate = new Date(task.dueDate);
       dueDate = dueDate.getTime();
       console.log(start);
-      if(dueDate >= start && dueDate <= end) addTask.addTaskPanel(task);
+      if(dueDate >= start && dueDate < end) addTask.addTaskPanel(task);
     });
   },
   

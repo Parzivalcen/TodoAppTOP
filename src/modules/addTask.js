@@ -1,4 +1,5 @@
 import { store } from '../StoreTask/store';
+import taskDescPanel from './taskPanel';
 
 class Task {
   constructor(title, category, dateCreated, notes, dueDate, priority){
@@ -57,7 +58,6 @@ const addTask = {
       // Reset Panel
       this.resetCatAddTaskPanel(container);
       
-
       store.addTaskToLS(task);
       this.addTaskPanelTWO(task);
     });
@@ -129,9 +129,16 @@ const addTask = {
     let taskDiv = document.createElement('div');
     taskDiv.classList.add('task', 'grid');
     taskDiv.setAttribute('aria-disabled', false);
+
+    const date = taskDescPanel.onScreenDateFormat(task.dueDate);
+    const today = taskDescPanel.onScreenDateFormat(new Date());
+
+    const dueDateTS = new Date(task.dueDate).getTime();
     
     taskDiv.innerHTML = this.taskDivHTML(task);
-    if (categoryTitle === 'All Tasks' || categoryTitle === 'today'  || categoryTitle === task.category){
+    if (categoryTitle === 'All Tasks'  || categoryTitle === task.category){
+      taskPanel.appendChild(taskDiv);
+    }else if (categoryTitle === 'Today' && date === today ){
       taskPanel.appendChild(taskDiv);
     }
   },

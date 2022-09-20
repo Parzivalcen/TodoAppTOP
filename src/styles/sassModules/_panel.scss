@@ -20,6 +20,16 @@
     width: 100vw;
     overflow-y: auto;
 
+    .things-to-get-done{
+      margin-top: 2vh;
+      p {
+        text-transform: capitalize;
+      }
+    :not(:first-child){
+      margin-top: 2vh;
+      }
+    }
+    
     
     // CATEGORIES TITLE 
     .categories-title{
@@ -27,6 +37,11 @@
       align-items: center;
       grid-template-columns: 1fr 1fr;
       gap: 0.5rem;
+      
+      h2{
+        border-top: .1vh solid $secondary-background;
+        padding-top: 1vh;
+      }
       
       .add-categories{
         background-color: $high-ligh-icon;

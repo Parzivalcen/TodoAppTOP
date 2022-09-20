@@ -8,13 +8,16 @@ export default class panel {
   static panel () {
     const panel = document.createElement('div');
     panel.classList.add('panel');
-    panel.innerHTML =   `
+    panel.innerHTML =    `
       <div id="categories-navigation" class="categories-navigation flex" data-visible="false">
         <div class="shortcuts">
-          <button class="btn btn-panel-task">Add Task</button>        
-          <p class="today">today</p>
-          <p class="this-week">this week</p>
-          <p class="next-week">next week</p>
+          <button class="btn btn-panel-task">Add Task</button>
+          <div class="things-to-get-done">
+            <h3 class="title">things to get done: </h3>
+            <p class="today">today</p>
+            <p class="this-week">this week</p>
+            <p class="next-week">next week</p>
+          </div>        
         </div>
       
         <div class="categories-title">
@@ -246,8 +249,6 @@ export default class panel {
     }else{
       addTask.displayTasksCategorically(category);
     }
-    
-    // addTask.takeInputEvent(category);
   }
     
   // Delete categories. 
