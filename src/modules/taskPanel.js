@@ -25,25 +25,29 @@ export default class taskDescPanel {
     home.clearDescPanel();
     
     
-    descPanel.innerHTML = `
+    descPanel.innerHTML =  `
     <div class="taskDescPanel">
-    <button class="hide-desc-panel"></button>
-    <div class="title title--task">
-    <h1>${title}</h1>
-    </div>
+      <button class="hide-desc-panel"></button>
+      <div class="title title--task">
+        <h1 contenteditable="false">${title}</h1>
+      </div>
       <div class="set-date">
-      <label class="add-date-label" for="due-Date">Add due date</label>
+        <label class="add-date-label" for="due-Date">Add due date</label>
         <input type="date" id="due-Date" name="due-Date">
         <button class="due-Date-btn"></button>
       </div>
       <div class="notes-panel">
-          <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
+        <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
       </div>
       <div>
-      <p class="deadline">Deadline: ${dueDate}</span></p>
-      <p>Date Created: ${dateCreated}</p>
+        <p class="deadline">Deadline: ${dueDate}</span></p>
+        <p>Date Created: ${dateCreated}</p>
       </div>
+      <div class="task-desc-panel-btns">
+        <button class="btn task-desc-save">Save</button>
+        <button class="btn task-desc-cancel">Cancel</button>
       </div>
+    </div>
       `;
     this.updateNotesOnIput();
   }

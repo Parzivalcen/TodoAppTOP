@@ -1,8 +1,7 @@
 import '../styles/sassModules/_todoPanel.scss';
 import '../styles/sassModules/_addTaskP.scss';
 import { addTask } from './addTask';
-// import { Task } from './addTask';
-import panel from './panel';
+
 const addToDo = {
   todoPanel (folder) {
     const container = document.createElement('div');

@@ -1,11 +1,11 @@
 import { store } from '../StoreTask/store';
-import { Task, addTask } from './addTask';
+import { addTask } from './addTask';
 import { home } from './home';
 import '../styles/sassModules/_panel.scss';
 import dateFilter from './dateFilter';
 
-export default class panel {
-  static panel () {
+const panel = {
+  panel () {
     const panel = document.createElement('div');
     panel.classList.add('panel');
     panel.innerHTML =    `
@@ -42,10 +42,10 @@ export default class panel {
       dateFilter.dateFilterClick('next-week');
     });
     return panel;
-  }
+  },
 
   // Toggle
-  static toggle () {
+  toggle () {
     const toggle = document.querySelector('.mobile-toggle');
     const categoriesNav = document.querySelector('.categories-navigation');
     const addTaskBtn =document.querySelector('.add-task-header');
@@ -66,10 +66,10 @@ export default class panel {
         toggle.setAttribute('aria-expanded', false);
       }
     });
-  }
+  },
 
   // Add task with description BTN
-  static showAddTaskForm (){
+  showAddTaskForm (){
     const addTaskbtn = document.querySelectorAll('.btn-panel-task');
 
     addTaskbtn.forEach((btn)=> btn.addEventListener('mouseup', ()=>{
@@ -78,9 +78,9 @@ export default class panel {
       visibility === 'false' ? addTaskContainer.setAttribute('data-visible', true) : addTaskContainer.setAttribute('data-visible', false);
       
     }));
-  }
+  },
 
-  static addCategoriesDown (category){
+  addCategoriesDown (category){
     const dropCategories = document.querySelector('.dropdown-categories');
 
     // categories drop down
@@ -89,21 +89,22 @@ export default class panel {
     option.classList.add('added-option', 'cat-drop');
     option.innerHTML = `${category}`;
     dropCategories.appendChild(option);
-  }
+  },
+
   // Display Categories
-  static displayCategoriesDropDown () {
+  displayCategoriesDropDown () {
     const categories = store.getCategories();
     categories.map((category) => {
       this.addCategoriesDown(category);
     });
-  }
+  },
   
   // POP UP //
   /*
   When Icon(+) to add category is pressed
     show the category POPUP panel
   */ 
-  static CategoryPopUpPanel () {
+  CategoryPopUpPanel () {
     const addProjectPopUp = document.createElement('div');
     addProjectPopUp.classList.add('modal', 'modal--popUp');
     addProjectPopUp.setAttribute('data-visible', false);
@@ -120,8 +121,9 @@ export default class panel {
     </div>
     `;
     return addProjectPopUp;
-  }
-  static showAddCategoryPanel(e) {
+  },
+
+  showAddCategoryPanel(e) {
     const addProjectPopUp = document.querySelector('.modal--popUp');
     if(e.target.id == 'add-categories'){
 
@@ -130,19 +132,19 @@ export default class panel {
       
       panel.cancelPopUpBtn();
     }
-  }
+  },
 
   // cancel BTN on POPUP (this btn also makes the popUP disappear.)
-  static cancelPopUpBtn (){
+  cancelPopUpBtn (){
     const addProjectPopUp = document.querySelector('.modal--popUp');
     const cancelBtn = document.querySelector('.cancel-project-btn');
     cancelBtn.addEventListener('click', () => {
       addProjectPopUp.setAttribute('data-visible', false);
     });
-  }
+  },
 
   //Add Category when pop Up <<add>> btn is pressed
-  static addNewCategoryBtn () {
+  addNewCategoryBtn () {
 
     const addProjectPopUp = document.querySelector('.modal--popUp');
     const takeInput = () =>{
@@ -179,10 +181,10 @@ export default class panel {
     addCatBtn.addEventListener('touchend', ()=>{
       takeInput();
     });
-  }
+  },
 
   // Add Category //
-  static addCategory (category, elementID) {
+  addCategory (category, elementID) {
     const formatTitle = document.createElement('li');
     const categoriesList = document.querySelector(`#${elementID}`);
     // Create category title Paragraph element. 
@@ -199,27 +201,28 @@ export default class panel {
 
 
     categoriesList.appendChild(formatTitle);
-  }
+  },
 
   // Display Categories
-  static displayCategories () {
+  displayCategories () {
     const categories = store.getCategories();
     categories.map((category) => {
       panel.addCategory(category, 'categories-navigation');
     });
-  }
+  },
 
   // Switch bettween categories //
   // Create new todo Panel when a Category is pressed. 
-  static categoryPressed(e) {
+  categoryPressed(e) {
     if (e.target.classList.contains('category--title')){
       panel.newToDoPanel(e.target.innerHTML);
       // add task btn shown
       document.querySelector('.add-task-header').setAttribute('data-visible', true);
     }
-  }
+  },
+
   // New todo Panel
-  static newToDoPanel(category) {
+  newToDoPanel(category) {
     const todoPanel = document.querySelector('.todo-panel');
     const categoriesNav = document.querySelector('.categories-navigation');
     const toggle = document.querySelector('.mobile-toggle');
@@ -249,14 +252,17 @@ export default class panel {
     }else{
       addTask.displayTasksCategorically(category);
     }
-  }
+  },
     
   // Delete categories. 
-  static deleteCategory(e) {
+  deleteCategory(e) {
     const deleteBtnPressed = e.target.classList.contains('delete-category');
     if(deleteBtnPressed){
       e.target.parentElement.parentElement.remove();
       store.LSdeleteCategory(e);
     }
   }
-}
+};
+
+Object.freeze(panel);
+export default panel;

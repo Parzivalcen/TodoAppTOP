@@ -18,11 +18,6 @@ const dateFilter = {
 
   },
 
-  // if date is greater than today or next week pass to next week, else return
-  dateMap(tasks){
-    
-  },
-
   // Week date
   thisWeek(){
     const week = this.getWeekDates();

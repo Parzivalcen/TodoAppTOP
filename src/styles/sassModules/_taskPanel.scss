@@ -72,6 +72,19 @@
         cursor: pointer;
       }
     }
+    .task-desc-panel-btns{
+      display: flex;
+      justify-content: space-around;
+      .btn{
+        color: $font-title-bg-color;
+      }
+      .task-desc-save{
+        border-color: $font-title-bg-color;
+      }
+      .task-desc-cancel{
+        border-color: rgb(196, 0, 0);
+      }
+    }
   }
   /* PANEL FOR NOTES */
   .notes-panel{
