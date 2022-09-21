@@ -4,18 +4,18 @@ import '../styles/sassModules/_taskPanel.scss';
 import { format } from 'date-fns';
 import { home } from './home';
 
-export default class taskDescPanel {
+const taskDescPanel = {
   // Task description panel place holder
-  static panel () {
+  panel () {
     const panel = document.createElement('div');
     panel.classList.add('modal', 'modal--taskDescPanel');
     panel.setAttribute('data-visible', false);
 
     
     return panel;
-  }
+  },
 
-  static newPanel(task){
+  newPanel(task){
     const descPanel = document.querySelector('.modal--taskDescPanel');
     const title = task.title;
     const dueDate = task.dueDate === null ? 'No Due date' :
@@ -29,7 +29,7 @@ export default class taskDescPanel {
     <div class="taskDescPanel">
       <button class="hide-desc-panel"></button>
       <div class="title title--task">
-        <h1 contenteditable="false">${title}</h1>
+        <h1 contenteditable="true">${title}</h1>
       </div>
       <div class="set-date">
         <label class="add-date-label" for="due-Date">Add due date</label>
@@ -49,9 +49,11 @@ export default class taskDescPanel {
       </div>
     </div>
       `;
-    this.updateNotesOnIput();
-  }
-  static showPanel(e){
+    this.editTaskSave();
+    // this.updateNotesOnIput();
+  },
+
+  showPanel(e){
     if(e.target.parentElement.classList.contains('task-content')){
       
       const taskTitle =  e.target.parentElement.firstElementChild.textContent;
@@ -59,27 +61,38 @@ export default class taskDescPanel {
       // The e.target gets the title
       this.newPanel(task);
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', true);
+      console.log(task.id);
     }
-  }
-  static removePanel(e) {
+  },
+  removePanel(e) {
+
     if(e.target.classList.contains('hide-desc-panel')){
       home.clearDescPanel();
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
 
     }
-  }
+  },
   
   /*
   FORMAT the stored date value for showing it on screen to mm/dd/yyyy. 
   */
-  static onScreenDateFormat(date){
+  onScreenDateFormat(date){
     let toFormat = new Date(date).toJSON().slice(0,10);
     let formatedDate = format(new Date(toFormat.replace(/-/g, '/')), 'MM/dd/yyyy');
     return formatedDate;
-  }
+  },
+
+  editTaskSave(){
+    const taskDescPanel = document.querySelector('.taskDescPanel');
+    const title = taskDescPanel.querySelector('h1');
+    const saveBtn = taskDescPanel.querySelector('.task-desc-save');
+    saveBtn.addEventListener('click', ()=>{
+      console.log('im going to save');
+    });
+  },
   
   // Date
-  static getDate (e){
+  getDate (e){
     if (e.target.classList.contains('due-Date-btn')){
       let date = document.querySelector('#due-Date').value;
       // note: this should be a default date, format it on update date
@@ -89,17 +102,17 @@ export default class taskDescPanel {
       this.updateDate(title);
 
     }
-  }
+  },
 
-  static updateDate(title){
+  updateDate(title){
     // Show date
     const deadline = document.querySelector('.deadline');
     const task = store.getSingleTask(title);
       
     deadline.innerHTML = `Deadline: ${this.onScreenDateFormat(task.dueDate)}`;
-  }
+  },
 
-  static updateNotesOnIput(){
+  updateNotesOnIput(){
     const notesListener = document.querySelector('.textarea');
     const panel = notesListener.parentElement.parentElement;
     // Key up works on mobile as well
@@ -111,8 +124,9 @@ export default class taskDescPanel {
 
     });
 
-  }
-  static updateNotes (e){
+  },
+
+  updateNotes (e){
     if(e.target.classList.contains('add-task-note')){
 
       const notes = document.querySelector('.textarea').innerHTML;
@@ -122,4 +136,6 @@ export default class taskDescPanel {
     }
   }
   
-}
+};
+
+export default taskDescPanel;

@@ -2,8 +2,9 @@ import { store } from '../StoreTask/store';
 import taskDescPanel from './taskPanel';
 
 class Task {
-  constructor(title, category, dateCreated, notes, dueDate, priority){
+  constructor(title, id, category, dateCreated, notes, dueDate, priority){
     this.title = title;
+    this.id = id;
     this.category = category === undefined ? 'general' : category;
     this.done = false;
     this.dueDate = dueDate === undefined ? null : dueDate;
@@ -53,7 +54,8 @@ const addTask = {
 
       const priority = selectedPriority;
       console.log(category);
-      const task = new Task(taskTitle, category, dateCreated, notes, date, priority);
+      const id = Date.now();
+      const task = new Task(taskTitle, id, category, dateCreated, notes, date, priority);
 
       // Reset Panel
       this.resetCatAddTaskPanel(container);
@@ -153,7 +155,8 @@ const addTask = {
       if(title.length > 0){
         // get Today's date 
         const date = new Date();
-        let newTask = new Task(title, category, date, undefined, dateDone);
+        const id = Date.now();
+        let newTask = new Task(title, id, category, date, undefined, dateDone);
         // add task to DOM
         this.addTaskPanel(newTask);
         // Store task on Local storage
