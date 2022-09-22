@@ -22,6 +22,7 @@ const taskDescPanel = {
       this.onScreenDateFormat(task.dueDate) ;
     const notes = task.notes === undefined ? '' : task.notes;
     const dateCreated = this.onScreenDateFormat(task.dateCreated);
+    const taskId = task.id;
     home.clearDescPanel();
     
     
@@ -47,6 +48,7 @@ const taskDescPanel = {
         <button class="btn task-desc-save">Save</button>
         <button class="btn task-desc-cancel">Cancel</button>
       </div>
+      <p class="task-id sr-only">${taskId}</p>
     </div>
       `;
     this.editTaskSave();
@@ -61,7 +63,6 @@ const taskDescPanel = {
       // The e.target gets the title
       this.newPanel(task);
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', true);
-      console.log(task.id);
     }
   },
   removePanel(e) {
@@ -84,10 +85,19 @@ const taskDescPanel = {
 
   editTaskSave(){
     const taskDescPanel = document.querySelector('.taskDescPanel');
-    const title = taskDescPanel.querySelector('h1');
     const saveBtn = taskDescPanel.querySelector('.task-desc-save');
     saveBtn.addEventListener('click', ()=>{
-      console.log('im going to save');
+      // Update task Object
+      const taskId = +taskDescPanel.querySelector('.task-id').innerHTML;
+      const title = taskDescPanel.querySelector('h1').textContent;
+      let date = document.querySelector('#due-Date').value;
+      if(date) date = new Date(date);
+      const notes = taskDescPanel.querySelector('.textarea').innerHTML;
+      store.descPanelSave(taskId, title, date, notes);
+      // Close desk panel and update todo Panel
+      document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
+      // add each task with its own id on the todopanel
+      
     });
   },
   

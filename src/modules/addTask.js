@@ -101,10 +101,11 @@ const addTask = {
     return `
     <button type="radio" role="checkbox" aria-checked="false" class="TaskItemCheckbox"></button>
     <div class="task-content">
-    <p class="task-title">${task.title}</p>
-    <p class="task-category">${task.category}</p>
+      <p class="task-title">${task.title}</p>
+      <p class="task-category">${task.category}</p>
     </div>
     <button class="TaskItemDelete"></button>
+    <p class="sr-only task-id-todo-panle">${task.id}</p>
     `;
   },
 

@@ -22,6 +22,17 @@ class store {
     });
     return task;
   };
+  static getSingleTaskById = (taskId) => {
+    let tasks = this.getTasks();
+    let task;
+    tasks.forEach((singleTask) => {
+      if(singleTask.id === taskId){
+
+        task = singleTask;
+      }
+    });
+    return task;
+  };
 
   static saveTask (tasks){
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -30,6 +41,15 @@ class store {
   static addTaskToLS(task){
     let tasks = store.getTasks();
     tasks.push(task);
+    this.saveTask(tasks);
+  }
+
+  static descPanelSave(taskId, title, date, notes){
+    const tasks = this.getTasks();
+    const taskIndex = tasks.findIndex((task) => task.id === taskId);
+    tasks[taskIndex].title = title;
+    tasks[taskIndex].dueDate = date ? date : tasks[taskIndex].dueDate;
+    tasks[taskIndex].notes = notes;
     this.saveTask(tasks);
   }
   // Add Date
