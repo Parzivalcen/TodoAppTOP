@@ -103,9 +103,9 @@ const addTask = {
     <div class="task-content">
       <p class="task-title">${task.title}</p>
       <p class="task-category">${task.category}</p>
+      <p class="sr-only task-id-todo-panel" id="${task.id}"></p>
     </div>
     <button class="TaskItemDelete"></button>
-    <p class="sr-only task-id-todo-panle">${task.id}</p>
     `;
   },
 

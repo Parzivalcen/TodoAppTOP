@@ -96,7 +96,10 @@ const taskDescPanel = {
       store.descPanelSave(taskId, title, date, notes);
       // Close desk panel and update todo Panel
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
+
       // add each task with its own id on the todopanel
+      const taskTodoPanel = document.getElementById(`${taskId}`);
+      taskTodoPanel.previousElementSibling.previousElementSibling.innerText = title;
       
     });
   },
