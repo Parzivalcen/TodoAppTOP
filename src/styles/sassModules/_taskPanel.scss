@@ -6,9 +6,9 @@
     top: 14%;
     left: 50%;
     transform: translate(-50%, 14%);
-    min-height: 50vh;
+    min-height: 60vh;
     padding: 1em;
-    width: 35vh;
+    width: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,24 +16,6 @@
     border-radius: 10px;
     color: $font-p-color;
     overflow: auto;
-
-    // Hide Panel btn
-    .hide-desc-panel{
-      background: transparent;
-      border: none;
-      width: 4vh;
-      height: 4vh;
-      /* Change Icon color */
-      background-color: rgb(196, 0, 0);
-      -webkit-mask-image: url(../../imgs/Close.svg) ;
-      mask-image: url(../../imgs/Close.svg) ;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      position: absolute;
-      top: 1vh;
-      right: 1.6vh;
-      cursor: pointer;
-    }
 
     .title--task{
       h1{
@@ -45,18 +27,18 @@
       display: grid;
       place-items: center;
       padding: .2em;
-      border: 1px solid $font-title-bg-color;
-      border-radius: 10px;
-      grid-template-columns: 1fr 4vh;
+
       .add-date-label{
-        position: absolute;
-        left: 6.5vh;
         z-index: -1;
       }
       input{
-        color: transparent;
+        color: $font-title-bg-color;
         background: transparent;
         border: none;
+        border: 1px solid $font-title-bg-color;
+        padding: .2em;
+        padding-inline: 3em;
+        border-radius: 10px;
       }
 
       .due-Date-btn{

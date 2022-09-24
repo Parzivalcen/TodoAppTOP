@@ -39,4 +39,7 @@
 ## More general things
 - Find a way to connect it to google calendar api
 
+# 24/09
+- make a landing page for the product
+
  

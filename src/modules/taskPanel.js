@@ -28,14 +28,12 @@ const taskDescPanel = {
     
     descPanel.innerHTML =  `
     <div class="taskDescPanel">
-      <button class="hide-desc-panel"></button>
       <div class="title title--task">
         <h1 contenteditable="true">${title}</h1>
       </div>
       <div class="set-date">
-        <label class="add-date-label" for="due-Date">Add due date</label>
+        <label class="add-date-label" for="due-Date">Set Deadline</label>
         <input type="date" id="due-Date" name="due-Date">
-        <button class="due-Date-btn"></button>
       </div>
       <div class="notes-panel">
         <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
@@ -52,6 +50,7 @@ const taskDescPanel = {
     </div>
       `;
     this.editTaskSave();
+    this.cancelEdit();
     // this.updateNotesOnIput();
   },
 
@@ -63,14 +62,6 @@ const taskDescPanel = {
       // The e.target gets the title
       this.newPanel(task);
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', true);
-    }
-  },
-  removePanel(e) {
-
-    if(e.target.classList.contains('hide-desc-panel')){
-      home.clearDescPanel();
-      document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
-
     }
   },
   
@@ -101,6 +92,15 @@ const taskDescPanel = {
       const taskTodoPanel = document.getElementById(`${taskId}`);
       taskTodoPanel.previousElementSibling.previousElementSibling.innerText = title;
       
+    });
+  },
+
+  // cancel edit BTN
+  cancelEdit(){
+    const cancelBtn = document.querySelector('.task-desc-cancel');
+    cancelBtn.addEventListener('click', ()=>{
+      home.clearDescPanel();
+      document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
     });
   },
   
