@@ -93,8 +93,10 @@
       transform: translateX(0%);
       
     }
-    .btn-panel-task{
-      
-    }
+  }
+}
+@media screen and (max-height: 596px) {
+  .categories-navigation{
+    height: 100vh;
   }
 }

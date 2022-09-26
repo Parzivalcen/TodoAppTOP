@@ -17,7 +17,7 @@ const addToDo = {
       </div>
       <div class="add-task-container">
         <input type="text" id="add-task-text" name="add-task-text">
-        <label class="add-task-label" for="add-task-text">Add new task</label>
+        <label class="add-task-label" for="add-task-text">Quick add task</label>
         <button class="add-task-btn btn"><span class="sr-only">add task btn</span></button>
       </div>
     `;

@@ -136,8 +136,6 @@ const addTask = {
     const date = taskDescPanel.onScreenDateFormat(task.dueDate);
     const today = taskDescPanel.onScreenDateFormat(new Date());
 
-    const dueDateTS = new Date(task.dueDate).getTime();
-    
     taskDiv.innerHTML = this.taskDivHTML(task);
     if (categoryTitle === 'All Tasks'  || categoryTitle === task.category){
       taskPanel.appendChild(taskDiv);
@@ -169,8 +167,8 @@ const addTask = {
     };
     const taskContainer = document.querySelector('.add-task-container');
     const addBtn = document.querySelector('.add-task-btn');
+    
     // ENTER KEY
-  
     taskContainer.addEventListener('keypress', (e) => {
       
       if(e.key === 'Enter'){
