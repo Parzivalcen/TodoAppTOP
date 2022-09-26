@@ -191,7 +191,7 @@ const addTask = {
     if (e.target.classList.contains('TaskItemCheckbox')){
       const task = e.target.parentElement;
       
-      let title = e.target.nextElementSibling.firstElementChild.innerHTML;
+      const title = e.target.nextElementSibling.firstElementChild.innerHTML;
       const tasks = store.getTasks();
       /*Get index by the task title pressed. 
       So that we change the state of only that task*/ 
@@ -202,12 +202,15 @@ const addTask = {
       }else{
         task.setAttribute('aria-disabled', true);
       } 
+      store.changeDoneState(title);
     }
   },
   
   // Delete Task
   deleteTask(e){
     if (e.target.classList.contains('TaskItemDelete')){
+      const title = e.target.previousElementSibling.firstElementChild.innerHTML;
+      store.LSremoveTask(title);
       e.target.parentElement.remove();
     }
   },

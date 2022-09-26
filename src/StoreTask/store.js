@@ -60,38 +60,32 @@ class store {
     this.saveTask(tasks);
   }
   // remove Task
-  static LSremoveTask(e){
-    if(e.target.classList.contains('TaskItemDelete')){
-      // get title
-      let title = e.target.previousElementSibling.firstElementChild.innerHTML;
-      let tasks = store.getTasks();
-      tasks.forEach((task, index) => {
-        if(task.title == title){
-          tasks.splice(index, 1);
-        }
-        this.saveTask(tasks);
-      });
-    }
-  }
-  // Change done state on LS
-  static changeDoneState(e){
-    if (e.target.classList.contains('TaskItemCheckbox')){
-      // get title
-      let title = e.target.nextElementSibling.firstElementChild.innerHTML;
-
-      let tasks = store.getTasks();
-      /*Get index by the task title pressed. 
-      So that we change the state of only that task*/ 
-      let taskIndex = tasks.findIndex((task) => task.title == title );
-      if (tasks[taskIndex].done){
-        tasks[taskIndex].done = false;
-        console.log('chang', tasks[taskIndex].done);
-      }else{
-        tasks[taskIndex].done = true;
+  
+  static LSremoveTask(title){
+    // get title
+    // let title = e.target.previousElementSibling.firstElementChild.innerHTML;
+    let tasks = store.getTasks();
+    tasks.forEach((task, index) => {
+      if(task.title == title){
+        tasks.splice(index, 1);
       }
       this.saveTask(tasks);
+    });
   
+  }
+  // Change done state on LS
+  static changeDoneState(title){
+    let tasks = store.getTasks();
+    /*Get index by the task title pressed. 
+    So that we change the state of only that task*/ 
+    let taskIndex = tasks.findIndex((task) => task.title == title );
+    if (tasks[taskIndex].done){
+      tasks[taskIndex].done = false;
+      console.log('chang', tasks[taskIndex].done);
+    }else{
+      tasks[taskIndex].done = true;
     }
+    this.saveTask(tasks);
   }
 
 

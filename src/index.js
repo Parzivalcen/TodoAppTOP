@@ -40,15 +40,13 @@ home.clickOutsideModal();
 document.addEventListener('click', (e) => {
   addTask.deleteTask(e);
   addTask.taskDone(e);
-  store.LSremoveTask(e);
-  store.changeDoneState(e);
   panel.categoryPressed(e);
   panel.showAddCategoryPanel(e);
   panel.deleteCategory(e);
   taskDescPanel.showPanel(e);
   taskDescPanel.getDate(e);
   taskDescPanel.updateNotes(e);
-  taskDescPanel.removePanel(e);
+  // taskDescPanel.removePanel(e);
   // store.saveDueDate(e);
 });
 
