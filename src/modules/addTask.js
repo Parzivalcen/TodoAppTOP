@@ -10,7 +10,7 @@ class Task {
     this.dueDate = dueDate === undefined ? null : dueDate;
     this.dateCreated = dateCreated;
     this.notes = notes === undefined ? undefined : notes;
-    this.priority = priority;
+    this.priority = priority === undefined ? 'none' : priority;
     // add date created, storing the date the task is created. 
   }
 }

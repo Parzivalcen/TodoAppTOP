@@ -29,6 +29,15 @@
       margin-top: 2vh;
       }
     }
+
+    .priority-title::marker {
+      content: '';
+    }
+    details[open] .dropdown-wrapper {
+      animation: fade-in 0.5s forwards;
+      .high{color: rgb(235, 0, 70)}
+      .medium{color: rgb(238, 234, 0)}
+    }
     
     
     // CATEGORIES TITLE 
@@ -92,6 +101,17 @@
       display: flex;
       transform: translateX(0%);
       
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 }

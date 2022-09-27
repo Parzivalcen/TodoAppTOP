@@ -3,6 +3,7 @@ import { addTask } from './addTask';
 import { home } from './home';
 import '../styles/sassModules/_panel.scss';
 import dateFilter from './dateFilter';
+import priorityFilter from './categoryFilter';
 
 const panel = {
   panel () {
@@ -19,6 +20,19 @@ const panel = {
             <p class="next-week">in the future</p>
           </div>        
         </div>
+
+        <details class="priority-dropdown">
+          <summary class="priority-title">
+            Priority:
+          </summary>
+          <div class="dropdown-wrapper">
+            <ul>
+              <li class="high">high</li>
+              <li class="medium">medium</li>
+              <li class="low">low</li>
+            </ul>
+          </div>
+        </details>
       
         <div class="categories-title">
           <h2>Categories</h2>
@@ -41,6 +55,11 @@ const panel = {
       dateFilter.dateFilterClick('this-week');
       // in the future starts at next week
       dateFilter.dateFilterClick('next-week');
+
+      // priority filter
+      priorityFilter.priorityFilterClick('high');
+      priorityFilter.priorityFilterClick('medium');
+      priorityFilter.priorityFilterClick('low');
     });
     return panel;
   },
