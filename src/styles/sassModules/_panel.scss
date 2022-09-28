@@ -29,7 +29,7 @@
       margin-top: 2vh;
       }
     }
-
+//  PRIORITIES
     .priority-title::marker {
       content: '';
     }
@@ -37,6 +37,28 @@
       animation: fade-in 0.5s forwards;
       .high{color: rgb(235, 0, 70)}
       .medium{color: rgb(238, 234, 0)}
+    }
+    
+    .priority-title{
+      display: flex;
+      gap: 1vh;
+      .dropdown-icon{
+        display: inline-block;
+        place-self: center;
+        align-self: center;
+        border-radius: 50%;
+        border: none;
+        color: $high-ligh-icon;
+        background-color: $high-ligh-icon;
+        -webkit-mask-image: url(../../imgs/downArrow.svg) ;
+        mask-image: url(../../imgs/downArrow.svg) ;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        width: 3vh;
+        height: 3vh;
+        background-size: 20px 20px;
+        cursor: pointer;
+      }
     }
     
     

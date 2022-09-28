@@ -3,7 +3,7 @@ import { addTask } from './addTask';
 import { home } from './home';
 import '../styles/sassModules/_panel.scss';
 import dateFilter from './dateFilter';
-import priorityFilter from './categoryFilter';
+import priorityFilter from './priorityFilter';
 
 const panel = {
   panel () {
@@ -23,8 +23,9 @@ const panel = {
 
         <details class="priority-dropdown">
           <summary class="priority-title">
-            Priority:
-          </summary>
+          Priorities: 
+          <span class="dropdown-icon"></span>
+          </summary> 
           <div class="dropdown-wrapper">
             <ul>
               <li class="high">high</li>

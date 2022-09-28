@@ -22,6 +22,7 @@ const taskDescPanel = {
       this.onScreenDateFormat(task.dueDate) ;
     const notes = task.notes === undefined ? '' : task.notes;
     const dateCreated = this.onScreenDateFormat(task.dateCreated);
+    const priority = task.priority === null ? 'no priority' : task.priority;
     const taskId = task.id;
     home.clearDescPanel();
     
@@ -35,6 +36,19 @@ const taskDescPanel = {
         <label class="add-date-label" for="due-Date">Set Deadline</label>
         <input type="date" id="due-Date" name="due-Date">
       </div>
+      <details class="priority-dropdown">
+        <summary class="priority-title">
+          ${priority}
+          <span class="dropdown-icon"></span>
+        </summary> 
+        <div class="dropdown-wrapper">
+          <ul>
+            <li class="high">high</li>
+            <li class="medium">medium</li>
+            <li class="low">low</li>
+          </ul>
+        </div>
+      </details>
       <div class="notes-panel">
         <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
       </div>

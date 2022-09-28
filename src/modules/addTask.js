@@ -10,7 +10,7 @@ class Task {
     this.dueDate = dueDate === undefined ? null : dueDate;
     this.dateCreated = dateCreated;
     this.notes = notes === undefined ? undefined : notes;
-    this.priority = priority === undefined ? 'none' : priority;
+    this.priority = priority === undefined ? null : priority;
     // add date created, storing the date the task is created. 
   }
 }
@@ -147,7 +147,7 @@ const addTask = {
   
   
   // Take input
-  takeInputEvent (category, dateDone = null) {
+  takeInputEvent (category, dateDone = null, priority = null) {
     // Funtion to take input on enter key pressed or click
     const takeInput = (category) => {
       const title = document.querySelector('#add-task-text').value;
@@ -155,7 +155,7 @@ const addTask = {
         // get Today's date 
         const date = new Date();
         const id = Date.now();
-        let newTask = new Task(title, id, category, date, undefined, dateDone);
+        let newTask = new Task(title, id, category, date, undefined, dateDone, priority);
         // add task to DOM
         this.addTaskPanel(newTask);
         // Store task on Local storage
