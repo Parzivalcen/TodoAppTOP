@@ -116,7 +116,10 @@ const taskDescPanel = {
       let date = document.querySelector('#due-Date').value;
       if(date) date = new Date(date);
       const notes = taskDescPanel.querySelector('.textarea').innerHTML;
-      store.descPanelSave(taskId, title, date, notes);
+      // priority with no white space
+      const priority =  document.querySelector('.priority-title-task-panel').textContent.replace(/\s/g,'');
+      console.log(priority);
+      store.descPanelSave(taskId, title, date, notes, priority);
       // Close desk panel and update todo Panel
       document.querySelector('.modal--taskDescPanel').setAttribute('data-visible', false);
 

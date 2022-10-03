@@ -44,12 +44,13 @@ class store {
     this.saveTask(tasks);
   }
 
-  static descPanelSave(taskId, title, date, notes){
+  static descPanelSave(taskId, title, date, notes, priority){
     const tasks = this.getTasks();
     const taskIndex = tasks.findIndex((task) => task.id === taskId);
     tasks[taskIndex].title = title;
     tasks[taskIndex].dueDate = date ? date : tasks[taskIndex].dueDate;
     tasks[taskIndex].notes = notes;
+    tasks[taskIndex].priority = priority ? priority : tasks[taskIndex].priority;
     this.saveTask(tasks);
   }
   // Add Date

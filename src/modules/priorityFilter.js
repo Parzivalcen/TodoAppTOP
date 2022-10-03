@@ -46,20 +46,8 @@ const priorityFilter = {
       <button class="add-task-btn btn">Add</button>
     </div>
     `;
-    if (priority === 'high'){
-      this.priorityFilter(priority);
-      addTask.takeInputEvent('general', new Date());
-    } 
-    
-    if (priority === 'medium') {
-      this.priorityFilter(priority);
-      addTask.takeInputEvent('general');
-    }
-    
-    if (priority === 'low') {
-      this.priorityFilter(priority);
-      addTask.takeInputEvent('general');
-    } 
+    this.priorityFilter(priority);
+    addTask.takeInputEvent('general');
   }
 };
 
