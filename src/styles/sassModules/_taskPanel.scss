@@ -62,13 +62,7 @@
       .priority-title::marker {
         content: '';
       }
-      details[open] .dropdown-wrapper {
-        animation: fade-in 0.5s forwards;
-        .high{color: rgb(235, 0, 70)}
-        .medium{color: rgb(238, 234, 0)}
-      }
-      
-      .priority-title{
+      .priority-title-task-panel{
         display: flex;
         gap: 1vh;
         .dropdown-icon{
@@ -89,6 +83,12 @@
           cursor: pointer;
         }
       }
+    }
+    details[open] .dropdown-wrapper-task-panel {
+      animation: fade-in 0.5s forwards;
+      
+      .high{color: rgb(235, 0, 70); text-shadow: 1px 1px 2px rgba(0,0,0,0.75);}
+      .medium{color: rgb(238, 234, 0); text-shadow: 1px 1px 2px rgba(0,0,0,0.75);}
     }
     .task-desc-panel-btns{
       display: flex;

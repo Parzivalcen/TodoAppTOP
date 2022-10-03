@@ -36,12 +36,13 @@ const taskDescPanel = {
         <label class="add-date-label" for="due-Date">Set Deadline</label>
         <input type="date" id="due-Date" name="due-Date">
       </div>
-      <details class="priority-dropdown">
-        <summary class="priority-title">
+
+      <details class="priority-dropdown-task-panel">
+        <summary class="priority-title-task-panel">
           ${priority}
           <span class="dropdown-icon"></span>
         </summary> 
-        <div class="dropdown-wrapper">
+        <div class="dropdown-wrapper-task-panel">
           <ul>
             <li class="high">high</li>
             <li class="medium">medium</li>
@@ -49,6 +50,7 @@ const taskDescPanel = {
           </ul>
         </div>
       </details>
+      
       <div class="notes-panel">
         <span class="textarea" role="textbox" contenteditable="true">${notes}</span>
       </div>
@@ -57,12 +59,13 @@ const taskDescPanel = {
         <p>Date Created: ${dateCreated}</p>
       </div>
       <div class="task-desc-panel-btns">
+      <button class="btn task-desc-cancel">Cancel</button>
         <button class="btn task-desc-save">Save</button>
-        <button class="btn task-desc-cancel">Cancel</button>
       </div>
       <p class="task-id sr-only">${taskId}</p>
     </div>
       `;
+    this.changePriority();
     this.editTaskSave();
     this.cancelEdit();
     // this.updateNotesOnIput();
@@ -86,6 +89,21 @@ const taskDescPanel = {
     let toFormat = new Date(date).toJSON().slice(0,10);
     let formatedDate = format(new Date(toFormat.replace(/-/g, '/')), 'MM/dd/yyyy');
     return formatedDate;
+  },
+
+  // Priority changes / selection
+  changePriority(){
+    const dropdown = document.querySelector('.dropdown-wrapper-task-panel');
+    const title = document.querySelector('.priority-title-task-panel');
+    dropdown.addEventListener('click', (e)=>{
+      title.innerHTML = `${
+        e.target.textContent}
+        <span class="dropdown-icon"></span>`;
+      // Close 
+      document.querySelector('.priority-dropdown-task-panel').removeAttribute('open');
+      console.log(e.target.textContent);
+    });
+
   },
 
   editTaskSave(){
