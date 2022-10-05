@@ -1,7 +1,7 @@
 //-Create Task Array with the task tags-//
-class store {
+const store = {
   //TASKS//
-  static getTasks = () => {
+  getTasks  () {
     let tasks;
     if(localStorage.getItem('tasks') === null){
       tasks = [];
@@ -9,9 +9,9 @@ class store {
       tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     return tasks;
-  };
+  },
   
-  static getSingleTask = (taskTitle) => {
+  getSingleTask (taskTitle) {
     let tasks = this.getTasks();
     let task;
     tasks.forEach((singleTask) => {
@@ -21,8 +21,9 @@ class store {
       }
     });
     return task;
-  };
-  static getSingleTaskById = (taskId) => {
+  },
+
+  getSingleTaskById (taskId) {
     let tasks = this.getTasks();
     let task;
     tasks.forEach((singleTask) => {
@@ -32,19 +33,19 @@ class store {
       }
     });
     return task;
-  };
+  },
 
-  static saveTask (tasks){
+  saveTask (tasks){
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
+  },
 
-  static addTaskToLS(task){
+  addTaskToLS(task){
     let tasks = store.getTasks();
     tasks.push(task);
     this.saveTask(tasks);
-  }
+  },
 
-  static descPanelSave(taskId, title, date, notes, priority){
+  descPanelSave(taskId, title, date, notes, priority){
     const tasks = this.getTasks();
     const taskIndex = tasks.findIndex((task) => task.id === taskId);
     tasks[taskIndex].title = title;
@@ -52,17 +53,17 @@ class store {
     tasks[taskIndex].notes = notes;
     tasks[taskIndex].priority = priority ? priority : tasks[taskIndex].priority;
     this.saveTask(tasks);
-  }
+  },
   // Add Date
-  static addDate(taskTitle, date){
+  addDate(taskTitle, date){
     let tasks = this.getTasks();
     let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
     tasks[taskIndex].dueDate = date; 
     this.saveTask(tasks);
-  }
+  },
   // remove Task
   
-  static LSremoveTask(title){
+  LSremoveTask(title){
     // get title
     // let title = e.target.previousElementSibling.firstElementChild.innerHTML;
     let tasks = store.getTasks();
@@ -73,9 +74,9 @@ class store {
       this.saveTask(tasks);
     });
   
-  }
+  },
   // Change done state on LS
-  static changeDoneState(title){
+  changeDoneState(title){
     let tasks = store.getTasks();
     /*Get index by the task title pressed. 
     So that we change the state of only that task*/ 
@@ -87,17 +88,17 @@ class store {
       tasks[taskIndex].done = true;
     }
     this.saveTask(tasks);
-  }
+  },
 
 
   //CATEGORIES  
-  static storeCategory(category) {
+  storeCategory(category) {
     let categories = store.getCategories();
     categories.push(category);
     localStorage.setItem('categories', JSON.stringify(categories));
-  }
+  },
   // Get categories
-  static getCategories(){
+  getCategories(){
     let categories;
     if(localStorage.getItem('categories') === null){
       categories = [];
@@ -105,15 +106,15 @@ class store {
       categories = JSON.parse(localStorage.getItem('categories'));
     }
     return categories;
-  }
+  },
 
   // Delete Task if task category == category
-  static deleteTasksFromCategory(tasks, category){
+  deleteTasksFromCategory(tasks, category){
     tasks = tasks.filter(task => task.tag === category);
     this.saveTask(tasks);
-  }
+  },
 
-  static LSdeleteCategory(e){
+  LSdeleteCategory(e){
     let title = e.target.previousElementSibling.innerHTML;
     let categories = store.getCategories();
     let tasks = store.getTasks();
@@ -124,15 +125,16 @@ class store {
       localStorage.setItem('categories', JSON.stringify(categories));
       store.deleteTasksFromCategory(tasks, title);
     });
-  }
+  },
+
   // save on changes 
-  static SaveNotes(taskTitle, htmlValue) {
+  SaveNotes(taskTitle, htmlValue) {
     let tasks = this.getTasks();
     let taskIndex = tasks.findIndex((task) => task.title == taskTitle);
     tasks[taskIndex].notes = htmlValue; 
     this.saveTask(tasks);
   }
 
-}
+};
 
 export { store };
