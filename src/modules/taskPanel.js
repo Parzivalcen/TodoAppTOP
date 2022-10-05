@@ -59,8 +59,8 @@ const taskDescPanel = {
         <p>Date Created: ${dateCreated}</p>
       </div>
       <div class="task-desc-panel-btns">
-      <button class="btn task-desc-cancel">Cancel</button>
         <button class="btn task-desc-save">Save</button>
+        <button class="btn task-desc-cancel">Cancel</button>
       </div>
       <p class="task-id sr-only">${taskId}</p>
     </div>

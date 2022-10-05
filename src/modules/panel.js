@@ -17,7 +17,7 @@ const panel = {
             <h3 class="title">things to get done: </h3>
             <p class="today">today</p>
             <p class="this-week">this week</p>
-            <p class="next-week">in the future</p>
+            <p class="future-tasks">in the future</p>
           </div>        
         </div>
 
@@ -55,7 +55,7 @@ const panel = {
       dateFilter.dateFilterClick('today');
       dateFilter.dateFilterClick('this-week');
       // in the future starts at next week
-      dateFilter.dateFilterClick('next-week');
+      dateFilter.dateFilterClick('future-tasks');
 
       // priority filter
       priorityFilter.priorityFilterClick('high');

@@ -49,7 +49,7 @@ const dateFilter = {
     document.querySelector(`.${dateFilterClass}`).addEventListener('click', ()=>{
       if(dateFilterClass === 'today') this.showDateTasks(dateFilterClass);
       if(dateFilterClass === 'this-week') this.showDateTasks(dateFilterClass);
-      if(dateFilterClass === 'next-week') this.showDateTasks(dateFilterClass);
+      if(dateFilterClass === 'future-tasks') this.showDateTasks(dateFilterClass);
       // add task btn shown
       document.querySelector('.add-task-header').setAttribute('data-visible', true);
     });
@@ -89,7 +89,7 @@ const dateFilter = {
       addTask.takeInputEvent('general', this.getWeekDates()[0]);
     }
       
-    if (dateFilter === 'next-week') {
+    if (dateFilter === 'future-tasks') {
       this.nextWeek();
       addTask.takeInputEvent('general', this.getWeekDates()[1]);
     } 
