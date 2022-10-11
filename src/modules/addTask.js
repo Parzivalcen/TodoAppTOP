@@ -1,4 +1,5 @@
 import { store } from '../StoreTask/store';
+import dateFilter from './dateFilter';
 import taskDescPanel from './taskPanel';
 
 class Task {
@@ -133,13 +134,23 @@ const addTask = {
     taskDiv.classList.add('task', 'grid');
     taskDiv.setAttribute('aria-disabled', false);
 
-    const date = taskDescPanel.onScreenDateFormat(task.dueDate);
+    let date = taskDescPanel.onScreenDateFormat(task.dueDate);
     const today = taskDescPanel.onScreenDateFormat(new Date());
-
+    const thisWeek = dateFilter.getWeekDates();
+    
     taskDiv.innerHTML = this.taskDivHTML(task);
     if (categoryTitle === 'All Tasks'  || categoryTitle === task.category){
       taskPanel.appendChild(taskDiv);
-    }else if (categoryTitle === 'Today' && date === today ){
+    }
+    else if (categoryTitle === 'Today' && date === today ){
+      taskPanel.appendChild(taskDiv);
+      // Week range
+    }
+    date = task.dueDate;
+    if (categoryTitle === 'This-week' && date.getTime() > thisWeek[0] && date < thisWeek[1] ){
+      console.log(thisWeek);
+      taskPanel.appendChild(taskDiv);
+    }else if (categoryTitle === 'Future-tasks' && date.getTime() >= thisWeek[1] ){
       taskPanel.appendChild(taskDiv);
     }
   },
