@@ -137,6 +137,15 @@
     }
   }
 }
+@media screen and (min-width: 1000px) {
+  .categories-navigation{
+    display: flex !important;
+    max-width: clamp(20rem, 20vw, 25vw);
+    inset: 0 75% 0 0;
+    transform: translateX(0%);
+    padding-top: 5vh;
+  }
+}
 @media screen and (max-height: 596px) {
   .categories-navigation{
     height: 100vh;

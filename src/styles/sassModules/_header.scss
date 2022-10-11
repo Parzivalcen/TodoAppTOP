@@ -42,3 +42,13 @@
     }
   }
 }
+@media screen and (min-width: 1000px) {
+  .container--header{
+    display: none;
+    padding-top: 0;
+  }
+  .btn-panel-task{
+    margin-top: 0;
+  }
+  
+}

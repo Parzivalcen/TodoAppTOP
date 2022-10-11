@@ -47,7 +47,7 @@ const priorityFilter = {
     </div>
     `;
     this.priorityFilter(priority);
-    addTask.takeInputEvent('general');
+    addTask.takeInputEvent('general', null, priority);
   }
 };
 
