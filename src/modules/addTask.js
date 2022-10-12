@@ -134,9 +134,15 @@ const addTask = {
     taskDiv.classList.add('task', 'grid');
     taskDiv.setAttribute('aria-disabled', false);
 
-    let date = taskDescPanel.onScreenDateFormat(task.dueDate);
-    const today = taskDescPanel.onScreenDateFormat(new Date());
     const thisWeek = dateFilter.getWeekDates();
+    let date;
+    // if due date not provided, next week is added to it
+    try {
+      date = taskDescPanel.onScreenDateFormat(task.dueDate);
+    } catch (error) {
+      date = taskDescPanel.onScreenDateFormat(new Date(thisWeek[1]));
+    }
+    const today = taskDescPanel.onScreenDateFormat(new Date());
     
     taskDiv.innerHTML = this.taskDivHTML(task);
     if (categoryTitle === 'All Tasks'  || categoryTitle === task.category){
@@ -144,13 +150,21 @@ const addTask = {
     }
     else if (categoryTitle === 'Today' && date === today ){
       taskPanel.appendChild(taskDiv);
-      // Week range
     }
-    date = task.dueDate;
+    date ? date = task.dueDate : '';
+    // Week range
     if (categoryTitle === 'This-week' && date.getTime() > thisWeek[0] && date < thisWeek[1] ){
-      console.log(thisWeek);
+      
       taskPanel.appendChild(taskDiv);
     }else if (categoryTitle === 'Future-tasks' && date.getTime() >= thisWeek[1] ){
+      taskPanel.appendChild(taskDiv);
+    }
+    // Add on priorities selected
+    if(categoryTitle === 'High Priority' && task.priority === 'high'){
+      taskPanel.appendChild(taskDiv);
+    }else if(categoryTitle === 'Medium Priority' && task.priority === 'medium'){
+      taskPanel.appendChild(taskDiv);
+    }else if(categoryTitle === 'Low Priority' && task.priority === 'low'){
       taskPanel.appendChild(taskDiv);
     }
   },

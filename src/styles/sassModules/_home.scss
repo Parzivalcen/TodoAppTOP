@@ -82,6 +82,9 @@ TODO Hero/home
 }
 
 @media screen and (min-width: 900px) {
+  .container-hero{
+    height: 100vh;
+  }
   .categories-navigation{
     transform: translateX(0%);
     inset: 0 70% 0 0;

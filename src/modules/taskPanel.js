@@ -86,7 +86,10 @@ const taskDescPanel = {
   FORMAT the stored date value for showing it on screen to mm/dd/yyyy. 
   */
   onScreenDateFormat(date){
-    let toFormat = new Date(date).toJSON().slice(0,10);
+    let toFormat;
+    console.log(date);
+    if (date) toFormat = new Date(date).toJSON().slice(0,10);
+    else return;
     let formatedDate = format(new Date(toFormat.replace(/-/g, '/')), 'MM/dd/yyyy');
     return formatedDate;
   },
